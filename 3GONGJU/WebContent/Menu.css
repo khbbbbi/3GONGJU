@@ -1,0 +1,224 @@
+@charset "EUC-KR";
+/* 헤더부분 */
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline; /* 마우스 커서가 올라갔을 때 밑줄을 생성합니다*/
+}
+header{
+    background-color: aliceblue;
+    position: fixed;
+    top: 0;
+    right:0;
+    left:0;
+}
+.area_header{
+    background-color: aliceblue;
+    display: grid;
+    margin-left: 130px;
+    margin-right: 130px;
+    grid-template-columns: 34% 66%;
+}
+/* 닉네임,로그아웃,장바구니 */
+.gita{
+    text-align: end;
+    background-color: aliceblue;
+    padding: 17px;
+    height: 30px;
+    font-size: 15px;
+}
+.link_text {
+    margin-left: 5px;
+}
+/* 로고 */
+.logo{
+    grid-row: 1 / span 2;
+    background-color: aliceblue;
+    width:330px;
+    text-align: center;
+    grid-row: 1 / span 2;
+    margin-top: 20px;
+}
+/* 네비 */
+.area_nav{
+    background-color: aliceblue;
+    width: 1000px;
+}
+.navbar{
+    opacity: 0.8;
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: flex-end;
+}
+
+#main-menu,
+#sub-menu{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+#main-menu > li{
+    float: left;
+    text-align: center;
+    background-color: aliceblue;
+}
+#main-menu > li:hover #sub-menu{
+    opacity: 1;
+    visibility: visible;
+}
+#main-menu > li > a{
+    font-size: 20px;
+    height: 40px;
+    color: darkslateblue;
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: block;
+    padding: 5px 60px;
+    border-right: 1px solid rgba(0,0,0,0.15); /*오른쪽에 선긋기*/
+}
+#main-menu > li:nth-child(1) > a{
+    border-left: 1px solid rgba(0,0,0,0.15);
+}
+#main-menu > li :hover{
+    background-color: darkslateblue;
+    color:white;
+}
+#sub-menu{
+    position: absolute;
+    background: darkslateblue;
+    opacity: 0; 
+    visibility: hidden;
+    transition: all 0.15s ease-in;
+    font-size: 15px;
+}
+#sub-menu >li:hover{
+    text-decoration: underline;
+}
+#sub-menu > li{
+    padding: 13px;
+    border-bottom: 1px solid rgba(0,0,0,0.15); /*표처럼*/ 
+}
+#sub-menu > li > a{
+    color: white;
+    text-decoration: none;
+}
+#main-menu > li:nth-child(1) > ul{
+    width: 180.5px;
+}
+#main-menu > li:nth-child(2) > ul{
+    width: 175.5px;
+}
+#main-menu > li:nth-child(3) > ul{
+    width: 240.5px;
+}
+#main-menu > li:nth-child(4) > ul{
+    width: 203px;
+}
+
+/* .area_all{
+    background-color: gold;
+    margin-left: 30px;
+    margin-right:30px; 
+} */
+
+/* 메인 */
+.container{
+    margin-top: 130px;
+    background-color: white;
+}
+.item{
+    padding-top: 100px;
+    background-color: white;
+}
+.search{
+    margin-top: 40px;
+}
+.searchbtn{
+    height: 35px;
+    width: 50px;
+}
+/*현희*/
+/* 체크박스 있는 연보라부분 */
+a:link, a:visited, a:active {
+    text-decoration: none;
+}
+.top_menu2 {
+    /* background-color:#ccccff; */
+    background-color: lightsteelblue;
+    padding:10px;
+    text-align:center;
+    color:white;
+}
+.li_gap {
+    margin-left:50px;
+    list-style-type:none;
+    display:inline;
+}
+.li_gap:nth-child(14){
+    margin-right:50px;
+}
+/* 검색필터 */
+#top_menu3 {
+    background-color: lightsteelblue;
+    padding:10px;
+    text-align:center;
+    color:white;
+}
+/* 전체상품 */
+#sec3 {
+    background-color:aliceblue;
+    width:1000px;
+    margin:0 auto;
+    overflow : hidden;
+    padding-top:10px;
+    padding-bottom: 30px;
+    
+}
+#header_navi{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+    justify-content: center;
+    margin-right: 30px;
+}
+#header_navi > li {
+    display: inline-block;
+    position: relative;
+    top: 10px;
+}
+#header_navi > li > a {
+    display:block; 
+    position:relative; 
+    padding-bottom:19px;
+    margin: 30px;
+}
+#header_navi > li > a > img {
+    width:50px; 
+    height:50px;
+}
+#header_navi > li > a > span {
+    position:absolute; 
+    bottom:0; 
+    left:50%; 
+    color:#666; 
+    line-height:1.462em; 
+    white-space:nowrap; 
+    transform:translate(-50%, 0)
+}
+
+
+/* 푸터 */
+footer {
+    box-sizing: border-box;
+    border-top: 1px solid rgba(0,0,0,0.15);
+    font-size: 13px;
+    align-items: flex-start;
+    background-color: aqua;
+    padding: 30px;
+} 
+.endline{
+    text-align: center;
+    font-weight: bold;
+}
