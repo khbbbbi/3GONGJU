@@ -20,15 +20,35 @@
         	location.href="#";
         }
 	}
+	
+	function incart(){
+		if (confirm('장바구니로 이동하시겠어요?')) {
+        	// 네!
+        	location.href="Cart.jsp";
+        } else {
+        	//아니오ㅡ.ㅡ
+        	location.href="#";
+        }
+	}
+	
+	function goorder(){
+		if (confirm('주문하러 가시겠어요?')) {
+        	// 네!
+        	location.href="Order.jsp";
+        } else {
+        	//아니오ㅡ.ㅡ
+        	location.href="#";
+        }
+	}
 </script>
 <body>
     <header>
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
         <div class = "area_header">
             <div class = "gita">
-                <a href="Myinfo.jsp?_name=홍길동" class="link_text" style="color: darkslateblue">홍길동</a>님
-                <a href="#" onclick="logout()" class="link_text" style="color: darkslateblue">로그아웃</a>
-                <a href="" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
+                <a href="Myinfo.jsp" class="link_text" style="color: darkslateblue">홍길동</a>님
+                <a href="#" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>
+                <a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
             </div>
         
             <!-- 헤더에서 로고와 네비바 -->
@@ -42,12 +62,12 @@
                         <ul id="main-menu">
                             <li><a href="#"><b>Menu</b></a>
                             <ul id="sub-menu">
-                                <li><a href="#" >전체</a></li>
-                                <li><a href="#" aria-label="subemnu">도넛</a></li>
-                                <li><a href="#" aria-label="subemnu">빵</a></li>
-                                <li><a href="#" aria-label="subemnu">쿠키</a></li>
-                                <li><a href="#" aria-label="subemnu">케익</a></li>
-                                <li><a href="#" aria-label="subemnu">음료</a></li>
+                                <li><a href="Menu.jsp" >전체</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">도넛</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">빵</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">케이크</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>
                             </ul>
                             </li>
                             <li><a href="#"><b>Store</b></a>
@@ -58,9 +78,9 @@
                             </li>
                             <li><a href="#"><b>Mypage</b></a>
                             <ul id="sub-menu">
-                                <li><a href="#" aria-label="subemnu">주문내역</a></li>
-                                <li><a href="#" aria-label="subemnu">장바구니</a></li>
-                                <li><a href="#" aria-label="subemnu">내정보</a></li>
+                                <li><a href="Orderlist.jsp" aria-label="subemnu">주문내역</a></li>
+                                <li><a href="Cart.jsp" aria-label="subemnu">장바구니</a></li>
+                                <li><a href="Myinfo.jsp" aria-label="subemnu">내정보</a></li>
                             </ul>
                             </li>
                         </ul>
@@ -105,8 +125,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" class = "menubtn"><button>장바구니에 담기</button>
-                                    <button>주문하기</button></td>
+                                <td colspan="2" class = "menubtn"><button onclick="incart()">장바구니에 담기</button>
+                                    <button onclick="goorder()">주문하기</button></td>
                             </tr>
                         </table>
                     </div>

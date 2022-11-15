@@ -27,7 +27,7 @@
             <div class = "gita">
                 <a href="Myinfo.jsp" class="link_text" style="color: darkslateblue">홍길동</a>님
                 <a href="#" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>
-                <a href="" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
+                <a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
             </div>
         
             <!-- 헤더에서 로고와 네비바 -->
@@ -42,11 +42,11 @@
                             <li><a href="#"><b>Menu</b></a>
                             <ul id="sub-menu">
                                 <li><a href="Menu.jsp" >전체</a></li>
-                                <li><a href="#" aria-label="subemnu">도넛</a></li>
-                                <li><a href="#" aria-label="subemnu">빵</a></li>
-                                <li><a href="#" aria-label="subemnu">쿠키</a></li>
-                                <li><a href="#" aria-label="subemnu">케이크</a></li>
-                                <li><a href="#" aria-label="subemnu">음료</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">도넛</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">빵</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">케이크</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>
                             </ul>
                             </li>
                             <li><a href="#"><b>Store</b></a>
@@ -54,11 +54,10 @@
                                 <li><a href="#" aria-label="subemnu">매장찾기</a></li>
                             </ul>
                             </li>
-                            </li>
                             <li><a href="#"><b>Mypage</b></a>
                             <ul id="sub-menu">
                                 <li><a href="Orderlist.jsp" aria-label="subemnu">주문내역</a></li>
-                                <li><a href="#" aria-label="subemnu">장바구니</a></li>
+                                <li><a href="Cart.jsp" aria-label="subemnu">장바구니</a></li>
                                 <li><a href="Myinfo.jsp" aria-label="subemnu">내정보</a></li>
                             </ul>
                             </li>
@@ -74,37 +73,37 @@
                     <div class = "item">
                         <table>
                             <tr><td><img src ="images/BreadLogo.png" width="100px" height="100px"></td></tr>
-                            <tr height = "60px"><td><button>전체</button></td></tr>
+                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp'">전체</button></td></tr>
                         </table>
                     </div>
                     <div class = "item">
                         <table>
                             <tr><td><img src ="images/BreadLogo.png" width="100px" height="100px"></td></tr>
-                            <tr height = "60px"><td><button>도넛</button></td></tr>
+                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp'">도넛</button></td></tr>
                         </table>
                     </div>
                     <div class = "item">
                         <table>
                             <tr><td><img src ="images/BreadLogo.png" width="100px" height="100px"></td></tr>
-                            <tr height = "60px"><td><button>빵</button></td></tr>
+                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp'">빵</button></td></tr>
                         </table>
                     </div>
                     <div class = "item">
                         <table>
                             <tr><td><img src ="images/BreadLogo.png" width="100px" height="100px"></td></tr>
-                            <tr height = "60px"><td><button>쿠키</button></td></tr>
+                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp'">쿠키</button></td></tr>
                         </table>
                     </div>
                     <div class = "item">
                         <table>
                             <tr><td><img src ="images/BreadLogo.png" width="100px" height="100px"></td></tr>
-                            <tr height = "60px"><td><button>케이크</button></td></tr>
+                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp'">케이크</button></td></tr>
                         </table>
                     </div>
                     <div class = "item">
                         <table>
                             <tr><td><img src ="images/BreadLogo.png" width="100px" height="100px"></td></tr>
-                            <tr height = "60px"><td><button>음료</button></td></tr>
+                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp'">음료</button></td></tr>
                         </table>
                     </div>
                 </article>
@@ -151,9 +150,9 @@
                     <div class = "my">
                         <h1 style="text-align: center; font-size: 30px; text-decoration: overline;">MY</h1>
                         <div class = "my_container">
-                            <div class = "gomy"><button style="width: 400px; height: 40px;">주문내역</button></div>
-                            <div class = "gomy"><button style="width: 400px;height: 40px;">장바구니</button></div>
-                            <div class = "gomy"><button style="width: 400px;height: 40px;">내정보</button></div>
+                            <div class = "gomy"><button onclick="location.href='Orderlist.jsp'" style="width: 400px; height: 40px;">주문내역</button></div>
+                            <div class = "gomy"><button onclick="location.href='Cart.jsp'" style="width: 400px;height: 40px;">장바구니</button></div>
+                            <div class = "gomy"><button onclick="location.href='Myinfo.jsp'" style="width: 400px;height: 40px;">내정보</button></div>
                         </div>
                     </div>
                 </div>

@@ -9,20 +9,40 @@
     <title>픽업예약</title>
     <link rel="stylesheet" href="css/Order.css" />
 </head>
+<script language = "javascript">
+	function reset(){
+        if (confirm('주문을 취소하시겠습니까?')) {
+        	// 네!
+        	location.href="DetailMenu.jsp";
+        } else {
+        	//아니오ㅡ.ㅡ
+        	location.href="#";
+        }
+	}
+	function order(){
+        if (confirm('주문을 확정하시겠습니까?')) {
+        	// 네!
+        	location.href="Ordercheck.jsp";
+        } else {
+        	//아니오ㅡ.ㅡ
+        	location.href="#";
+        }
+	}
+</script>
 <body>
     <header>
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
         <div class = "area_header">
             <div class = "gita">
-                <a href="/" class="link_text">홍길동</a>님
-                <a href="/" class="link_text">로그아웃</a>
-                <a href="/" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
+                <a href="Myinfo.jsp" class="link_text" style="color: darkslateblue">홍길동</a>님
+                <a href="#" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>
+                <a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
             </div>
         
             <!-- 헤더에서 로고와 네비바 -->
                 <!-- 로고 -->
                 <div class = "logo">
-                    <a href="/"><img src = "images/starbucks.png" width="80" height="75"></a>
+                    <a href="Main.jsp"><img src = "images/starbucks.png" width="80" height="75"></a>
                 </div>
                 <!-- 네비바 -->
                 <div class = "nav">
@@ -30,10 +50,12 @@
                         <ul id="main-menu">
                             <li><a href="#"><b>Menu</b></a>
                             <ul id="sub-menu">
-                                <li><a href="#" aria-label="subemnu">전체</a></li>
-                                <li><a href="#" aria-label="subemnu">도넛</a></li>
-                                <li><a href="#" aria-label="subemnu">페스츄리&파이</a></li>
-                                <li><a href="#" aria-label="subemnu">스낵</a></li>
+                                <li><a href="Menu.jsp" >전체</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">도넛</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">빵</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">케이크</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>
                             </ul>
                             </li>
                             <li><a href="#"><b>Store</b></a>
@@ -43,9 +65,9 @@
                             </li>
                             <li><a href="#"><b>Mypage</b></a>
                             <ul id="sub-menu">
-                                <li><a href="#" aria-label="subemnu">주문내역</a></li>
-                                <li><a href="#" aria-label="subemnu">장바구니</a></li>
-                                <li><a href="#" aria-label="subemnu">내정보</a></li>
+                                <li><a href="Orderlist.jsp" aria-label="subemnu">주문내역</a></li>
+                                <li><a href="Cart.jsp" aria-label="subemnu">장바구니</a></li>
+                                <li><a href="Myinfo.jsp" aria-label="subemnu">내정보</a></li>
                             </ul>
                             </li>
                         </ul>
@@ -233,8 +255,8 @@
                             <input id="one" type="text" value="15000" style="width:300px;font-size:20px;"disabled>
                         </div>
                         <div class = "lastbtn">
-                            <input class="but" type="reset" value="취소하기">
-                            <input class="but" type="submit" value="픽업예약하기">
+                            <input class="but" type="reset" value="취소하기" onclick="reset()">
+                            <input class="but" type="submit" value="픽업예약하기" onclick="order()">
                         </div>
                     </div>
                     </div>

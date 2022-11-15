@@ -73,16 +73,13 @@
         }
     </script>
 <body>
-<%
-	String name = request.getParameter("_name");
-%>
     <header>
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
         <div class = "area_header">
             <div class = "gita">
-                <a href="Myinfo.jsp?_name=홍길동" class="link_text" style="color: darkslateblue">홍길동</a>님
-                <a href="#" onclick="logout()" class="link_text" style="color: darkslateblue">로그아웃</a>
-                <a href="" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
+                <a href="Myinfo.jsp" class="link_text" style="color: darkslateblue">홍길동</a>님
+                <a href="#" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>
+                <a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
             </div>
         
             <!-- 헤더에서 로고와 네비바 -->
@@ -96,12 +93,12 @@
                         <ul id="main-menu">
                             <li><a href="#"><b>Menu</b></a>
                             <ul id="sub-menu">
-                                <li><a href="#" >전체</a></li>
-                                <li><a href="#" aria-label="subemnu">도넛</a></li>
-                                <li><a href="#" aria-label="subemnu">빵</a></li>
-                                <li><a href="#" aria-label="subemnu">쿠키</a></li>
-                                <li><a href="#" aria-label="subemnu">케익</a></li>
-                                <li><a href="#" aria-label="subemnu">음료</a></li>
+                                <li><a href="Menu.jsp" >전체</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">도넛</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">빵</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">케이크</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>  
                             </ul>
                             </li>
                             <li><a href="#"><b>Store</b></a>
@@ -111,9 +108,9 @@
                             </li>
                             <li><a href="#"><b>Mypage</b></a>
                             <ul id="sub-menu">
-                                <li><a href="#" aria-label="subemnu">주문내역</a></li>
-                                <li><a href="#" aria-label="subemnu">장바구니</a></li>
-                                <li><a href="#" aria-label="subemnu">내정보</a></li>
+                                <li><a href="Orderlist.jsp" aria-label="subemnu">주문내역</a></li>
+                                <li><a href="Cart.jsp" aria-label="subemnu">장바구니</a></li>
+                                <li><a href="Myinfo.jsp" aria-label="subemnu">내정보</a></li>
                             </ul>
                             </li>
                         </ul>
@@ -128,7 +125,7 @@
                 <article class="menu_container">
                     <div class = "item">
                         <div>
-                           	 이름<br><input type="text" name="username" maxlength="20" value =<%=name %> disabled>
+                           	 이름<br><input type="text" name="username" maxlength="20" disabled>
                             <!-- disabled는 비활성화와 함께 form으로 전송하여도 절대 전송 되지 않습니다. -->
                         </div>
                         <div>

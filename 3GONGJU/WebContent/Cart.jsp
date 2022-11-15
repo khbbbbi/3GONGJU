@@ -7,22 +7,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>장바구니</title>
-    <link rel="stylesheet" href="Cart.css" />
+    <link rel="stylesheet" href="css/Cart.css" />
 </head>
+<script language = "javascript">
+	function order(){
+        if (confirm('주문을 하러가시겠습니까?')) {
+        	// 네!
+        	location.href="Order.jsp";
+        } else {
+        	//아니오ㅡ.ㅡ
+        	location.href="#";
+        }
+	}
+</script>
 <body>
     <header>
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
         <div class = "area_header">
             <div class = "gita">
-                <a href="Myinfo.jsp" id = "_name" class="link_text" style="color: darkslateblue">홍길동</a>님
+                <a href="Myinfo.jsp" class="link_text" style="color: darkslateblue">홍길동</a>님
                 <a href="#" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>
-                <a href="/" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
+                <a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
             </div>
         
             <!-- 헤더에서 로고와 네비바 -->
                 <!-- 로고 -->
                 <div class = "logo">
-                    <a href="/"><img src = "images/starbucks.png" width="80" height="75"></a>
+                    <a href="Main.jsp"><img src = "images/starbucks.png" width="80" height="75"></a>
                 </div>
                 <!-- 네비바 -->
                 <div class = "nav">
@@ -30,12 +41,12 @@
                         <ul id="main-menu">
                             <li><a href="#"><b>Menu</b></a>
                             <ul id="sub-menu">
-                                <li><a href="#" >전체</a></li>
-                                <li><a href="#" aria-label="subemnu">도넛</a></li>
-                                <li><a href="#" aria-label="subemnu">빵</a></li>
-                                <li><a href="#" aria-label="subemnu">쿠키</a></li>
-                                <li><a href="#" aria-label="subemnu">케익</a></li>
-                                <li><a href="#" aria-label="subemnu">음료</a></li>
+                                <li><a href="Menu.jsp" >전체</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">도넛</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">빵</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">케이크</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>  
                             </ul>
                             </li>
                             <li><a href="#"><b>Store</b></a>
@@ -45,9 +56,9 @@
                             </li>
                             <li><a href="#"><b>Mypage</b></a>
                             <ul id="sub-menu">
-                                <li><a href="#" aria-label="subemnu">주문내역</a></li>
-                                <li><a href="#" aria-label="subemnu">장바구니</a></li>
-                                <li><a href="#" aria-label="subemnu">내정보</a></li>
+                                <li><a href="Orderlist.jsp" aria-label="subemnu">주문내역</a></li>
+                                <li><a href="Cart.jsp" aria-label="subemnu">장바구니</a></li>
+                                <li><a href="Myinfo.jsp" aria-label="subemnu">내정보</a></li>
                             </ul>
                             </li>
                         </ul>
@@ -85,7 +96,6 @@
                                     </td>
                                     <td class="cart_list_option">
                                         <p>상품명 : 딸기라떼</p>
-                                        <!-- <button class="cart_list_optionbtn">주문조건 추가/변경</button> -->
                                         <input type = "number" class="cart_list_optionbtn" value="2">
                                     </td>
                                     <td><span class="price">7,000원</span>
@@ -129,8 +139,8 @@
                     </table>
    
                     <div class="cart_mainbtns">
-                        <button class="cart_bigorderbtn left">쇼핑 계속하기</button>
-                        <button class="cart_bigorderbtn right">픽업예약하기</button>
+                        <button class="cart_bigorderbtn left" onclick = "location.href='Menu.jsp'">쇼핑 계속하기</button>
+                        <button class="cart_bigorderbtn right" onclick="order()">픽업예약하기</button>
                     </div>
                 </article>
             </section>
