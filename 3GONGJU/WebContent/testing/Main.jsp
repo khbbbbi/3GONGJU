@@ -25,7 +25,7 @@
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
         <div class = "area_header">
             <div class = "gita">
-                <a href="Myinfo.jsp?_name=홍길동" class="link_text" style="color: darkslateblue">홍길동</a>님
+                <a href="" class="link_text" style="color: darkslateblue">홍길동</a>님
                 <a href="#" onclick="logout()" class="link_text" style="color: darkslateblue">로그아웃</a>
                 <a href="" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
             </div>

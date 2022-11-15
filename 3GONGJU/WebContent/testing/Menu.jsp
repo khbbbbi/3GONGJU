@@ -45,7 +45,6 @@
     }
 </script>
 <body>
-
     <header>
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
         <div class = "area_header">
@@ -99,6 +98,10 @@
     <div class = "area_all">
             <section class = "container">
                 <article class = "item">
+                <div class = "item_img">
+                <img src = "images/starbucks.png" width="100" height="100">
+                </div>
+    
                     <div class = "top_menu2">
                     <ul>
                         <li class="li_gap">
