@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
     <link rel="stylesheet" href="Signup.css" />
-<!--     <script type = "text/javascript" src = "comm.js" charset="euc-kr"></script> -->
     <script type = "text/javascript">
 	function logout(){
         if (confirm('정말 로그아웃하시겠습니까?')) {
