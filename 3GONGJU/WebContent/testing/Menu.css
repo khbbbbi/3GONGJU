@@ -111,9 +111,6 @@ header{
     width: 175.5px;
 }
 #main-menu > li:nth-child(3) > ul{
-    width: 240.5px;
-}
-#main-menu > li:nth-child(4) > ul{
     width: 203px;
 }
 

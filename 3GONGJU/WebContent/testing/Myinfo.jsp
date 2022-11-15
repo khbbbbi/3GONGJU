@@ -109,11 +109,6 @@
                                 <li><a href="#" aria-label="subemnu">매장찾기</a></li>
                             </ul>
                             </li>
-                            <li><a href="#"><b>Community</b></a>
-                            <ul id="sub-menu">
-                                <li><a href="#" aria-label="subemnu">SNS</a></li>
-                            </ul>
-                            </li>
                             <li><a href="#"><b>Mypage</b></a>
                             <ul id="sub-menu">
                                 <li><a href="#" aria-label="subemnu">주문내역</a></li>
