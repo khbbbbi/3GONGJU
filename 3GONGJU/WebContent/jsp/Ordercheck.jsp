@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>주문내역</title>
-    <link rel="stylesheet" href="Orderlist.css" />
+    <title>주문확인</title>
+    <link rel="stylesheet" href="css/Ordercheck.css" />
 </head>
 <body>
     <header>
@@ -59,7 +59,8 @@
     <div class = "area_all">
         <main>
             <section class = "area_main">
-                <h1 style="text-align: center; font-size: 30px;text-decoration: overline;">주문 내역</h1>
+                <h1 style="text-align: center; font-size: 30px;text-decoration: overline;">예약 확인</h1>
+                <p style="text-align: center;">예약 해주셔서 감사합니다^^</p>
                 <article class="check_container">
                     <table class="cart__list">
                     <form>
@@ -103,7 +104,8 @@
                     </form>
                 </table>
                         <div class="cart_mainbtns">
-                            <button class="cart_bigorderbtn right">쇼핑하러가기</button>
+                            <button class="cart_bigorderbtn left">쇼핑하러가기</button>
+                            <button class="cart_bigorderbtn right">주문 내역</button>
                         </div>
                         
                 </article>
