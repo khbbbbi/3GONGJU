@@ -1,10 +1,10 @@
-@charset "EUC-KR";
-/* Çì´õºÎºĞ */
+@charset "UTF-8";
+/* í—¤ë”ë¶€ë¶„ */
 a {
     text-decoration: none;
 }
 a:hover {
-    text-decoration: underline; /* ¸¶¿ì½º Ä¿¼­°¡ ¿Ã¶ó°¬À» ¶§ ¹ØÁÙÀ» »ı¼ºÇÕ´Ï´Ù*/
+    text-decoration: underline; /* ë§ˆìš°ìŠ¤ ì»¤ì„œê°€ ì˜¬ë¼ê°”ì„ ë•Œ ë°‘ì¤„ì„ ìƒì„±í•©ë‹ˆë‹¤*/
 }
 header{
     background-color: aliceblue;
@@ -20,7 +20,7 @@ header{
     margin-right: 130px;
     grid-template-columns: 34% 66%;
 }
-/* ´Ğ³×ÀÓ,·Î±×¾Æ¿ô,Àå¹Ù±¸´Ï */
+/* ë‹‰ë„¤ì„,ë¡œê·¸ì•„ì›ƒ,ì¥ë°”êµ¬ë‹ˆ */
 .gita{
     text-align: end;
     background-color: aliceblue;
@@ -31,7 +31,7 @@ header{
 .link_text {
     margin-left: 5px;
 }
-/* ·Î°í */
+/* ë¡œê³  */
 .logo{
     grid-row: 1 / span 2;
     background-color: aliceblue;
@@ -40,7 +40,7 @@ header{
     grid-row: 1 / span 2;
     margin-top: 20px;
 }
-/* ³×ºñ */
+/* ë„¤ë¹„ */
 .area_nav{
     background-color: aliceblue;
     width: 1000px;
@@ -76,7 +76,7 @@ header{
     letter-spacing: 1px;
     display: block;
     padding: 5px 60px;
-    border-right: 1px solid rgba(0,0,0,0.15); /*¿À¸¥ÂÊ¿¡ ¼±±ß±â*/
+    border-right: 1px solid rgba(0,0,0,0.15); /*ì˜¤ë¥¸ìª½ì— ì„ ê¸‹ê¸°*/
 }
 #main-menu > li:nth-child(1) > a{
     border-left: 1px solid rgba(0,0,0,0.15);
@@ -98,13 +98,13 @@ header{
 }
 #sub-menu > li{
     padding: 13px;
-    border-bottom: 1px solid rgba(0,0,0,0.15); /*Ç¥Ã³·³*/ 
+    border-bottom: 1px solid rgba(0,0,0,0.15); /*í‘œì²˜ëŸ¼*/ 
 }
 #sub-menu > li > a{
     color: white;
     text-decoration: none;
 }
-/* ¸Ş´º¹Ù ¼Ó¼º(?) ³Êºñ */
+/* ë©”ë‰´ë°” ì†ì„±(?) ë„ˆë¹„ */
 #main-menu > li:nth-child(1) > ul{
     width: 180.5px;
 }
@@ -118,13 +118,13 @@ header{
     width: 203px;
 }
 
-/* ¸ŞÀÎ */
+/* ë©”ì¸ */
 .area_main{
     margin-top: 130px;
     background-color: lightsteelblue;
     padding: 50px;
 }
-/*  ±¸¿ª ºÎºĞ  */
+/*  êµ¬ì—­ ë¶€ë¶„  */
 .check_container{
     border-radius: 60px;
     background-color: aliceblue;
@@ -135,42 +135,7 @@ header{
     text-align: center;
     margin-bottom: 70px;
 }
-/* »óÇ°,¼ö·®,±İ¾×,ÇÈ¾÷ÀÏÀÚ ±¸¿ª*/
-.check_th{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    height: 40px;
-    background-color: aqua;
-}
-/* »óÇ°,¼ö·®,±İ¾×,ÇÈ¾÷ÀÏÀÚ ±Û¾¾ */
-.item{
-    margin-top: 10px;
-}
-/* °¢ ¼Ó¼ºµéÀÇ ³»¿ë */
-.check_td{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    justify-items: center;
-    text-align: center;
-    background-color: cornflowerblue;
-    margin-top: 20px;
-}
-
-button{
-    width: 130px;
-    height: 35px;
-    border-radius: 20px;
-    margin: 20px;
-    margin-top: 40px;
-}
-/* ¹öÆ°¿¡ ¸¶¿ì½º ¿Ã¸±¶§ »ö»ó */
-button:hover{
-    background-color: darkslateblue;
-    color: white;
-}
-
-
-/* ÇªÅÍ */
+/* í‘¸í„° */
 footer {
     box-sizing: border-box;
     border-top: 1px solid rgba(0,0,0,0.15);
@@ -183,4 +148,86 @@ footer {
 .endline{
     text-align: center;
     font-weight: bold;
+}
+
+
+table {
+    border-top: solid 1.5px black;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+    table-layout: fixed;
+}
+
+thead {
+    text-align: center;
+    font-weight: bold;
+}
+
+tbody {
+    font-size: 12px;
+}
+
+td {
+    padding: 15px 0px;
+    border-bottom: 1px solid lightgrey;
+    border: 1px solid lightgrey;
+}
+
+.cart_list_3GongJu {
+    font-size: 12px;
+    color: gray;
+}
+
+.cart_list_option {
+    padding: 20px;
+}
+
+.cart_list_option p {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.cart_list_optionbtn {
+    background-color: white;
+    font-size: 10px;
+    border: lightgrey solid 1px;
+    padding: 7px;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.cart_mainbtns {
+    width: 420px;
+    height: 200px;
+    padding-top: 40px;
+    display: block;
+    margin: auto;
+}
+
+.cart_bigorderbtn {
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.cart_bigorderbtn.left {
+    background-color: white;
+    border: 1px lightgray solid;
+}
+/* ë²„íŠ¼ì— ë§ˆìš°ìŠ¤ ì˜¬ë¦´ë•Œ ìƒ‰ìƒ */
+button:hover{
+    color: palegoldenrod;
+}
+
+.cart_bigorderbtn.right {
+    background-color: limegreen;
+    border: none;
+}
+#input_option {
+    width:30px;
 }

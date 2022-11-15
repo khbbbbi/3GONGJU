@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>주문 완료 시 주문 확인</title>
+    <title>주문확인</title>
     <link rel="stylesheet" href="Ordercheck.css" />
 </head>
 <body>
@@ -44,11 +44,6 @@
                                 <li><a href="#" aria-label="subemnu">매장찾기</a></li>
                             </ul>
                             </li>
-                            <li><a href="#"><b>Community</b></a>
-                            <ul id="sub-menu">
-                                <li><a href="#" aria-label="subemnu">SNS</a></li>
-                            </ul>
-                            </li>
                             <li><a href="#"><b>Mypage</b></a>
                             <ul id="sub-menu">
                                 <li><a href="#" aria-label="subemnu">주문내역</a></li>
@@ -67,33 +62,52 @@
                 <h1 style="text-align: center; font-size: 30px;text-decoration: overline;">예약 확인</h1>
                 <p style="text-align: center;">예약 해주셔서 감사합니다^^</p>
                 <article class="check_container">
-                    <div class = "check_th">
-                        <div class = "item"><d>상품</d></div>
-                        <div class = "item"><d>수량</d></div>
-                        <div class = "item"><d>금액</d></div>
-                        <div class = "item"><d>픽업일자</d></div>
-                    </div>
-                    <div class = "check_td">
-                        <div class = "item_item">도넛</div>
-                        <div class = "item_item">3</div>
-                        <div class = "item_item">7500</div>
-                        <div class = "item_item">2022.11.01 AM 10:00</div>
-                    </div>
-                    <div class = "check_td">
-                        <div class = "item_item">도넛</div>
-                        <div class = "item_item">3</div>
-                        <div class = "item_item">7500</div>
-                        <div class = "item_item">2022.11.01 AM 10:00</div>
-                    </div>
-                    <div class = "check_td">
-                        <div class = "item_item">도넛</div>
-                        <div class = "item_item">3</div>
-                        <div class = "item_item">7500</div>
-                        <div class = "item_item">2022.11.01 AM 10:00</div>
-                    </div>
+                    <table class="cart__list">
+                    <form>
+                        <thead>
+                            <tr>
+                                <td>상품정보</td>
+                                <td>수량</td>
+                                <td>픽업일</td>
+                                <td>결제금액</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="cart_list_detail">
+                                <td><span class="cart_list_3GongJu">3GongJu</span>
+                                    <p>딸기라떼</p>
+                                    <sapn class="price">3,500원</sapn>
+                                </td>
+                                <td class="cart_list_option">
+                                    <input type = "number" class="cart_list_optionbtn" value="2">
+                                </td>
+                                <td>2022-02-22 01:30</td>
+                                <td><span class="price">7,000원</span>
+                                </td>
+                            </tr>
+                            
 
-                    <button>주문 내역</button>
-                    <button>메인</button>
+        
+                            <tr class="cart_list_detail">
+                                <td></a><span class="cart_list_3GongJu">3GongJu</span>
+                                    <p>녹차라떼</p>
+                                    <span class=" price">3,500원</span>
+                                </td>
+                                <td class="cart_list_option">
+                                    <input type = "number" class="cart_list_optionbtn" value="1">
+                                </td>
+                                <td>2022-02-22 01:30</td>
+                                <td style="width: 15%;"><span class="price">3,500원</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </form>
+                </table>
+                        <div class="cart_mainbtns">
+                            <button class="cart_bigorderbtn left">쇼핑하러가기</button>
+                            <button class="cart_bigorderbtn right">주문 내역</button>
+                        </div>
+                        
                 </article>
             </section>
         </main>
