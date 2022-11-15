@@ -6,21 +6,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>픽업예약</title>
+    <title>주문</title>
     <link rel="stylesheet" href="css/Order.css" />
 </head>
 <script language = "javascript">
-	function reset(){
-        if (confirm('주문을 취소하시겠습니까?')) {
+	function resetorder(){
+        if (confirm('정말 주문을 취소하시겠어요?')) {
         	// 네!
-        	location.href="DetailMenu.jsp";
+        	location.href="Menu.jsp";
         } else {
         	//아니오ㅡ.ㅡ
         	location.href="#";
         }
 	}
-	function order(){
-        if (confirm('주문을 확정하시겠습니까?')) {
+	
+	function incart(){
+		if (confirm('장바구니로 이동하시겠어요?')) {
+        	// 네!
+        	location.href="Cart.jsp";
+        } else {
+        	//아니오ㅡ.ㅡ
+        	location.href="#";
+        }
+	}
+	
+	function goorder(){
+		if (confirm('주문을 확정하시겠어요?')) {
         	// 네!
         	location.href="Ordercheck.jsp";
         } else {
@@ -55,7 +66,7 @@
                                 <li><a href="Menu.jsp" aria-label="subemnu">빵</a></li>
                                 <li><a href="Menu.jsp" aria-label="subemnu">쿠키</a></li>
                                 <li><a href="Menu.jsp" aria-label="subemnu">케이크</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>     
                             </ul>
                             </li>
                             <li><a href="#"><b>Store</b></a>
@@ -235,28 +246,47 @@
                     </div>
                     <div class="check_container">
                         <p  style="text-align: left;">Product_Info</p>
-                        <div class = "check_th">
-                            <div class = "item"><d>상품</d></div>
-                            <div class = "item"><d>수량</d></div>
-                            <div class = "item"><d>주문 금액</d></div>
-                        </div>
-                        <div class = "check_td">
-                            <div class = "item_item">도넛</div>
-                            <div class = "item_item">3</div>
-                            <div class = "item_item">7500</div>
-                        </div>
-                        <div class = "check_td">
-                            <div class = "item_item">도넛</div>
-                            <div class = "item_item">3</div>
-                            <div class = "item_item">7500</div>
-                        </div>                        
+                        <table class="cart__list">
+                            <form>
+                                <thead>
+                                    <tr>
+                                        <td>상품정보</td>
+                                        <td>금액</td>
+                                        <td>수량</td>
+                                        <td>결제금액</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="cart_list_detail">
+                                        <td>
+                                            <p>딸기라떼</p>
+                                        </td>
+                                        <td>3500원</td>
+                                        <td class="cart_list_option">
+                                            <input type = "number" class="cart_list_optionbtn" value="2" style = "text-align: right" disabled/>
+                                        </td>
+                                        <td><p>7,000원</p></td>
+                                    </tr>
+                                    <tr class="cart_list_detail">
+                                        <td>
+                                            <p>녹차라떼</p>
+                                        </td>
+                                        <td>3,500원</td>
+                                        <td class="cart_list_option">
+                                            <input type = "number" class="cart_list_optionbtn" value="1" style = "text-align: right" disabled/>
+                                        </td>
+                                        <td><p>3,500원</p></td>
+                                    </tr>
+                                </tbody>
+                            </form>     
+                        </table>
                         <div class = "price">
                             <h3>전체금액</h3>
                             <input id="one" type="text" value="15000" style="width:300px;font-size:20px;"disabled>
                         </div>
                         <div class = "lastbtn">
-                            <input class="but" type="reset" value="취소하기" onclick="reset()">
-                            <input class="but" type="submit" value="픽업예약하기" onclick="order()">
+                            <input class="but" type="reset" value="취소하기" onclick="resetorder()">
+                            <input class="but" type="submit" value="픽업예약하기" onclick="goorder()">
                         </div>
                     </div>
                     </div>

@@ -115,10 +115,6 @@ header{
     width: 203px;
 }
 
-
-
-
-
 /* 메인 */
 .area_main{
     margin-top: 130px;
@@ -126,50 +122,21 @@ header{
     padding: 50px;
 }
 
-/* button{
-    width: 130px;
-    height: 35px;
-    border-radius: 20px;
-}
-
-button:hover{
-    background-color: darkslateblue;
-    color: white;
-} */
 
 .container{
-    border-radius: 60px;
     background-color: aliceblue;
-    
     /*justify-items: center;*/
     text-align: center;
 }
 /* product info */
 .check_container{
-    border-radius: 60px;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     padding: 50px;
     padding-left: 200px;
     padding-right: 200px;
     justify-items: center;
     text-align: center;
     margin-bottom: 30px;
-}
-/* 상품,수량,금액,픽업일자 구역*/
-.check_th{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    height: 40px;
-    background-color: aqua;
-}
-/* 상품 정보들 */
-.check_td{
-    margin-top: 15px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-items: center;
-    text-align: center;
-    background-color: cornflowerblue;
 }
 /* 전체금액 */
 .price{
@@ -186,7 +153,6 @@ button:hover{
 }
 /* pickup info 감싸는 부분 */
 .date{
-    border-radius: 60px;
     background-color: aliceblue;
     padding: 50px;
     padding-left: 200px;
@@ -222,7 +188,13 @@ button:hover{
     display: flex;
     justify-content: center;
     margin: auto;
+    margin-top: 50px;
 }
+
+
+
+
+
 
 
 /* 푸터 */
@@ -323,35 +295,75 @@ footer {
     cursor: pointer;
     display: flex;
     align-self: center;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1;
-  margin: 20px;
-  padding: 1.2em 2.8em;
-  text-decoration: none;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 .but3 {
     box-sizing: border-box;
-  appearance: none;
-  background-color: transparent;
-  border: 2px solid red;
-  border-radius: 0.6em;
-  color: red;
-  cursor: pointer;
-  display: flex;
-  align-self: center;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1;
-  margin: 20px;
-  padding: 1.2em 2.8em;
-  text-decoration: none;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700; /* 기본설정*/
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid red;
+    border-radius: 0.6em;
+    color: red;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* 기본설정*/
+}
+
+/* 테이블 */
+table {
+    border-top: solid 1.5px black;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+    table-layout: fixed;
+}
+
+thead {
+    text-align: center;
+    font-weight: bold;
+}
+
+tbody {
+    font-size: 12px;
+}
+
+td {
+    padding: 15px 0px;
+    border-bottom: 1px solid lightgrey;
+    border: 1px solid lightgrey;
+}
+
+.cart_list_3GongJu {
+    font-size: 12px;
+    color: gray;
+}
+
+.cart_list_optionbtn {
+    background-color: white;
+    font-size: 10px;
+    border: lightgrey solid 1px;
+    padding: 7px;
+}
+
+.price {
+    font-weight: bold;
 }

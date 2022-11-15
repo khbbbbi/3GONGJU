@@ -80,38 +80,38 @@
                         <form>
                             <thead>
                                 <tr>
-                                    <td></td>
-                                    <td colspan="2">상품정보</td>
+                                    <td colspan="3">상품정보</td>
                                     <td>옵션</td>
                                     <td>상품금액</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="cart_list_detail">
-                                    <td><input type="checkbox"></td>
-                                    <td><img src="./images/딸기라떼.png" alt="magic keyboard" width="50" height="50"></td>
-                                    <td><span class="cart_list_3GongJu">3GongJu</span>
+                                    <td  style="width: 2%;"><input type="checkbox"></td>
+                                    <td  style="width: 13%;">
+                                    	<img src="./images/딸기라떼.png" alt="magic keyboard" width="50" height="50">
+                                    </td>
+                                    <td>
+                                    	<span class="cart_list_3GongJu">3GongJu</span>
                                         <p>딸기라떼</p>
-                                        <sapn class="price">3,500원</sapn>
+                                        <sapn>3,500원</sapn>
                                     </td>
                                     <td class="cart_list_option">
                                         <p>상품명 : 딸기라떼</p>
                                         <input type = "number" class="cart_list_optionbtn" value="2">
                                     </td>
-                                    <td><span class="price">7,000원</span>
+                                    <td>
+                                    	<span class="price">7,000원</span>
                                     </td>
                                 </tr>
-                                
-
-            
                                 <tr class="cart_list_detail">
-                                    <td style="width: 2%;"><input type="checkbox"></td>
-                                    <td style="width: 13%;">
+                                    <td><input type="checkbox"></td>
+                                    <td>
                                         <img src="./images/녹차라떼.png" alt="녹차라떼" width="50" height="50">
                                     </td>
                                     <td></a><span class="cart_list_3GongJu">3GongJu</span>
                                         <p>녹차라떼</p>
-                                        <span class=" price">3,500원</span>
+                                        <span>3,500원</span>
                                     </td>
                                     <td class="cart_list_option" style="width: 27%;">
                                         <p>상품명 : 녹차라떼</p>
@@ -121,23 +121,19 @@
                                     </td>
                                 </tr>
                             </tbody>
-            
-            
-            
-            
                             <tfoot>
                                 <tr>
-                                    <td colspan="3"><input type="checkbox"> 
+                                    <td colspan="5"><input type="checkbox"> 
                                         <button class="cart_list_optionbtn">선택상품 삭제</button>
                                     </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
                                 </tr>
                             </tfoot>
                         </form>
                     </table>
-   
+					<div class = "price">
+                         <h3>전체금액</h3>
+                         <input id="one" type="text" value="15000" style="width:300px;font-size:20px;"disabled>
+                    </div>
                     <div class="cart_mainbtns">
                         <button class="cart_bigorderbtn left" onclick = "location.href='Menu.jsp'">쇼핑 계속하기</button>
                         <button class="cart_bigorderbtn right" onclick="order()">픽업예약하기</button>
