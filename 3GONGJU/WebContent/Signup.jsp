@@ -89,24 +89,24 @@
                         <ul id="main-menu">
                             <li><a href="#"><b>Menu</b></a>
                             <ul id="sub-menu">
-                                <li><a href="#" >전체</a></li>
-                                <li><a href="#" aria-label="subemnu">도넛</a></li>
-                                <li><a href="#" aria-label="subemnu">빵</a></li>
-                                <li><a href="#" aria-label="subemnu">쿠키</a></li>
-                                <li><a href="#" aria-label="subemnu">케익</a></li>
-                                <li><a href="#" aria-label="subemnu">음료</a></li>
+                                <li><a href="Menu.jsp" >전체</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">도넛</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">빵</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">케이크</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>   
                             </ul>
                             </li>
                             <li><a href="#"><b>Store</b></a>
                             <ul id="sub-menu">
-                                <li><a href="#" aria-label="subemnu">매장찾기</a></li>
+                                <li><a href="Map.jsp" aria-label="subemnu">매장찾기</a></li>
                             </ul>
                             </li>
                             <li><a href="#"><b>Mypage</b></a>
                             <ul id="sub-menu">
-                                <li><a href="#" aria-label="subemnu">주문내역</a></li>
-                                <li><a href="#" aria-label="subemnu">장바구니</a></li>
-                                <li><a href="#" aria-label="subemnu">내정보</a></li>
+                                <li><a href="Orderlist.jsp" aria-label="subemnu">주문내역</a></li>
+                                <li><a href="Cart.jsp" aria-label="subemnu">장바구니</a></li>
+                                <li><a href="Myinfo.jsp" aria-label="subemnu">내정보</a></li>
                             </ul>
                             </li>
                         </ul>

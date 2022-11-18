@@ -51,7 +51,7 @@
                             </li>
                             <li><a href="#"><b>Store</b></a>
                             <ul id="sub-menu">
-                                <li><a href="#" aria-label="subemnu">매장찾기</a></li>
+                                <li><a href="Map.jsp" aria-label="subemnu">매장찾기</a></li>
                             </ul>
                             </li>
                             <li><a href="#"><b>Mypage</b></a>
