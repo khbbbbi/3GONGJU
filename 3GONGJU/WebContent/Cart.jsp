@@ -19,6 +19,30 @@
         	location.href="#";
         }
 	}
+	// 체크박스 중 하나라도 해제되면 전체선택 체크박스 체크해제
+    function checkSelectAll()  {
+        // 전체 체크박스
+        const checkboxes = document.querySelectorAll('input[name="category"]');
+        // 선택된 체크박스
+        const checked = document.querySelectorAll('input[name="category"]:checked');
+        // select all 체크박스
+        const selectAll = document.querySelector('input[name="selectall"]');
+
+        if(checkboxes.length === checked.length)  {
+            selectAll.checked = true;
+        }else {
+            selectAll.checked = false;
+        } 
+    }
+    //전체선택 체크박스 선택하면 나머지 체크박스 전체 선택 or 해제
+    function selectAll(selectAll)  {
+        const checkboxes = document.getElementsByName('category');
+    	checkboxes.forEach(function(checkbox){checkbox.checked = selectAll.checked;})
+    	/* 
+    	위에꺼랑 이거랑 똑같은데 vscode에서는 =>가 먹고 이클립스에선 =>가 안됨. 이유 모름.
+    	checkboxes.forEach( (checkbox) => {checkbox.checked = selectAll.checked; } ) 
+    	*/
+    }
 </script>
 <body>
     <header>
@@ -87,7 +111,7 @@
                             </thead>
                             <tbody>
                                 <tr class="cart_list_detail">
-                                    <td  style="width: 2%;"><input type="checkbox"></td>
+                                    <td  style="width: 2%;"><input type="checkbox" name="category" onclick='checkSelectAll()'></td>
                                     <td  style="width: 13%;">
                                     	<img src="./images/딸기라떼.png" alt="magic keyboard" width="50" height="50">
                                     </td>
@@ -105,7 +129,7 @@
                                     </td>
                                 </tr>
                                 <tr class="cart_list_detail">
-                                    <td><input type="checkbox"></td>
+                                    <td><input type="checkbox" name="category" onclick='checkSelectAll()'></td>
                                     <td>
                                         <img src="./images/녹차라떼.png" alt="녹차라떼" width="50" height="50">
                                     </td>
@@ -123,8 +147,8 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="5"><input type="checkbox"> 
-                                        <button class="cart_list_optionbtn">선택상품 삭제</button>
+                                    <td colspan="5"><input type="checkbox" name = "selectall" onclick='selectAll(this)'> 
+                                        <button class="cart_list_optionbtn" >선택상품 삭제</button>
                                     </td>
                                 </tr>
                             </tfoot>

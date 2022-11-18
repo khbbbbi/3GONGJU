@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/Menu.css" />
 </head>
 <script language = "javascript">
+	/* 로그아웃 화면 */
 	function logout(){
         if (confirm('정말 로그아웃하시겠습니까?')) {
         	// 네!
@@ -39,9 +40,11 @@
     //전체선택 체크박스 선택하면 나머지 체크박스 전체 선택 or 해제
     function selectAll(selectAll)  {
         const checkboxes = document.getElementsByName('category');
-        checkboxes.forEach((checkbox) => {
-            checkbox.checked = selectAll.checked;
-        })
+    	checkboxes.forEach(function(checkbox){checkbox.checked = selectAll.checked;})
+    	/* 
+    	위에꺼랑 이거랑 똑같은데 vscode에서는 =>가 먹고 이클립스에선 =>가 안됨. 이유 모름.
+    	checkboxes.forEach( (checkbox) => {checkbox.checked = selectAll.checked; } ) 
+    	*/
     }
 </script>
 <body>
