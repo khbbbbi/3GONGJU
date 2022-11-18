@@ -109,9 +109,10 @@
                 </article>
                 <h1 style="text-align: center; font-size: 30px; text-decoration: overline;">STORE</h1>
                 <article class="second_container">
-                    <div class = "item2">매장찾기</div>
-                    <div class = "item2">SNS</div>
-                    <div class = "item2">My</div>
+                	<div>
+	                   	<p>매장별 위치를 확인하여 <br>고객님과 가장 가까운 매장을 찾아보세요!</p>
+                		<button onclick="location.href='Map.jsp'">매장찾기</button>
+                	</div>
                 </article>
                 <article>
                 <div class = "area_snsmy">

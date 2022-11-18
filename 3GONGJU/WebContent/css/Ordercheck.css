@@ -120,6 +120,8 @@ header{
     margin-top: 130px;
     background-color: lightsteelblue;
     padding: 50px;
+    padding-left: 150px;
+    padding-right: 150px;
 }
 /*  구역 부분  */
 .check_container{
@@ -132,6 +134,68 @@ header{
     text-align: center;
     margin-bottom: 70px;
 }
+
+/* 테이블 있는 구역 */
+.cart__list{
+	margin-bottom: 50px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+    table-layout: fixed;
+    margin:auto;
+}
+
+.thead {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+td {
+    padding: 15px 0px;
+    border: solid 1.5px black;
+    border-bottom: 1px solid lightgrey;
+    border: 1px solid lightgrey;
+}
+
+/* 쇼핑하러가기, 주문내역가기 버튼 구역 */
+.cart_mainbtns {
+    width: 420px;
+    padding-top: 40px;
+    display: block;
+    margin: auto;
+}
+
+/*쇼핑하러가기 버튼, 주문내역 버튼 두개*/
+.cart_bigorderbtn {
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+/*쇼핑하러가기 버튼*/
+.cart_bigorderbtn.left {
+    background-color: white;
+    border: 1px lightgray solid;
+}
+/* 버튼에 마우스 올릴때 색상 */
+button:hover{
+    color: palegoldenrod;
+}
+
+/*주문내역 버튼*/
+.cart_bigorderbtn.right {
+    background-color: limegreen;
+    border: none;
+}
+#input_option {
+    width:30px;
+}
+
 /* 푸터 */
 footer {
     box-sizing: border-box;
@@ -148,83 +212,3 @@ footer {
 }
 
 
-table {
-    border-top: solid 1.5px black;
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 14px;
-    table-layout: fixed;
-}
-
-thead {
-    text-align: center;
-    font-weight: bold;
-}
-
-tbody {
-    font-size: 12px;
-}
-
-td {
-    padding: 15px 0px;
-    border-bottom: 1px solid lightgrey;
-    border: 1px solid lightgrey;
-}
-
-.cart_list_3GongJu {
-    font-size: 12px;
-    color: gray;
-}
-
-.cart_list_option {
-    padding: 20px;
-}
-
-.cart_list_option p {
-    margin-bottom: 25px;
-    position: relative;
-}
-
-.cart_list_optionbtn {
-    background-color: white;
-    font-size: 10px;
-    border: lightgrey solid 1px;
-    padding: 7px;
-}
-
-.price {
-    font-weight: bold;
-}
-
-.cart_mainbtns {
-    width: 420px;
-    height: 200px;
-    padding-top: 40px;
-    display: block;
-    margin: auto;
-}
-
-.cart_bigorderbtn {
-    width: 200px;
-    height: 50px;
-    font-size: 16px;
-    margin: auto;
-    border-radius: 5px;
-}
-
-.cart_bigorderbtn.left {
-    background-color: white;
-    border: 1px lightgray solid;
-}
-/* 버튼에 마우스 올릴때 색상 */
-button:hover{
-    color: palegoldenrod;
-}
-
-.cart_bigorderbtn.right {
-    background-color: limegreen;
-    border: none;
-}
-#input_option {
-    width:30px;
-}

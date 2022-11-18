@@ -203,16 +203,16 @@ function clickbupyeong(){
                 <h1 style="text-align: center; font-size: 30px; text-decoration: overline;">STORE</h1>
                 <article>
                 <div class = "area_map">
-                    <div class = "sns">
-                        <div id = "map">
-                        </div>
-                    </div>
+                    
                     <div class = "my">
                         <div class = "my_container">
                             <button  id = "Inha" onclick="clickinha()">인천인하대점</button>
                             <button  id = "Sangdong" onclick="clicksangdong()">부천상동점</button>
                             <button  id = "Bupyeong" onclick="clickbupyeong()">부평역점</button>
                         </div>
+                    </div>
+                    <div class = "sns">
+                        <div id = "map"></div>
                     </div>
                 </div>
                 </article>

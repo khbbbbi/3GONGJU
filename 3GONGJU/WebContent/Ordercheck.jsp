@@ -62,45 +62,32 @@
                 <h1 style="text-align: center; font-size: 30px;text-decoration: overline;">예약 확인</h1>
                 <p style="text-align: center;">예약 해주셔서 감사합니다^^</p>
                 <article class="check_container">
-                    <table class="cart__list">
+                    <table rules="rows" class="cart__list" >
                     <form>
-                        <thead>
                             <tr>
-                                <td>상품정보</td>
-                                <td>수량</td>
-                                <td>픽업일</td>
-                                <td>결제금액</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="cart_list_detail">
-                                <td><span class="cart_list_3GongJu">3GongJu</span>
-                                    <p>딸기라떼</p>
-                                    <sapn class="price">3,500원</sapn>
+                                <td width = "40%">
+                                    <p class = "thead">픽업지점</p>
                                 </td>
-                                <td class="cart_list_option">
-                                    <input type = "number" class="cart_list_optionbtn" value="2" style = "text-align: right" disabled/>
-                                </td>
-                                <td>2022-02-22 01:30</td>
-                                <td><span class="price">7,000원</span>
+                                <td>
+                                	<p>인천점<p>
                                 </td>
                             </tr>
-                            
-
-        
-                            <tr class="cart_list_detail">
-                                <td></a><span class="cart_list_3GongJu">3GongJu</span>
-                                    <p>녹차라떼</p>
-                                    <span class=" price">3,500원</span>
+                            <tr>
+                                <td>
+                                    <p class = "thead">픽업일</p>
                                 </td>
-                                <td class="cart_list_option">
-                                    <input type = "number" class="cart_list_optionbtn" value="1" style = "text-align: right" disabled/>
-                                </td>
-                                <td>2022-02-22 01:30</td>
-                                <td style="width: 15%;"><span class="price">3,500원</span>
+                                <td>
+                                	<p>12월 11일 3시 00분<p>
                                 </td>
                             </tr>
-                        </tbody>
+                            <tr>
+                                <td>
+                                    <p class = "thead">결제 금액</p>
+                                </td>
+                                <td>
+                                	<p>15000<p>
+                                </td>
+                            </tr>
                     </form>
                 </table>
                         <div class="cart_mainbtns">
