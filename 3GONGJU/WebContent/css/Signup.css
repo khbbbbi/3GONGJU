@@ -132,13 +132,14 @@ header{
     margin-bottom: 70px;
     width: 500px;
 }
-button{
+
+button, input[type="button"], input[type="submit"]{
     width: 180px;
     height: 35px;
     border-radius: 20px;
 }
 /* 버튼에 마우스 올릴때 색상 */
-button:hover{
+button:hover, input[type="button"]:hover, input[type="submit"]:hover{
     background-color: darkslateblue;
     color: white;
 }

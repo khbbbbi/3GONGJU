@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.sql.*"%>
+    pageEncoding="UTF-8"%>
 <!-- 예약확인화면 (주문하기 누르면 주문한 목록이 뜨는 화면) -->
 <!DOCTYPE html>
 <html lang="en">
@@ -91,23 +91,8 @@
     <div class = "area_all">
             <section class = "area_main">
                 <article class="container">
-  <%
-	request.setCharacterEncoding("UTF-8");
-
-	String bname = request.getParameter("_name");
-
-      try {      
-         Class.forName("com.mysql.jdbc.Driver");
-         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/bread","root","1234");
-         Statement stmt = conn.createStatement();
-
-         String sql = "select * from bread where breadname='"+bname+"'";
-         ResultSet rs = stmt.executeQuery(sql);
-
-         while (rs.next()) {
-%>
-                    <p>Menu > <%= rs.getString("category") %></p>
-                    <h1 style="font-size: 30px;"><%=  rs.getString("breadname") %></h1>
+                    <p>Menu > 음료</p>
+                    <h1 style="font-size: 30px;">녹차라떼</h1>
                     <div class = "menu">
                     <div class="menuimg">
                         <img src="images/greentea.png">
@@ -115,7 +100,7 @@
                     <div class="menulist">
                         <table class="menutable">
                             <tr>
-                            <td class="price"><b><%= rs.getString("price") %></b></td>
+                                <td class="price"><b>5000원</b></td>
                                 <td><input type="number" placeholder="1" class="menunumber"></td>
                             </tr>
                             <tr>
@@ -126,15 +111,15 @@
                                         </tr>
                                         <tr>
                                             <td>1회제공량(kal)</td>
-                                            <td><%= rs.getString("kcal") %></td>
+                                            <td>300</td>
                                             <td>당류(g)</td>
-                                            <td><%= rs.getString("sugar") %></td>
+                                            <td>7</td>
                                         </tr> 
                                         <tr>
                                             <td>포화지방(g)</td>
-                                            <td><%= rs.getString("fats") %></td>
+                                            <td>0.3</td>
                                             <td>단백질(g)</td>
-                                            <td><%= rs.getString("protein") %></td>
+                                            <td>10</td>
                                         </tr>
                                     </table>
                                 </td>
@@ -147,20 +132,7 @@
                     </div>
                 </div>
                 </article>
-            </section>  
-
-<%
-          }
-  		rs.close();
-  		stmt.close();
-  		conn.close();
- 		
-       } catch (Exception e) {
-          e.printStackTrace();
-       }
-    %>
-                     
-                                
+            </section>
         <footer>
             <p>Company/CEO : SMC INTERNATIONAL CO., LTD. / Minchang Shin, Hanna Choi<br>
             Address : 321, Eonju-ro, Gangnam-gu, Seoul, Republic of Korea [Zip Code: 06226]<br>
