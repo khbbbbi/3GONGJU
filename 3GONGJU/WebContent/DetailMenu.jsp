@@ -88,6 +88,7 @@
                 </div>
         </div>
     </header>
+    <form action = "" method = "post">
     <div class = "area_all">
             <section class = "area_main">
                 <article class="container">
@@ -104,10 +105,18 @@
          String sql = "select * from bread where breadname='"+bname+"'";
          ResultSet rs = stmt.executeQuery(sql);
 
-         while (rs.next()) {
-%>
-                    <p>Menu > <%= rs.getString("category") %></p>
-                    <h1 style="font-size: 30px;"><%=  rs.getString("breadname") %></h1>
+         while(rs.next()){
+        	 String category = rs.getString("category");
+        	 String breadname = rs.getString("breadname");
+        	 String price = rs.getString("price");
+        	 String kcal = rs.getString("kcal");
+        	 String sugar = rs.getString("sugar");
+        	 String fats = rs.getString("fats");
+        	 String protein = rs.getString("protein");
+        	 %>
+         
+         <p>Menu > <%= category %></p>
+                    <h1 style="font-size: 30px;"><%= breadname %></h1>
                     <div class = "menu">
                     <div class="menuimg">
                         <img src="images/greentea.png">
@@ -115,7 +124,7 @@
                     <div class="menulist">
                         <table class="menutable">
                             <tr>
-                            <td class="price"><b><%= rs.getString("price") %></b></td>
+                            <td class="price"><b><%= price %></b></td>
                                 <td><input type="number" placeholder="1" class="menunumber"></td>
                             </tr>
                             <tr>
@@ -126,29 +135,35 @@
                                         </tr>
                                         <tr>
                                             <td>1회제공량(kal)</td>
-                                            <td><%= rs.getString("kcal") %></td>
+                                            <td><%= kcal %></td>
                                             <td>당류(g)</td>
-                                            <td><%= rs.getString("sugar") %></td>
+                                            <td><%= sugar %></td>
                                         </tr> 
                                         <tr>
                                             <td>포화지방(g)</td>
-                                            <td><%= rs.getString("fats") %></td>
+                                            <td><%=fats %></td>
                                             <td>단백질(g)</td>
-                                            <td><%= rs.getString("protein") %></td>
+                                            <td><%= protein%></td>
                                         </tr>
                                     </table>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" class = "menubtn"><button onclick="incart()">장바구니에 담기</button>
-                                    <button onclick="goorder()">주문하기</button></td>
+                                <td colspan="2" class = "menubtn">
+                                	<!-- <button onclick="incart()">장바구니에 담기</button>
+                                    <button onclick="goorder()">주문하기</button> -->
+                                    <input type = "submit" value = "장바구니에 담기" style=" width: 240px; height: 50px; border-radius: 20px;"onclick="">
+                                    <input type = "submit" value = "주문하기" style=" width: 240px; height: 50px; border-radius: 20px;">
+                                </td>
+ 
                             </tr>
                         </table>
                     </div>
                 </div>
                 </article>
             </section>  
-
+		</div>
+		</form>
 <%
           }
   		rs.close();
@@ -170,6 +185,5 @@
             <p>TM & Copyright 2022 로고. All Rights Reserved.</p> 
             </div>
         </footer>
-        </div>
 </body>
 </html>
