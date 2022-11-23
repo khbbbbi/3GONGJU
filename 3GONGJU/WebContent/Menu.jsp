@@ -135,7 +135,7 @@
                     <div id ="sec3">
                         <h1 style="text-align: center; font-size: 30px; text-decoration: none">전체 상품</h1><br>
                         <ul id="header_navi">
-<!--                             <li><a href="DetailMenu.jsp?_name=pizza"><img src="images/초코소보로.png"><span>초코소보로</span></a></li>
+                            <li><a href="DetailMenu.jsp?_breadID=1"><img src="images/초코소보로.png"><span>초코소보로</span></a></li>
                             <li><a href="DetailMenu.jsp?_name=plainpie"><img src="images/맘모스빵.png"><span>맘모스빵</span></a></li>
                             <li><a href="#"><img src="images/마늘빵.png"><span>마늘빵</span></a></li>
                             <li><a href="#"><img src="images/레드벨벳티라미수.png"><span>레드벨벳티라미수</span></a></li>
@@ -190,9 +190,9 @@
                             <li><a href="#"><img src="images/아이스초코.png"><span>아이스초코</span></a></li>
                             <li><a href="#"><img src="images/흑당버블라떼.png"><span>흑당버블라떼</span></a></li>
                             <li><a href="#"><img src="images/민트카페모카.png"><span>민트카페모카</span></a></li>
-                            <li><a href="#"><img src="images/바닐라라떼.png"><span>바닐라라떼</span></a></li>  -->
+                            <li><a href="#"><img src="images/바닐라라떼.png"><span>바닐라라떼</span></a></li>  
                         
-                           <%
+                          <%--  <%
       try {
          
          
@@ -227,7 +227,7 @@
       } catch (Exception e) {
          e.printStackTrace();
       }
-   %>
+   %> --%>
                         </ul>
                     </div>
                 </article>

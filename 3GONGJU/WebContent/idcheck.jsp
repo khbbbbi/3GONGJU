@@ -17,7 +17,7 @@
 
       try {      
          Class.forName("com.mysql.jdbc.Driver");
-         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/bread","root","1234");
+         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
          Statement stmt = conn.createStatement();
 
          String sql = "select userId from user where userId ='"+id+"'";

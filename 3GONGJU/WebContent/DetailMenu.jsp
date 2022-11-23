@@ -88,21 +88,21 @@
                 </div>
         </div>
     </header>
-    <form action = "" method = "post">
+    <form action = "menuinfocheck.jsp" method = "post">
     <div class = "area_all">
             <section class = "area_main">
                 <article class="container">
   <%
 	request.setCharacterEncoding("UTF-8");
 
-	String bname = request.getParameter("_name");
+	String breadID = request.getParameter("_breadID");
 
       try {      
          Class.forName("com.mysql.jdbc.Driver");
-         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/bread","root","1234");
+         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
          Statement stmt = conn.createStatement();
 
-         String sql = "select * from bread where breadname='"+bname+"'";
+         String sql = "select * from breadinfo where breadID='"+breadID+"'";
          ResultSet rs = stmt.executeQuery(sql);
 
          while(rs.next()){
@@ -114,8 +114,8 @@
         	 String fats = rs.getString("fats");
         	 String protein = rs.getString("protein");
         	 %>
-         
-         <p>Menu > <%= category %></p>
+         		<input type = "hidden" name = "_breadID" value = <%= rs.getString("breadID") %>>
+         		<p>Menu > <%= category %></p>
                     <h1 style="font-size: 30px;"><%= breadname %></h1>
                     <div class = "menu">
                     <div class="menuimg">
@@ -125,7 +125,7 @@
                         <table class="menutable">
                             <tr>
                             <td class="price"><b><%= price %></b></td>
-                                <td><input type="number" placeholder="1" class="menunumber"></td>
+                                <td><input type="number" placeholder="1" class="menunumber" name = "_surrang"></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -158,6 +158,7 @@
  
                             </tr>
                         </table>
+                        
                     </div>
                 </div>
                 </article>
