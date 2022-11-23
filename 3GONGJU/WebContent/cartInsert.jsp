@@ -8,26 +8,19 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:useBean id = "bread" class = "bread.breadDAO"></jsp:useBean>
 <%
 	request.setCharacterEncoding("UTF-8");
 
-	String breadID = request.getParameter("_breaID");
+	String breadID = request.getParameter("_breadID");
 	String surrang = request.getParameter("_surrang");
 	
-	try{
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
-		Statement stmt = conn.createStatement();
-		//stmt.executeUpdate("Insert into cart (userIdx, breadID) values('"+userid+"','"+breadID+"')");
-		//out.println("ID : " + id);
-		//out.println("암호 : " + pw);
-		//out.println("성명 : " + name);
-		out.println("<h1>회원정보 등록이  완료되었습니다.</h1>");
-		stmt.close();
-		conn.close();
-	}catch(SQLException e){
-		e.printStackTrace();
-	}
+	bread.insert(breadID, surrang);
+	
+	
+	out.println(breadID);
+	out.println(surrang);
+	
    %>
 </body>
 </html>

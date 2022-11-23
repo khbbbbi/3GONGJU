@@ -88,7 +88,7 @@
                 </div>
         </div>
     </header>
-    <form action = "menuinfocheck.jsp" method = "post">
+    <form action = "cartInsert.jsp" method = "get">
     <div class = "area_all">
             <section class = "area_main">
                 <article class="container">
@@ -125,7 +125,7 @@
                         <table class="menutable">
                             <tr>
                             <td class="price"><b><%= price %></b></td>
-                                <td><input type="number" placeholder="1" class="menunumber" name = "_surrang"></td>
+                                <td><input type="number" placeholder="1" class="menunumber" name = "_surrang" value = "1"></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -152,8 +152,8 @@
                                 <td colspan="2" class = "menubtn">
                                 	<!-- <button onclick="incart()">장바구니에 담기</button>
                                     <button onclick="goorder()">주문하기</button> -->
-                                    <input type = "submit" value = "장바구니에 담기" style=" width: 240px; height: 50px; border-radius: 20px;"onclick="">
-                                    <input type = "submit" value = "주문하기" style=" width: 240px; height: 50px; border-radius: 20px;">
+                                    <input type = "submit" value = "장바구니에 담기" style=" width: 240px; height: 50px; border-radius: 20px;">
+                                    <!-- <input type = "submit" value = "주문하기" style=" width: 240px; height: 50px; border-radius: 20px;"> -->
                                 </td>
  
                             </tr>
