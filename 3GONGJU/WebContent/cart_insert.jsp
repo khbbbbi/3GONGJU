@@ -12,15 +12,23 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 
+	String userIdx = request.getParameter("_userIdx");
 	String breadID = request.getParameter("_breadID");
 	String surrang = request.getParameter("_surrang");
 	
-	bread.insert(breadID, surrang);
+	bread.insert(userIdx,breadID, surrang);
 	
-	
-	out.println(breadID);
-	out.println(surrang);
-	
-   %>
+	%>
+	<script>
+	if (confirm('장바구니로 이동하시겠습니까?')) {
+    	// 네!
+    	<% response.sendRedirect("Cart.jsp?_userIdx="+userIdx+"&_breadID="+breadID+"&_surrang="+surrang+"");%>
+    	//location.href="Cart.jsp?_userIdx="+userIdx+"&_breadID="+breadID+"&_surrang="+surrang+"";
+    } else {
+    	//아니오ㅡ.ㅡ
+    	history.back();
+    }	
+	</script>
+
 </body>
 </html>

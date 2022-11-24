@@ -135,7 +135,7 @@
                     <div id ="sec3">
                         <h1 style="text-align: center; font-size: 30px; text-decoration: none">전체 상품</h1><br>
                         <ul id="header_navi">
-                            <li><a href="DetailMenu.jsp?_breadID=2"><img src="images/초코소보로.png"><span>초코소보로</span></a></li>
+                            <li><a href="DetailMenu.jsp?_breadID=4"><img src="images/초코소보로.png"><span>초코소보로</span></a></li>
                             <li><a href="DetailMenu.jsp?_name=plainpie"><img src="images/맘모스빵.png"><span>맘모스빵</span></a></li>
                             <li><a href="#"><img src="images/마늘빵.png"><span>마늘빵</span></a></li>
                             <li><a href="#"><img src="images/레드벨벳티라미수.png"><span>레드벨벳티라미수</span></a></li>

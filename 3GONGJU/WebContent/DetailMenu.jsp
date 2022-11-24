@@ -88,7 +88,7 @@
                 </div>
         </div>
     </header>
-    <form action = "cartInsert.jsp" method = "get">
+    <form action = "cart_copycheck.jsp" method = "get">
     <div class = "area_all">
             <section class = "area_main">
                 <article class="container">

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import = "java.sql.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,6 +110,32 @@
                                 </tr>
                             </thead>
                             <tbody>
+    <%
+    	String userIdx = request.getParameter("_userIdx");
+		String breadID = request.getParameter("_breadID");
+		String surrang = request.getParameter("_surrang");
+		
+		 try {      
+	         Class.forName("com.mysql.jdbc.Driver");
+	         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
+	         Statement stmt = conn.createStatement();
+	         
+	        // String sql = "select user.userIdx, user.userId, breadinfo.breadname, breadinfo.price, cart.count" 
+	        //		 + "from cart, breadinfo, user" 
+	        //		 + "where cart.breadID = breadinfo.breadID and cart.userIdx = user.userIdx and cart.userIdx = "+userIdx+";";
+	        String sql = "select * from cart, breadinfo, user where cart.breadID = breadinfo.breadID and cart.userIdx = user.userIdx and cart.userIdx = "+userIdx+"";
+	         ResultSet rs = stmt.executeQuery(sql);
+
+	         while(rs.next()){
+		        	String userIdxx = rs.getString("userIdx");
+		        	String userId = rs.getString("userId");
+		        	String breadname = rs.getString("breadname");
+		        	int  price = rs.getInt("price");
+		        	int count = rs.getInt("count");
+
+	         %>
+                            
+                            
                                 <tr class="cart_list_detail">
                                     <td  style="width: 2%;"><input type="checkbox" name="category" onclick='checkSelectAll()'></td>
                                     <td  style="width: 13%;">
@@ -117,34 +143,30 @@
                                     </td>
                                     <td>
                                     	<span class="cart_list_3GongJu">3GongJu</span>
-                                        <p>딸기라떼</p>
-                                        <sapn>3,500원</sapn>
+                                        <p><%= breadname %></p>
+                                        <sapn><%= price %></sapn>
                                     </td>
                                     <td class="cart_list_option">
-                                        <p>상품명 : 딸기라떼</p>
-                                        <input type = "number" class="cart_list_optionbtn" value="2">
+                                        <p>상품명 : <%= breadname %></p>
+                                        <input type = "number" class="cart_list_optionbtn" value="<%= count %>">
                                     </td>
                                     <td>
-                                    	<span class="price">7,000원</span>
+                                    	<span class="price"><%= price*count %></span>
                                     </td>
                                 </tr>
-                                <tr class="cart_list_detail">
-                                    <td><input type="checkbox" name="category" onclick='checkSelectAll()'></td>
-                                    <td>
-                                        <img src="./images/녹차라떼.png" alt="녹차라떼" width="50" height="50">
-                                    </td>
-                                    <td></a><span class="cart_list_3GongJu">3GongJu</span>
-                                        <p>녹차라떼</p>
-                                        <span>3,500원</span>
-                                    </td>
-                                    <td class="cart_list_option" style="width: 27%;">
-                                        <p>상품명 : 녹차라떼</p>
-                                        <input type = "number" class="cart_list_optionbtn" value="1">
-                                    </td>
-                                    <td style="width: 15%;"><span class="price">3,500원</span>
-                                    </td>
-                                </tr>
+       <%
+	         }
+		  		rs.close();
+		  		stmt.close();
+		  		conn.close();
+		 		
+		       } catch (Exception e) {
+		          e.printStackTrace();
+		       }
+	    %>
+                                
                             </tbody>
+                            
                             <tfoot>
                                 <tr>
                                     <td colspan="5"><input type="checkbox" name = "selectall" onclick='selectAll(this)'> 
@@ -164,6 +186,7 @@
                     </div>
                 </article>
             </section>
+            
         <footer>
             <p>Company/CEO : SMC INTERNATIONAL CO., LTD. / Minchang Shin, Hanna Choi<br>
             Address : 321, Eonju-ro, Gangnam-gu, Seoul, Republic of Korea [Zip Code: 06226]<br>
