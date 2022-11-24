@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>안녕안녕</h1>
-		<%
+<%-- 		<%
     	String userIdx = request.getParameter("_userIdx");
 		String breadID = request.getParameter("_breadID");
 		String surrang = request.getParameter("_surrang");
@@ -58,6 +58,6 @@
 		       } catch (Exception e) {
 		          e.printStackTrace();
 		       }
-	    %>  
+	    %>   --%>
 </body>
 </html>

@@ -40,6 +40,16 @@
         	location.href="#";
         }
 	}
+	
+	/* 한 페이지에서 submit 여러개 쓸때 input type을 submit->button으로 바꾸고 onclick으로 함수 호출하여 밑에와 같이 함수 작성 (detail은 form이름임.) */
+	function gocart(){
+		document.detail.action = "cart_copycheck.jsp";
+		document.detail.submit();
+	}
+	function goorder(){
+		document.detail.action = "test.jsp";
+		document.detail.submit();
+	}
 </script>
 <body>
     <header>
@@ -88,7 +98,7 @@
                 </div>
         </div>
     </header>
-    <form action = "cart_copycheck.jsp" method = "get">
+    <form action = "cart_copycheck.jsp" method = "get" name = "detail">
     <div class = "area_all">
             <section class = "area_main">
                 <article class="container">
@@ -152,8 +162,8 @@
                                 <td colspan="2" class = "menubtn">
                                 	<!-- <button onclick="incart()">장바구니에 담기</button>
                                     <button onclick="goorder()">주문하기</button> -->
-                                    <input type = "submit" value = "장바구니에 담기" style=" width: 240px; height: 50px; border-radius: 20px;">
-                                    <!-- <input type = "submit" value = "주문하기" style=" width: 240px; height: 50px; border-radius: 20px;"> -->
+                                    <input class = "btn" type = "button" value = "장바구니에 담기" onclick = "gocart()">
+                                    <input class = "btn"type = "button" value = "주문하기" onclick = "goorder()">
                                 </td>
  
                             </tr>
