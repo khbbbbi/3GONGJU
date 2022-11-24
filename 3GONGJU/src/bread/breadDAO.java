@@ -3,6 +3,7 @@ import java.sql.*;
 
 public class breadDAO {
 
+	//장바구니에 삽입 cart_insert.jsp에서 사용
 	public void insert(String userIdx, String breadID, String surrang) {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");

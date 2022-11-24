@@ -193,11 +193,8 @@ table {
     padding: 15px 0px;
     border-bottom: 1px solid lightgrey;
   }
-  
-  .cart_list_detail :nth-child(3) {
-    vertical-align: top;
-  }
-  
+
+
   .cart_list_detail :nth-child(3) a {
     font-size: 12px;
   }
@@ -220,7 +217,8 @@ table {
  
   .cart_list_option p {
     margin-bottom: 25px;
-    position: relative;
+    padding-bottom:10px;
+  	border-bottom: 1px solid lightgray;
   }
   
   .cart_list_option p::after {
@@ -249,16 +247,7 @@ table {
   .cart_list_detail :nth-child(6) {
     text-align: center;
   }
-  
-  .cart_list_detail :nth-child(5) button {
-    background-color: limegreen;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 4px 8px;
-    font-size: 12px;
-    margin-top: 5px;
-  }
+
   
 /* 전체금액 */
 .price{

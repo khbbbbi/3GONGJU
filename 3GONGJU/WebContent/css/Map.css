@@ -152,7 +152,6 @@ button:hover{
 }
 /* 버튼부분 */
 .my_container{
-	position: absolute;
 	margin: auto;
     height:300px;
     display: grid;
@@ -165,8 +164,6 @@ button:hover{
 	margin: auto;
 	width: 400px;
 	height: 70px;
-	
-	
 }
 
 

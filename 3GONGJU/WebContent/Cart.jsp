@@ -110,7 +110,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-    <%
+    	<%
+    	//while(rs.next)가 반복되는 구간이니 반복할 구간에서 디비를 설정해야함! header밑에 넣었다가 안됐었음..주의!
     	String userIdx = request.getParameter("_userIdx");
 		String breadID = request.getParameter("_breadID");
 		String surrang = request.getParameter("_surrang");
@@ -120,22 +121,19 @@
 	         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
 	         Statement stmt = conn.createStatement();
 	         
-	        // String sql = "select user.userIdx, user.userId, breadinfo.breadname, breadinfo.price, cart.count" 
-	        //		 + "from cart, breadinfo, user" 
-	        //		 + "where cart.breadID = breadinfo.breadID and cart.userIdx = user.userIdx and cart.userIdx = "+userIdx+";";
-	        String sql = "select * from cart, breadinfo, user where cart.breadID = breadinfo.breadID and cart.userIdx = user.userIdx and cart.userIdx = "+userIdx+"";
+			//cart,breadinfo,user 세개의 테이블을 외래키를 통해 연결시켜 세 테이블의 모든 정보 불러 올  수 있음. 조건문에  현재 로그인된 사용자의 장바구니정보를 가져올 수 있도록 userIdx를 받아온 userIdx와 비교
+	         String sql = "select * from cart, breadinfo, user where cart.breadID = breadinfo.breadID and cart.userIdx = user.userIdx and cart.userIdx = "+userIdx+"";
 	         ResultSet rs = stmt.executeQuery(sql);
 
 	         while(rs.next()){
 		        	String userIdxx = rs.getString("userIdx");
 		        	String userId = rs.getString("userId");
 		        	String breadname = rs.getString("breadname");
+		        	//수량에 따른 상품가격을 측정하기위해 int로 받아옴.
 		        	int  price = rs.getInt("price");
 		        	int count = rs.getInt("count");
 
-	         %>
-                            
-                            
+	     %>
                                 <tr class="cart_list_detail">
                                     <td  style="width: 2%;"><input type="checkbox" name="category" onclick='checkSelectAll()'></td>
                                     <td  style="width: 13%;">
@@ -151,7 +149,8 @@
                                         <input type = "number" class="cart_list_optionbtn" value="<%= count %>">
                                     </td>
                                     <td>
-                                    	<span class="price"><%= price*count %></span>
+                                    	<!-- int로 받아온 가격,수량을 곱해서 수량에 따른 상품가격 측정 -->
+                                    	<p class="sangpumprice"><%= price*count %></p>
                                     </td>
                                 </tr>
        <%
