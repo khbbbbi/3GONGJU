@@ -30,7 +30,7 @@
 			
 			window.name = "parentForm";
 		
-			window.open("Idcopycheck.jsp?_id="+id,"", 'width='+ _width +', height='+ _height +', left=' + _left+',text-align=center' );
+			window.open("idcheck.jsp?_id="+id,"", 'width='+ _width +', height='+ _height +', left=' + _left+',text-align=center' );
     		
     	}else{
     		alert('아이디를 입력해주세요');
@@ -63,15 +63,15 @@
     //비번 기준안
     function check_pw(){
         var pw = document.getElementById('pw').value;
-        //var SC = ["!","@","#","$","%"];
-        //var check_SC  =  0;
+        var SC = ["!","@","#","$","%"];
+        var check_SC  =  0;
 
         if(pw.length < 6 || pw.length > 16){
             window.alert('비밀번호는 6글자 이상, 16글자 이하만 이용 가능합니다.');
             document.getElementById('pw').value='';
             document.getElementById("pw").focus();
         }
-        /* for(var i=0;i<SC.length;i++){
+        for(var i=0;i<SC.length;i++){
         if(pw.indexOf(SC[i]) != -1){
             check_SC = 1;
         }
@@ -80,7 +80,7 @@
             window.alert('!,@,#,$,% 의 특수문자가 들어가 있지 않습니다.')
             document.getElementById('pw').value='';
             document.getElementById("pw").focus();
-        } */
+        }
         
     }
     
@@ -90,6 +90,9 @@
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
         <div class = "area_header">
             <div class = "gita">
+                <a href="Myinfo.jsp?_name=홍길동" class="link_text" style="color: darkslateblue">홍길동</a>님
+                <a href="#" onclick="logout()" class="link_text" style="color: darkslateblue">로그아웃</a>
+                <a href="" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
             </div>
         
             <!-- 헤더에서 로고와 네비바 -->
@@ -134,7 +137,7 @@
                 <h1 style="text-align: center; font-size: 30px;text-decoration: overline;">회원가입</h1>
                 <article class="menu_container">
                 	<!-- 원래 div였는데 form태그로 수정 (값 넘기기 위함) -->
-                    <form action = "Signup_Insert.jsp" method = "post" >
+                    <form action = "test.jsp" method = "post" >
                     <div class = "item">
                       <div>
 							이름<br><input type="text" name="_name" maxlength="20" >

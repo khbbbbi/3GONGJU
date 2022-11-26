@@ -1,5 +1,6 @@
+<!-- 현희 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.sql.*" %>
 <!-- 예약확인화면 (주문하기 누르면 주문한 목록이 뜨는 화면) -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,9 +16,16 @@
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
         <div class = "area_header">
             <div class = "gita">
-                <a href="Myinfo.jsp" class="link_text" style="color: darkslateblue">홍길동</a>님
-                <a href="#" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>
-                <a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
+                <% 
+            	String state = (String)session.getAttribute("__ID");
+            	if(state ==null){%>
+            		<a href="Login.jsp" class="link_text" style="color: darkslateblue">로그인해주세요</a>
+            	<%}else{%>
+                	<a href="Myinfo.jsp" class="link_text" style="color: darkslateblue"><%= state %></a>님
+                	<a href="Logout.jsp" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>            		
+                	<a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
+            	<%}
+            	%>
             </div>
         
             <!-- 헤더에서 로고와 네비바 -->
@@ -64,12 +72,43 @@
                 <article class="check_container">
                     <table rules="rows" class="cart__list" >
                     <form>
+					<%
+					
+						request.setCharacterEncoding("UTF-8");
+	
+						//※추후주석제거		이전화면에서 오더아이디를 받아야함 추후 주석제거
+						//String getOrderID = request.getParameter("orderID");
+						//※추후주석	테스트용으로 임시 주문번호 선언, 1이라 가칭			
+					   	String getOrderID = "1";
+						
+						try{
+							
+							System.out.println("====데이터베이스 연결시작 ====");
+							// JDBC 참조 변수 준비
+							// 1) JDBC 드라이버 로딩
+							Class.forName("com.mysql.jdbc.Driver");
+							
+							// 2) 데이터베이스 연결
+							Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
+							Statement stmt = conn.createStatement();
+
+						 	// 2) SQL문 실행 , 주문번호 기준으로 정보를 조회한다.
+    					   	String sql = "select * from orders where orderID = "+getOrderID;
+							// 4) 실행
+						   	ResultSet rs = stmt.executeQuery(sql);
+				
+							// 5) 결과를 테이블에 출력
+							if(rs.next()) {
+								String pickupstore = rs.getString("pickupstore");	//매장명
+								String pickupDate = rs.getString("pickupDate");		//주문일
+								int tatalprice = rs.getInt("tatalprice");		//주문금액
+						%>
                             <tr>
                                 <td width = "40%">
                                     <p class = "thead">픽업지점</p>
                                 </td>
                                 <td>
-                                	<p>인천점<p>
+                                	<p><%=pickupstore%><p>
                                 </td>
                             </tr>
                             <tr>
@@ -77,7 +116,7 @@
                                     <p class = "thead">픽업일</p>
                                 </td>
                                 <td>
-                                	<p>12월 11일 3시 00분<p>
+                                	<p><%=pickupDate%><p>
                                 </td>
                             </tr>
                             <tr>
@@ -85,9 +124,23 @@
                                     <p class = "thead">결제 금액</p>
                                 </td>
                                 <td>
-                                	<p>15000<p>
+                                	<p><%=tatalprice%><p>
                                 </td>
                             </tr>
+						<%
+							}
+							// 6) 데이터베이스 연결 종료
+			            	rs.close();
+			            	stmt.close();
+			            	conn.close();
+			            	
+							System.out.println("====데이터베이스 연결종료 ====");
+			            	
+			             } catch (Exception e) {
+			                e.printStackTrace();
+							System.out.println("====데이터베이스 오류발생 ====");
+			             }
+					%>
                     </form>
                 </table>
                         <div class="cart_mainbtns">

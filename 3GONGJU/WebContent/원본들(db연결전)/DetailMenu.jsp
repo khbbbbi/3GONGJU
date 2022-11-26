@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.sql.*"%>
+    pageEncoding="UTF-8"%>
 <!-- 예약확인화면 (주문하기 누르면 주문한 목록이 뜨는 화면) -->
 <!DOCTYPE html>
 <html lang="en">
@@ -40,32 +40,15 @@
         	location.href="#";
         }
 	}
-	
-	/* 한 페이지에서 submit 여러개 쓸때 input type을 submit->button으로 바꾸고 onclick으로 함수 호출하여 밑에와 같이 함수 작성 (detail은 form이름임.) */
-	function gocart(){
-		document.detail.action = "cart_copycheck.jsp";
-		document.detail.submit();
-	}
-	function goorder(){
-		document.detail.action = "test.jsp";
-		document.detail.submit();
-	}
 </script>
 <body>
     <header>
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
         <div class = "area_header">
             <div class = "gita">
-            	<% 
-            	String state = (String)session.getAttribute("__ID");
-            	if(state ==null){%>
-            		<a href="Login.jsp" class="link_text" style="color: darkslateblue">로그인해주세요</a>
-            	<%}else{%>
-                	<a href="Myinfo.jsp" class="link_text" style="color: darkslateblue"><%= state %></a>님
-                	<a href="Logout.jsp" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>            		
-                	<a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
-            	<%}
-            	%>
+                <a href="Myinfo.jsp" class="link_text" style="color: darkslateblue">홍길동</a>님
+                <a href="#" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>
+                <a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
             </div>
         
             <!-- 헤더에서 로고와 네비바 -->
@@ -105,35 +88,11 @@
                 </div>
         </div>
     </header>
-    <form action = "cart_copycheck.jsp" method = "get" name = "detail">
     <div class = "area_all">
             <section class = "area_main">
                 <article class="container">
-  <%
-	request.setCharacterEncoding("UTF-8");
-
-	String breadID = request.getParameter("_breadID");
-
-      try {      
-         Class.forName("com.mysql.jdbc.Driver");
-         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
-         Statement stmt = conn.createStatement();
-
-         String sql = "select * from breadinfo where breadID='"+breadID+"'";
-         ResultSet rs = stmt.executeQuery(sql);
-
-         while(rs.next()){
-        	 String category = rs.getString("category");
-        	 String breadname = rs.getString("breadname");
-        	 String price = rs.getString("price");
-        	 String kcal = rs.getString("kcal");
-        	 String sugar = rs.getString("sugar");
-        	 String fats = rs.getString("fats");
-        	 String protein = rs.getString("protein");
-        	 %>
-         		<input type = "hidden" name = "_breadID" value = <%= rs.getString("breadID") %>>
-         		<p>Menu > <%= category %></p>
-                    <h1 style="font-size: 30px;"><%= breadname %></h1>
+                    <p>Menu > 음료</p>
+                    <h1 style="font-size: 30px;">녹차라떼</h1>
                     <div class = "menu">
                     <div class="menuimg">
                         <img src="images/greentea.png">
@@ -141,8 +100,8 @@
                     <div class="menulist">
                         <table class="menutable">
                             <tr>
-                            <td class="price"><b><%= price %></b></td>
-                                <td><input type="number" placeholder="1" class="menunumber" name = "_surrang" value = "1"></td>
+                                <td class="price"><b>5000원</b></td>
+                                <td><input type="number" placeholder="1" class="menunumber"></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -152,48 +111,28 @@
                                         </tr>
                                         <tr>
                                             <td>1회제공량(kal)</td>
-                                            <td><%= kcal %></td>
+                                            <td>300</td>
                                             <td>당류(g)</td>
-                                            <td><%= sugar %></td>
+                                            <td>7</td>
                                         </tr> 
                                         <tr>
                                             <td>포화지방(g)</td>
-                                            <td><%=fats %></td>
+                                            <td>0.3</td>
                                             <td>단백질(g)</td>
-                                            <td><%= protein%></td>
+                                            <td>10</td>
                                         </tr>
                                     </table>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" class = "menubtn">
-                                	<!-- <button onclick="incart()">장바구니에 담기</button>
-                                    <button onclick="goorder()">주문하기</button> -->
-                                    <input class = "btn" type = "button" value = "장바구니에 담기" onclick = "gocart()">
-                                    <input class = "btn"type = "button" value = "주문하기" onclick = "goorder()">
-                                </td>
- 
+                                <td colspan="2" class = "menubtn"><button onclick="incart()">장바구니에 담기</button>
+                                    <button onclick="goorder()">주문하기</button></td>
                             </tr>
                         </table>
-                        
                     </div>
                 </div>
                 </article>
-            </section>  
-		</div>
-		</form>
-<%
-          }
-  		rs.close();
-  		stmt.close();
-  		conn.close();
- 		
-       } catch (Exception e) {
-          e.printStackTrace();
-       }
-    %>
-                     
-                                
+            </section>
         <footer>
             <p>Company/CEO : SMC INTERNATIONAL CO., LTD. / Minchang Shin, Hanna Choi<br>
             Address : 321, Eonju-ro, Gangnam-gu, Seoul, Republic of Korea [Zip Code: 06226]<br>
@@ -203,5 +142,6 @@
             <p>TM & Copyright 2022 로고. All Rights Reserved.</p> 
             </div>
         </footer>
+        </div>
 </body>
 </html>

@@ -26,6 +26,7 @@
         found = rs.next();
         
         if(found){
+        	session.setAttribute("__ID", id);
         	response.sendRedirect("Main.jsp");
         	//out.println("성공");
         }else{

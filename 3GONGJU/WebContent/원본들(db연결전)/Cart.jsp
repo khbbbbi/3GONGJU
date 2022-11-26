@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import = "java.sql.*"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>장바구니</title>
-    <link rel="stylesheet" href="css/Cart.css" />
+    <link rel="stylesheet" href="Cart.css" />
 </head>
-<body>
 <script language = "javascript">
 	function order(){
         if (confirm('주문을 하러가시겠습니까?')) {
@@ -44,32 +43,15 @@
     	checkboxes.forEach( (checkbox) => {checkbox.checked = selectAll.checked; } ) 
     	*/
     }
-
 </script>
+<body>
     <header>
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
         <div class = "area_header">
             <div class = "gita">
-                <% 
-            	String state = (String)session.getAttribute("__ID");
-            	if(state ==null){
-            	%>
-            		<script>
-            			 if (confirm('로그인이 필요한 서비스입니다. 로그인창으로 이동하시겠습니까?')) {
-            		        	// 네!
-            		        	location.href="Login.jsp";
-            		        } else {
-            		        	//아니오ㅡ.ㅡ
-            		        	history.back();
-            		        }
-            		</script>
-            	<%
-            	}else{%>
-                	<a href="Myinfo.jsp" class="link_text" style="color: darkslateblue"><%= state %></a>님
-                	<a href="Logout.jsp" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>            		
-                	<a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
-            	<%}
-            	%>
+                <a href="Myinfo.jsp" class="link_text" style="color: darkslateblue">홍길동</a>님
+                <a href="#" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>
+                <a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
             </div>
         
             <!-- 헤더에서 로고와 네비바 -->
@@ -119,75 +101,54 @@
                 </article>
                 <article id="sec2">
                         <table class="cart__list">
-                        <form action = "deletechecked.jsp" method = "get">
+                        <form>
                             <thead>
                                 <tr>
-                                    <td colspan="2">상품정보</td>
+                                    <td colspan="3">상품정보</td>
                                     <td>옵션</td>
                                     <td>상품금액</td>
                                 </tr>
                             </thead>
                             <tbody>
-    	<%
-    	//while(rs.next)가 반복되는 구간이니 반복할 구간에서 디비를 설정해야함! header밑에 넣었다가 안됐었음..주의!
-		String breadID = request.getParameter("_breadID");
-		String surrang = request.getParameter("_surrang");
-		
-		 try {      
-	         Class.forName("com.mysql.jdbc.Driver");
-	         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
-	         Statement stmt = conn.createStatement();
-	         
-			//cart,breadinfo,user 세개의 테이블을 외래키를 통해 연결시켜 세 테이블의 모든 정보 불러 올  수 있음. 조건문에  현재 로그인된 사용자의 장바구니정보를 가져올 수 있도록 userIdx를 받아온 userIdx와 비교
-	         String sql = "select * from cart, breadinfo, user where cart.breadID = breadinfo.breadID and cart.userIdx = user.userIdx and user.userId = "+state+"";
-	         ResultSet rs = stmt.executeQuery(sql);
-
-	         while(rs.next()){
-	        	 	String cartID = rs.getString("cartID");
-		        	String userId = rs.getString("userId");
-		        	String breadname = rs.getString("breadname");
-		        	//수량에 따른 상품가격을 측정하기위해 int로 받아옴.
-		        	int  price = rs.getInt("price");
-		        	int count = rs.getInt("count");
-
-	     %>
                                 <tr class="cart_list_detail">
-                                    <input type = "hidden" value = <%=cartID %>>
-                                    <td  style="width: 5%;"><input type="checkbox" name="category" value = <%=cartID %> onclick='checkSelectAll()'>
+                                    <td  style="width: 2%;"><input type="checkbox" name="category" onclick='checkSelectAll()'></td>
+                                    <td  style="width: 13%;">
+                                    	<img src="./images/딸기라떼.png" alt="magic keyboard" width="50" height="50">
                                     </td>
                                     <td>
                                     	<span class="cart_list_3GongJu">3GongJu</span>
-                                        <p><%= breadname %></p>
-                                        <span name = "price"><%= price %></span>
+                                        <p>딸기라떼</p>
+                                        <sapn>3,500원</sapn>
                                     </td>
                                     <td class="cart_list_option">
-                                        <p>상품명 : <%= breadname %></p>
-                                        <input  type = "number" class="cart_list_optionbtn" value="<%= count %>">
+                                        <p>상품명 : 딸기라떼</p>
+                                        <input type = "number" class="cart_list_optionbtn" value="2">
                                     </td>
                                     <td>
-                                    	<!-- int로 받아온 가격,수량을 곱해서 수량에 따른 상품가격 측정. 
-                                    	여기서 문제...수량을 변경할때마다 결제금액을 바꾸고싶음...ㅜ
-                                    	-->
-                                    	<p name = "_sangpumprice" class="sangpumprice"><%= price %></p>
+                                    	<span class="price">7,000원</span>
                                     </td>
                                 </tr>
-       <%
-	         }
-		  		rs.close();
-		  		stmt.close();
-		  		conn.close();
-		 		
-		       } catch (Exception e) {
-		          e.printStackTrace();
-		       }
-	    %>
+                                <tr class="cart_list_detail">
+                                    <td><input type="checkbox" name="category" onclick='checkSelectAll()'></td>
+                                    <td>
+                                        <img src="./images/녹차라떼.png" alt="녹차라떼" width="50" height="50">
+                                    </td>
+                                    <td></a><span class="cart_list_3GongJu">3GongJu</span>
+                                        <p>녹차라떼</p>
+                                        <span>3,500원</span>
+                                    </td>
+                                    <td class="cart_list_option" style="width: 27%;">
+                                        <p>상품명 : 녹차라떼</p>
+                                        <input type = "number" class="cart_list_optionbtn" value="1">
+                                    </td>
+                                    <td style="width: 15%;"><span class="price">3,500원</span>
+                                    </td>
+                                </tr>
                             </tbody>
-                            
                             <tfoot>
                                 <tr>
                                     <td colspan="5"><input type="checkbox" name = "selectall" onclick='selectAll(this)'> 
-                                        <button class="cart_list_optionbtn" onclick = "deleteproduct()">선택상품 삭제</button>
-  
+                                        <button class="cart_list_optionbtn" >선택상품 삭제</button>
                                     </td>
                                 </tr>
                             </tfoot>
@@ -203,7 +164,6 @@
                     </div>
                 </article>
             </section>
-            
         <footer>
             <p>Company/CEO : SMC INTERNATIONAL CO., LTD. / Minchang Shin, Hanna Choi<br>
             Address : 321, Eonju-ro, Gangnam-gu, Seoul, Republic of Korea [Zip Code: 06226]<br>
@@ -214,8 +174,5 @@
             </div>
         </footer>
         </div>
-        <script>
-
-        </script>
 </body>
 </html>

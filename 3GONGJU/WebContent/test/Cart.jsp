@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>장바구니</title>
-    <link rel="stylesheet" href="css/Cart.css" />
+    <link rel="stylesheet" href="Cart.css" />
 </head>
-<body>
 <script language = "javascript">
+
 	function order(){
         if (confirm('주문을 하러가시겠습니까?')) {
         	// 네!
@@ -44,8 +44,8 @@
     	checkboxes.forEach( (checkbox) => {checkbox.checked = selectAll.checked; } ) 
     	*/
     }
-
 </script>
+<body>
     <header>
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
         <div class = "area_header">
@@ -119,14 +119,15 @@
                 </article>
                 <article id="sec2">
                         <table class="cart__list">
-                        <form action = "deletechecked.jsp" method = "get">
+                        <form>
                             <thead>
                                 <tr>
-                                    <td colspan="2">상품정보</td>
+                                    <td colspan="3">상품정보</td>
                                     <td>옵션</td>
                                     <td>상품금액</td>
                                 </tr>
                             </thead>
+                            <form action = "cartupdate.jsp" method = "post">
                             <tbody>
     	<%
     	//while(rs.next)가 반복되는 구간이니 반복할 구간에서 디비를 설정해야함! header밑에 넣었다가 안됐었음..주의!
@@ -143,7 +144,6 @@
 	         ResultSet rs = stmt.executeQuery(sql);
 
 	         while(rs.next()){
-	        	 	String cartID = rs.getString("cartID");
 		        	String userId = rs.getString("userId");
 		        	String breadname = rs.getString("breadname");
 		        	//수량에 따른 상품가격을 측정하기위해 int로 받아옴.
@@ -152,23 +152,25 @@
 
 	     %>
                                 <tr class="cart_list_detail">
-                                    <input type = "hidden" value = <%=cartID %>>
-                                    <td  style="width: 5%;"><input type="checkbox" name="category" value = <%=cartID %> onclick='checkSelectAll()'>
+                                    <td  style="width: 2%;"><input type="checkbox" name="category" onclick='checkSelectAll()'></td>
+                                    <td  style="width: 13%;">
+                                    	<img src="./images/딸기라떼.png" alt="magic keyboard" width="50" height="50">
                                     </td>
                                     <td>
                                     	<span class="cart_list_3GongJu">3GongJu</span>
                                         <p><%= breadname %></p>
-                                        <span name = "price"><%= price %></span>
+                                        <input id = "breadname" type = "hidden" vaule = <%=breadname%>>
+                                        <span id = "price"><%= price %></span>
                                     </td>
                                     <td class="cart_list_option">
                                         <p>상품명 : <%= breadname %></p>
-                                        <input  type = "number" class="cart_list_optionbtn" value="<%= count %>">
+                                        <input id = "count" type = "number" class="cart_list_optionbtn" value="<%= count %>">
                                     </td>
                                     <td>
                                     	<!-- int로 받아온 가격,수량을 곱해서 수량에 따른 상품가격 측정. 
                                     	여기서 문제...수량을 변경할때마다 결제금액을 바꾸고싶음...ㅜ
                                     	-->
-                                    	<p name = "_sangpumprice" class="sangpumprice"><%= price %></p>
+                                    	<p id = "ddd" class="sangpumprice"><%= price*count %></p>
                                     </td>
                                 </tr>
        <%
@@ -182,12 +184,11 @@
 		       }
 	    %>
                             </tbody>
-                            
+                            </form>
                             <tfoot>
                                 <tr>
                                     <td colspan="5"><input type="checkbox" name = "selectall" onclick='selectAll(this)'> 
-                                        <button class="cart_list_optionbtn" onclick = "deleteproduct()">선택상품 삭제</button>
-  
+                                        <button class="cart_list_optionbtn" >선택상품 삭제</button>
                                     </td>
                                 </tr>
                             </tfoot>

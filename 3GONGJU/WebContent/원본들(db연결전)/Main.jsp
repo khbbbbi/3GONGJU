@@ -25,16 +25,9 @@
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
         <div class = "area_header">
             <div class = "gita">
-            	<% 
-            	String state = (String)session.getAttribute("__ID");
-            	if(state ==null){%>
-            		<a href="Login.jsp" class="link_text" style="color: darkslateblue">로그인해주세요</a>
-            	<%}else{%>
-                	<a href="Myinfo.jsp" class="link_text" style="color: darkslateblue"><%= state %></a>님
-                	<a href="Logout.jsp" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>            		
-                	<a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
-            	<%}
-            	%>
+                <a href="Myinfo.jsp" class="link_text" style="color: darkslateblue">홍길동</a>님
+                <a href="#" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>
+                <a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
             </div>
         
             <!-- 헤더에서 로고와 네비바 -->

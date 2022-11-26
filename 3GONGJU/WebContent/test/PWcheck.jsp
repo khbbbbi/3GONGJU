@@ -1,21 +1,32 @@
+<!-- 시간 남으면 하자 : 내정보 들어가려면 비밀번호 확인하게하는거-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- 예약확인화면 (주문하기 누르면 주문한 목록이 뜨는 화면) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="EUC-KR">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>주문내역</title>
-    <link rel="stylesheet" href="css/Orderlist.css" />
+    <title>로그인</title>
+    <link rel="stylesheet" href="css/Login.css" />
 </head>
+<script language = "javascript">
+	function logout(){
+        if (confirm('정말 로그아웃하시겠습니까?')) {
+        	// 네!
+        	location.href="Login.jsp";
+        } else {
+        	//아니오ㅡ.ㅡ
+        	location.href="#";
+        }
+	}
+</script>
 <body>
     <header>
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
         <div class = "area_header">
             <div class = "gita">
-                 <% 
+                <% 
             	String state = (String)session.getAttribute("__ID");
             	if(state ==null){
             	%>
@@ -61,11 +72,12 @@
                                 <li><a href="Map.jsp" aria-label="subemnu">매장찾기</a></li>
                             </ul>
                             </li>
+                            </li>
                             <li><a href="#"><b>Mypage</b></a>
                             <ul id="sub-menu">
-                                <li><a href="Orderlist.jsp" aria-label="subemnu">주문내역</a></li>
-                                <li><a href="Cart.jsp" aria-label="subemnu">장바구니</a></li>
-                                <li><a href="Myinfo.jsp" aria-label="subemnu">내정보</a></li>
+                                <li><a href="#" aria-label="subemnu">주문내역</a></li>
+                                <li><a href="#" aria-label="subemnu">장바구니</a></li>
+                                <li><a href="#" aria-label="subemnu">내정보</a></li>
                             </ul>
                             </li>
                         </ul>
@@ -73,59 +85,21 @@
                 </div>
         </div>
     </header>
+    <!-- 메인부분 -->
     <div class = "area_all">
-        <main>
             <section class = "area_main">
-                <h1 style="text-align: center; font-size: 30px;text-decoration: overline;">주문 내역</h1>
-                <article class="check_container">
-                    <table class="cart__list">
-                    <form>
-                        <thead>
-                            <tr>
-                                <td>상품정보</td>
-                                <td>수량</td>
-                                <td>픽업일</td>
-                                <td>결제금액</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="cart_list_detail">
-                                <td><span class="cart_list_3GongJu">3GongJu</span>
-                                    <p>딸기라떼</p>
-                                    <sapn class="price">3,500원</sapn>
-                                </td>
-                                <td class="cart_list_option">
-                                    <input type = "number" class="cart_list_optionbtn" value="2" style = "text-align: right" disabled/>
-                                </td>
-                                <td>2022-02-22 01:30</td>
-                                <td><span class="price">7,000원</span>
-                                </td>
-                            </tr>
-                            
-
-        
-                            <tr class="cart_list_detail">
-                                <td></a><span class="cart_list_3GongJu">3GongJu</span>
-                                    <p>녹차라떼</p>
-                                    <span class=" price">3,500원</span>
-                                </td>
-                                <td class="cart_list_option">
-                                    <input type = "number" class="cart_list_optionbtn" value="1" style = "text-align: right" disabled/>
-                                </td>
-                                <td>2022-02-22 01:30</td>
-                                <td style="width: 15%;"><span class="price">3,500원</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </form>
-                </table>
-                        <div class="cart_mainbtns">
-                            <button class="cart_bigorderbtn right" onclick = "location.href='Menu.jsp'">쇼핑하러가기</button>
-                        </div>
-                        
+                <h1 style="text-align: center; font-size: 30px;text-decoration: overline;">비밀번호 확인</h1>
+                <article class="menu_container">
+                <form action = "checkgomyinfo.jsp" method = "post">
+                    <div class = "item">
+                        <input type="password" style="width: 300px; height: 30px;" placeholder="비밀번호 확인" 
+                        name="_pw" maxlength="20">
+                        <input type="submit" value = "내정보" style="width: 310px; height: 40px;">
+                    </div>
+                </form>
                 </article>
+
             </section>
-        </main>
         <footer>
             <p>Company/CEO : SMC INTERNATIONAL CO., LTD. / Minchang Shin, Hanna Choi<br>
             Address : 321, Eonju-ro, Gangnam-gu, Seoul, Republic of Korea [Zip Code: 06226]<br>
