@@ -11,7 +11,7 @@
 <%
 	boolean found;
 	
-request.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("UTF-8");
 
 	String breadID = request.getParameter("_breadID");
 	String surrang = request.getParameter("_surrang");

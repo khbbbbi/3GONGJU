@@ -8,7 +8,10 @@
 </head>
 <body>
 <h1>안녕안녕</h1>
-<%-- 		<%
+<%-- 		
+장바구니 -> 주문
+1. 장바구니에서 수정한 수량을 update
+<%
     	String userIdx = request.getParameter("_userIdx");
 		String breadID = request.getParameter("_breadID");
 		String surrang = request.getParameter("_surrang");

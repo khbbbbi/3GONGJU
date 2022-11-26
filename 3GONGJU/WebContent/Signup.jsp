@@ -30,7 +30,7 @@
 			
 			window.name = "parentForm";
 		
-			window.open("idcheck.jsp?_id="+id,"", 'width='+ _width +', height='+ _height +', left=' + _left+',text-align=center' );
+			window.open("Idcopycheck.jsp?_id="+id,"", 'width='+ _width +', height='+ _height +', left=' + _left+',text-align=center' );
     		
     	}else{
     		alert('아이디를 입력해주세요');
@@ -137,7 +137,7 @@
                 <h1 style="text-align: center; font-size: 30px;text-decoration: overline;">회원가입</h1>
                 <article class="menu_container">
                 	<!-- 원래 div였는데 form태그로 수정 (값 넘기기 위함) -->
-                    <form action = "test.jsp" method = "post" >
+                    <form action = "Signup_Insert.jsp" method = "post" >
                     <div class = "item">
                       <div>
 							이름<br><input type="text" name="_name" maxlength="20" >

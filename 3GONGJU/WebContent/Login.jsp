@@ -73,14 +73,16 @@
             <section class = "area_main">
                 <h1 style="text-align: center; font-size: 30px;text-decoration: overline;">Login</h1>
                 <article class="menu_container">
+                <form action = "Logincheck.jsp" method = "post">
                     <div class = "item">
                         <input type="text" style="width: 300px; height: 30px;" placeholder="아이디" 
-                        name="userID" maxlength="20">
+                        name="_id" maxlength="20">
                         <input type="password" style="width: 300px; height: 30px;" placeholder="비밀번호" 
-                        name="userPassword" maxlength="20">
-                        <button type="button" style="width: 310px; height: 40px;">로그인</button>
+                        name="_pw" maxlength="20">
+                        <input type="submit" value = "로그인" style="width: 310px; height: 40px;">
                         <p style="font-size: 12px;"><a href="Signup.jsp">회원가입</a></p>
                     </div>
+                </form>
                 </article>
 
             </section>

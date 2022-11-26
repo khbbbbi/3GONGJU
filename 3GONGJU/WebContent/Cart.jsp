@@ -149,7 +149,9 @@
                                         <input type = "number" class="cart_list_optionbtn" value="<%= count %>">
                                     </td>
                                     <td>
-                                    	<!-- int로 받아온 가격,수량을 곱해서 수량에 따른 상품가격 측정 -->
+                                    	<!-- int로 받아온 가격,수량을 곱해서 수량에 따른 상품가격 측정. 
+                                    	여기서 문제...수량을 변경할때마다 결제금액을 바꾸고싶음...ㅜ
+                                    	-->
                                     	<p class="sangpumprice"><%= price*count %></p>
                                     </td>
                                 </tr>

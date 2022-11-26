@@ -17,7 +17,7 @@
 	String surrang = request.getParameter("_surrang");
 	
 	//breadDAO에 디비 연결 있음.
-	bread.insert(userIdx,breadID, surrang);
+	bread.cartinsert(userIdx,breadID, surrang);
 	
 	%>
 	<script>
