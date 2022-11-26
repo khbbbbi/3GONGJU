@@ -58,4 +58,37 @@ public class breadDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	public void pluscount(String pluscartID) {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
+			Statement stmt = conn.createStatement();
+			
+			int i = 1;
+			stmt.executeUpdate("Update cart set count = count+1 where cartID = "+pluscartID+"" );
+			
+			stmt.close();
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	public void minuscount(String minuscartID) {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
+			Statement stmt = conn.createStatement();
+			
+			int i = 1;
+			stmt.executeUpdate("Update cart set count = count-1 where cartID = "+minuscartID+" and count>1" );
+			
+			stmt.close();
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
 }

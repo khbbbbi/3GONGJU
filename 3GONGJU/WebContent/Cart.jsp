@@ -1,3 +1,4 @@
+<!-- 한비 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import = "java.sql.*"%>
 <!DOCTYPE html>
@@ -44,7 +45,31 @@
     	checkboxes.forEach( (checkbox) => {checkbox.checked = selectAll.checked; } ) 
     	*/
     }
-
+    function godeletechecked(){
+    	document.gogo.action = "deletechecked.jsp";
+		document.gogo.submit();
+    }
+    function goshopping(){
+		document.gogo.action = "Menu.jsp";
+		document.gogo.submit();
+	}
+	function goorder(){
+		document.gogo.action = "Orderproduct.jsp";
+		document.gogo.submit();
+	}
+	function plus(clicked_id){
+		/* document.gogo.action = "plus.jsp?clicked_id";
+		document.gogo.submit(); */
+		//alert(clicked_id);
+		location.href="plus.jsp?_clickedcartID="+clicked_id+"";
+	}
+	function minus(clicked_id){
+		/* document.gogo.action = "plus.jsp?clicked_id";
+		document.gogo.submit(); */
+		//alert(clicked_id);
+		location.href="minus.jsp?_clickedcartID="+clicked_id+"";
+	}
+	
 </script>
     <header>
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
@@ -118,8 +143,8 @@
                         </ul>
                 </article>
                 <article id="sec2">
+                	<form name = "gogo" action = "deletechecked.jsp" method = "get">
                         <table class="cart__list">
-                        <form action = "deletechecked.jsp" method = "get">
                             <thead>
                                 <tr>
                                     <td colspan="2">상품정보</td>
@@ -162,13 +187,16 @@
                                     </td>
                                     <td class="cart_list_option">
                                         <p>상품명 : <%= breadname %></p>
-                                        <input  type = "number" class="cart_list_optionbtn" value="<%= count %>">
+                                        <input type = "button" onclick="minus(this.id)" id = "<%= cartID %>" value = "-">
+                                        <input id = "count" name = "_count" type = "text" class="cart_list_optionbtn" value="<%= count %>">              
+                                        <input type = "button" onclick="plus(this.id)" id = "<%= cartID %>" value = "+">
+                                        
                                     </td>
                                     <td>
                                     	<!-- int로 받아온 가격,수량을 곱해서 수량에 따른 상품가격 측정. 
                                     	여기서 문제...수량을 변경할때마다 결제금액을 바꾸고싶음...ㅜ
                                     	-->
-                                    	<p name = "_sangpumprice" class="sangpumprice"><%= price %></p>
+                                    	<p name = "_sangpumprice" class="sangpumprice"><%= price*count %></p>
                                     </td>
                                 </tr>
        <%
@@ -186,21 +214,22 @@
                             <tfoot>
                                 <tr>
                                     <td colspan="5"><input type="checkbox" name = "selectall" onclick='selectAll(this)'> 
-                                        <button class="cart_list_optionbtn" onclick = "deleteproduct()">선택상품 삭제</button>
+                                        <button class="cart_list_optionbtn" onclick = "godeletechecked()">선택상품 삭제</button>
   
                                     </td>
                                 </tr>
                             </tfoot>
-                        </form>
+                        
                     </table>
 					<div class = "price">
                          <h3>전체금액</h3>
                          <input id="one" type="text" value="15000" style="width:300px;font-size:20px;"disabled>
                     </div>
                     <div class="cart_mainbtns">
-                        <button class="cart_bigorderbtn left" onclick = "location.href='Menu.jsp'">쇼핑 계속하기</button>
-                        <button class="cart_bigorderbtn right" onclick="order()">픽업예약하기</button>
+                        <button class="cart_bigorderbtn left" onclick = "goshopping()">쇼핑 계속하기</button>
+                        <button class="cart_bigorderbtn right" onclick="goorder()">픽업예약하기</button>
                     </div>
+                    </form>
                 </article>
             </section>
             

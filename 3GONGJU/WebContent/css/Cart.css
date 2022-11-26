@@ -212,9 +212,12 @@ table {
   .cart_list_option {
     vertical-align: top;
     padding: 20px;
-    
   }
  
+  #count{
+  	width: 20px;
+  	text-align: center;
+  }
   .cart_list_option p {
     margin-bottom: 25px;
     padding-bottom:10px;
@@ -228,14 +231,13 @@ table {
     border: lightgrey solid 1px;
     padding: 7px;
   }
-  
-  .cart_list_detail :nth-child(4),
-  .cart_list_detail :nth-child(5),
-  .cart_list_detail :nth-child(6) {
-    border-left: 2px solid whitesmoke;
+ .cart_list_detail :nth-child(3){
+    border-right: 1px solid lightgray;
   }
-  .cart_list_detail :nth-child(5),
-  .cart_list_detail :nth-child(6) {
+  .cart_list_detail :nth-child(5){
+    border-left: 1px solid lightgray;
+  }
+  .cart_list_detail :nth-child(5){
     text-align: center;
   }
 

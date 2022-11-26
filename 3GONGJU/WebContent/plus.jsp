@@ -1,4 +1,4 @@
-<!-- 한비 -->
+<%@page import="bread.breadDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,12 +10,14 @@
 <body>
 <jsp:useBean id = "bread" class = "bread.breadDAO"></jsp:useBean>
 <%
-	String state = (String)session.getAttribute("__ID");
-	String[] checked = request.getParameterValues("category");
-
-	bread.checkeddelete(state, checked);
-
+	String pluscartID = request.getParameter("_clickedcartID");
+	
+	//out.println(pluscartID);
+	
+	bread.pluscount(pluscartID);
+	
 	response.sendRedirect("Cart.jsp");
+	//out.println("<script>history.back();</script>");
 %>
 </body>
 </html>
