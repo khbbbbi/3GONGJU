@@ -1,5 +1,5 @@
 <!-- 아이디 중복확인 버튼 누르면 나오는 팝업창 8 -->
-
+<!-- 한비 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*" %>
 <!DOCTYPE html>

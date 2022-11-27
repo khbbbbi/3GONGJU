@@ -1,3 +1,5 @@
+<!-- 수량 수정 : 플러스 -->
+<!-- 한비 -->
 <%@page import="bread.breadDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

@@ -1,7 +1,7 @@
+<!-- 예약확인화면 (주문하기 누르면 주문한 목록이 뜨는 화면) -->
 <!-- 현희 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*" %>
-<!-- 예약확인화면 (주문하기 누르면 주문한 목록이 뜨는 화면) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

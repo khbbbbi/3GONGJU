@@ -1,3 +1,6 @@
+<!-- 장바구니에서 주문하기 누를때 페이지-->
+<!-- 장바구니에서 선택된 상품들의 정보를 가져옴 -->
+<!-- 한비 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import = "java.sql.*"%>
 <!DOCTYPE html>

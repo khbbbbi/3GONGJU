@@ -1,5 +1,4 @@
-<!-- 선택상품 삭제, 수량수정, 선택상품의 금액만 계산  -->
-<!-- 한비 -->
+<!-- 체크박스에 따라서 전체금액이 ....cartID의 합계로됨 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import = "java.sql.*"%>
 <!DOCTYPE html>
@@ -9,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>장바구니</title>
-    <link rel="stylesheet" href="css/Cart.css" />
+    <link rel="stylesheet" href="Cart.css" />
 </head>
 <body>
 <jsp:useBean id = "bread" class = "bread.breadDAO"></jsp:useBean>
@@ -24,7 +23,7 @@
         }
 	}
 	// 체크박스 중 하나라도 해제되면 전체선택 체크박스 체크해제
-/* 	var sum = 0;
+/*  	var sum = 0;
     function checkSelectAll()  {
         // 전체 체크박스
         const checkboxes = document.querySelectorAll('input[name="category"]');
@@ -40,40 +39,30 @@
             selectAll.checked = false;
         } 
         
-    } */
-    
-    var sum=0;
+    }  */
+    var sum = 0;
     function checkSelectAll(price, cBox) {
-    var sumtext = document.getElementById("sumtext"); // 이런것들 무조건 function안에 쓰기.
-    if(cBox.checked)
-        sum += parseInt(price);
-    else
-       sum -= parseInt(price);
-    sumtext.value = sum;
-        //document.getElementById("sumtext").value = sum;
+        //alert(price, cBox);
+    	var sumtext = document.getElementById("sumtext"); // 이런것들 무조건 function안에 쓰기.
         
-        /* const checkboxes = document.querySelectorAll('input[name="category"]');
-        const checked = document.querySelectorAll('input[name="category"]:checked');
-        const selectAll = document.querySelector('input[name="selectall"]');
-        if(checkboxes.length === checked.length)  {
-            selectAll.checked = true;
-        }else {
-            selectAll.checked = false;
-        }  */
+        if(cBox.checked)
+            sum += parseInt(price);
+        else
+           sum -= parseInt(price);
+        sumtext.value = sum;
+
     }
     
-/*     //전체선택 체크박스 선택하면 나머지 체크박스 전체 선택 or 해제
+/*      //전체선택 체크박스 선택하면 나머지 체크박스 전체 선택 or 해제
     function selectAll(selectAll)  {
         const checkboxes = document.getElementsByName('category');
     	checkboxes.forEach(function(checkbox){checkbox.checked = selectAll.checked;})
     	/* 
     	위에꺼랑 이거랑 똑같은데 vscode에서는 =>가 먹고 이클립스에선 =>가 안됨. 이유 모름.
     	checkboxes.forEach( (checkbox) => {checkbox.checked = selectAll.checked; } ) 
-    	*/
-/*     	if(checkboxes.length === checked.length)  {
-            selectAll.checked = true;
-        }
-    } */
+    	
+     	
+    }  */
     function godeletechecked(){
     	document.gogo.action = "deletechecked.jsp";
 		document.gogo.submit();
@@ -241,7 +230,7 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="5"><!-- <input type="checkbox" name = "selectall" onclick='selectAll(this)'>  -->
+                                    <td colspan="5"><input type="checkbox" name = "selectall" onclick='selectAll(this)'>
                                         <button class="cart_list_optionbtn" onclick = "godeletechecked()">선택상품 삭제</button>
   
                                     </td>

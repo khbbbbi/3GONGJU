@@ -4,12 +4,12 @@ import java.sql.*;
 public class breadDAO {
 
 	//장바구니에 삽입 cart_insert.jsp에서 사용
-	public void cartinsert(String userId, String breadID, String surrang) {
+	public void cartinsert(String state, String breadID, String surrang) {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
 			Statement stmt = conn.createStatement();
-			stmt.executeUpdate("Insert into cart (userId, breadID, count) values('"+userId+"','"+breadID+"','"+surrang+"')");
+			stmt.executeUpdate("insert into cart(userIdx,breadID, count) values((select userIdx from user where userId = '"+state+"'), '"+breadID+"', '"+surrang+"')");
 			
 			//stmt.executeUpdate(
 			//		"INSERT INTO cart (userIdx, breadID, count) SELECT '2','"+breadID+"','"+surrang+"'"
@@ -23,6 +23,7 @@ public class breadDAO {
 		}
 	}
 	
+	//회원가입
 	public void userinsert(String name, String id, String pw) {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
@@ -42,6 +43,7 @@ public class breadDAO {
 		}
 	}
 	
+	//선택된 상품 장바구니에서 삭제
 	public void checkeddelete(String state, String[] checked) {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
@@ -59,7 +61,7 @@ public class breadDAO {
 		}
 	}
 	
-	
+	//수량 +
 	public void pluscount(String pluscartID) {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
@@ -75,6 +77,8 @@ public class breadDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	//수량 -
 	public void minuscount(String minuscartID) {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
@@ -91,4 +95,5 @@ public class breadDAO {
 		}
 	}
 	
+
 }

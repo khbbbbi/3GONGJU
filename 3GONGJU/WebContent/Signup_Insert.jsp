@@ -1,4 +1,5 @@
 <!-- 회원가입하면 user테이블에 정보 insert -->
+<!-- 한비 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
