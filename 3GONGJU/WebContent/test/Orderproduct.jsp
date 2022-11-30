@@ -12,27 +12,36 @@
 <body>
 <%
 	String state = (String)session.getAttribute("__ID");
-	String[] checked = request.getParameterValues("category");
+	String[] checked = request.getParameterValues("category");	//cartid
+	String checkedID = new String();
 	
 	 try {      
          Class.forName("com.mysql.jdbc.Driver");
          Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
          Statement stmt = conn.createStatement();
-         
-         String sql = "select * from cart, breadinfo, user where cart.breadID = breadinfo.breadID and cart.userIdx = user.userIdx and user.userId = "+state+"";
-         ResultSet rs = stmt.executeQuery(sql);
 
+         for(int i = 0; i < checked.length; i++){
+         	String sql = "select * from cart, breadinfo where cart.breadID = breadinfo.breadID and cart.cartID = '"+checked[i]+"'";
+         	ResultSet rs = stmt.executeQuery(sql);
+        	 
          while(rs.next()){
+        	 String cartID = rs.getString("cartID");
+        	 String breadname = rs.getString("breadname");
+        	 String price = rs.getString("price");
+        	 
+        	 out.println(cartID);
+        	 out.println(breadname);
+        	 out.println(price);
          }
-	  		rs.close();
-	  		stmt.close();
-	  		conn.close();
+         rs.close();
+         }
+         stmt.close();
+	  	 conn.close();
 	 		
 	 } catch (Exception e) {
 	     e.printStackTrace();
 	 }
 
      %>
-%>
 </body>
 </html>

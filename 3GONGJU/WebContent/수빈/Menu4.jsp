@@ -1,4 +1,5 @@
 <!-- 헤더 홍길동님 누르면 홍길동이 Myinfo로 전달되며 페이지 이동 -->
+<!-- 수빈 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*" %>
     <%@ page import="java.io.PrintWriter" %>
@@ -24,15 +25,12 @@
         }
    }
    function selectAll(selectAll)  {
-	   location.href="menu2Action.jsp?catagory=";
+	   location.href="MenuAction.jsp?catagory=";
       /* 
       위에꺼랑 이거랑 똑같은데 vscode에서는 =>가 먹고 이클립스에선 =>가 안됨. 이유 모름.
       checkboxes.forEach( (checkbox) => {checkbox.checked = selectAll.checked; } ) 
       */
    }
-   
-   
- 
 </script>
 <body>
     <header>
@@ -57,8 +55,8 @@
                             <ul id="sub-menu">
                                 <li><a href="Menu.jsp" >전체</a></li>
                                 <li><a href="Menu.jsp" aria-label="subemnu">도넛</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">빵</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">식사용</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">파이</a></li>
                                 <li><a href="Menu.jsp" aria-label="subemnu">케이크</a></li>
                                 <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>
                             </ul>
@@ -80,6 +78,8 @@
                 </div>
         </div>
     </header>
+    
+    
     <div class = "area_all">
             <section class = "container">
                 <article class = "item">
@@ -97,19 +97,42 @@
                                 <option>가격낮은순</option>
                             </select>
                         </li>
+                          <li class="li_gap">|</li>
+                          
+                        <!-- 전체일때 -->
+                        <li class="li_gap">
+                        <a href =" Menu4.jsp">전체
+                        </a>
+                        </li>
+                        
+                        
+                        <!-- pie일때 -->
+                        <% String pie_ = "pie"; %> 
+                        <li class="li_gap">
+                        <a href =" Menu4.jsp?cate_=<%=pie_%>" > 
+                        <img src="images/pie.png">
+                        </a>
+                        </li>
+                        
+                        <!-- 식사용일때 -->
+                        <% String meal_ = "meal"; %>
+                        <li class="li_gap">
+                        <a href =" Menu4.jsp?cate_=<%=meal_%>">MEAL
+                        </a>
+                        </li>
+                        
+                           <!-- 도넛일때 -->
+                        <% String donut_ = "donut"; %>
+                        <li class="li_gap">
+                        <a href =" Menu4.jsp?cate_=<%=donut_%>">donut
+                        </a>
+                        </li>
                         <li class="li_gap">|</li>
-                        <li class="li_gap"><input type="radio" name="category" onclick='selectAll(this)'>전체</li>
-                        <li class="li_gap">|</li>
-                        <li class="li_gap"><input type="radio" name="category" onclick='checkSelectAll()'>도넛</li>
-                        <li class="li_gap">|</li>
-                        <li class="li_gap"><input type="radio" name="category" onclick='checkSelectAll()'>빵</li>
-                        <li class="li_gap">|</li>
-                        <li class="li_gap"><input type="radio" name="category" onclick='checkSelectAll()'>쿠키</li>
-                        <li class="li_gap">|</li>
-                        <li class="li_gap"><input type="radio" name="category" onclick='checkSelectAll()'>케익</li>
-                        <li class="li_gap">|</li>
-                        <li class="li_gap"><input type="radio" name="category" onclick='checkSelectAll()'>음료</li>
-                        <li class="li_gap">|</li>
+                        
+                        
+                        
+                        
+                        
                     </ul>
                     <form action="MenuAction.jsp" method="post">
                     <div class="search">
@@ -126,31 +149,43 @@
                         <ul id="header_navi">
                            <%
       try {
-         
+    	  String url = "jdbc:mysql://localhost:3307/teampj";
+    	  
+    	  
          
     	  Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
+			Connection conn = DriverManager.getConnection(url, "root", "1234");
 			Statement stmt = conn.createStatement();
-
          //ResultSet rs = stmt.executeQuery("select breadname, category from bread");
-         String category_ = "pie";
-         String sql = "select breadname from breadinfo where category like 'pie'  ";
-            ResultSet rs = stmt.executeQuery(sql);
+         String sql =null;
+           String cate = null;
+           ResultSet rs = null;
+           
+          if(request.getParameter("cate_") != null){
+        		   cate = request.getParameter("cate_");
+        		   sql = "select breadname from breadinfo where category like '"+cate+"' ";
+        		    rs = stmt.executeQuery(sql);
+        		   
+          }else if(request.getParameter("cate_") == null || request.getParameter("cate_").equals("")){
+        	   sql = "select breadname from breadinfo";
+        	    rs = stmt.executeQuery(sql);
+          }
+           System.out.print("cate :" +cate);
    %>
    <table border="1" >
       
      <tr>
       <%
          while (rs.next()) {
-       
                String breadname = rs.getString("breadname");
-               /* String category = rs.getString("category"); */
                out.println("<th width =300>");
                out.println("<td width ='300'>" + breadname + "</td>");
-               /* out.println("<td width='100'>" + category + "</td>"); */
                out.println("</th>");
-              
          } 
+      rs.close();
+      
+      stmt.close();
+      conn.close();
       %>
       </tr>
    </table>

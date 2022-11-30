@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import = "java.sql.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -198,65 +198,7 @@
                             </select>
                             <select>
                                 <option>00분</option>
-                                <!-- <option>01분</option>
-                                <option>02분</option>
-                                <option>03분</option>
-                                <option>04분</option> 
-                                <option>05분</option>
-                                <option>06분</option>
-                                <option>07분</option>
-                                <option>08분</option>
-                                <option>09분</option>
-                                <option>10분</option>
-                                <option>11분</option>
-                                <option>12분</option>
-                                <option>13분</option> 
-                                <option>14분</option>
-                                <option>15분</option>
-                                <option>16분</option>
-                                <option>17분</option>
-                                <option>18분</option>
-                                <option>19분</option>
-                                <option>20분</option>
-                                <option>21분</option>
-                                <option>22분</option> 
-                                <option>23분</option>
-                                <option>24분</option>
-                                <option>25분</option>
-                                <option>26분</option>
-                                <option>27분</option>
-                                <option>28분</option>
-                                <option>29분</option> -->
                                 <option>30분</option>
-                                <!-- <option>31분</option> 
-                                <option>32분</option>
-                                <option>33분</option>
-                                <option>34분</option>
-                                <option>35분</option>
-                                <option>36분</option>
-                                <option>37분</option>
-                                <option>38분</option>
-                                <option>39분</option>
-                                <option>40분</option> 
-                                <option>41분</option>
-                                <option>42분</option>
-                                <option>43분</option>
-                                <option>44분</option>
-                                <option>45분</option>
-                                <option>46분</option>
-                                <option>47분</option>
-                                <option>48분</option>
-                                <option>49분</option> 
-                                <option>50분</option>
-                                <option>51분</option>
-                                <option>52분</option>
-                                <option>53분</option>
-                                <option>54분</option>
-                                <option>55분</option>
-                                <option>56분</option>
-                                <option>57분</option>
-                                <option>58분</option> 
-                                <option>59분</option> -->
                             </select>
                         </div>
                         </div>
@@ -274,33 +216,58 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+<%
+	String[] checked = request.getParameterValues("category");	//cartid
+	String checkedID = new String();
+	
+	 try {      
+         Class.forName("com.mysql.jdbc.Driver");
+         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
+         Statement stmt = conn.createStatement();
+
+         for(int i = 0; i < checked.length; i++){
+         	String sql = "select * from cart, breadinfo where cart.breadID = breadinfo.breadID and cart.cartID = '"+checked[i]+"'";
+         	ResultSet rs = stmt.executeQuery(sql);
+        	 
+         while(rs.next()){
+        	 String cartID = rs.getString("cartID");
+        	 String breadname = rs.getString("breadname");
+        	 int price = Integer.parseInt(rs.getString("price"));
+        	 int count = Integer.parseInt(rs.getString("count"));
+%>
+                        
                                     <tr class="cart_list_detail">
                                         <td>
-                                            <p>딸기라떼</p>
+                                            <p><%= breadname %></p>
                                         </td>
-                                        <td>3500원</td>
+                                        <td><%= price%></td>
                                         <td class="cart_list_option">
-                                            <input type = "number" class="cart_list_optionbtn" value="2" style = "text-align: right" disabled/>
+                                            <input type = "number" class="cart_list_optionbtn" value=<%= count %> style = "text-align: right" disabled/>
                                         </td>
-                                        <td><p>7,000원</p></td>
+                                        <td><p><%= price*count %></p></td>
+                                        <input type = "hidden" id = "total" value = <%= price*count %>>
                                     </tr>
-                                    <tr class="cart_list_detail">
-                                        <td>
-                                            <p>녹차라떼</p>
-                                        </td>
-                                        <td>3,500원</td>
-                                        <td class="cart_list_option">
-                                            <input type = "number" class="cart_list_optionbtn" value="1" style = "text-align: right" disabled/>
-                                        </td>
-                                        <td><p>3,500원</p></td>
-                                    </tr>
+     <%    }
+         rs.close();
+         }
+         stmt.close();
+	  	 conn.close();%>
+	 	        
                                 </tbody>
                             </form>     
                         </table>
                         <div class = "price">
                             <h3>전체금액</h3>
-                            <input id="one" type="text" value="15000" style="width:300px;font-size:20px;"disabled>
+                            <% int Productprice = Integer.parseInt(request.getParameter("Productprice")); %>
+                            <input id="one" type="text" value="<%= Productprice %>" style="width:300px;font-size:20px;"disabled>
                         </div>
+                        <%	
+	 } catch (Exception e) {
+	     e.printStackTrace();
+	 }
+
+     %>        
+     
                         <div class = "lastbtn">
                             <input class="but" type="reset" value="취소하기" onclick="resetorder()">
                             <input class="but" type="submit" value="픽업예약하기" onclick="goorder()">

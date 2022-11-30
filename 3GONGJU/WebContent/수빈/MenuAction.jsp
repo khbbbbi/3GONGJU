@@ -1,4 +1,5 @@
 <!-- 헤더 홍길동님 누르면 홍길동이 Myinfo로 전달되며 페이지 이동 -->
+<!-- 수빈 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*" %>
     <%@ page import="java.io.PrintWriter" %>

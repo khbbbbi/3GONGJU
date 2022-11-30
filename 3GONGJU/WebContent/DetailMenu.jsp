@@ -32,7 +32,7 @@
         }
 	}
 	
-	function goorder(){
+/* 	function goorder(){
 		if (confirm('주문하러 가시겠어요?')) {
         	// 네!
         	location.href="Order.jsp";
@@ -40,7 +40,7 @@
         	//아니오ㅡ.ㅡ
         	location.href="#";
         }
-	}
+	} */
 	
 	/* 한 페이지에서 submit 여러개 쓸때 input type을 submit->button으로 바꾸고 onclick으로 함수 호출하여 밑에와 같이 함수 작성 (detail은 form이름임.) */
 	function gocart(){
@@ -48,7 +48,7 @@
 		document.detail.submit();
 	}
 	function goorder(){
-		document.detail.action = "test.jsp";
+		document.detail.action = "Order.jsp";
 		document.detail.submit();
 	}
 </script>

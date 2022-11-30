@@ -45,8 +45,9 @@
     var sum=0;
     function checkSelectAll(price, cBox) {
     var sumtext = document.getElementById("sumtext"); // 이런것들 무조건 function안에 쓰기.
+    
     if(cBox.checked)
-        sum += parseInt(price);
+        sum += parseInt(price); 
     else
        sum -= parseInt(price);
     sumtext.value = sum;
@@ -83,7 +84,7 @@
 		document.gogo.submit();
 	}
 	function goorder(){
-		document.gogo.action = "Orderproduct.jsp";
+		document.gogo.action = "Order.jsp";
 		document.gogo.submit();
 	}
 	function plus(clicked_id){
@@ -207,7 +208,7 @@
 	     %>
                                 <tr class="cart_list_detail">
                                     <input type = "hidden" value = <%=cartID %>>
-                                    <td  style="width: 5%;"><input type="checkbox" name="category" value =<%=cartID %> onclick='checkSelectAll("<%=price %>", this)'>
+                                    <td  style="width: 5%;"><input type="checkbox" name="category" value =<%=cartID %> onclick='checkSelectAll("<%=price*count %>", this)'>
                                     </td>
                                     <td>
                                     	<span class="cart_list_3GongJu">3GongJu</span>
@@ -251,7 +252,7 @@
                     </table>
 					<div class = "price">
                          <h3>전체금액</h3>
-                         <input id="sumtext" type="text" value="0" style="width:300px;font-size:20px;"disabled>
+                         <input id="sumtext" name = "Productprice" type="text" value="0" style="width:300px;font-size:20px;"readonly="readonly">
                     </div>
                     <div class="cart_mainbtns">
                         <button class="cart_bigorderbtn left" onclick = "goshopping()">쇼핑 계속하기</button>
