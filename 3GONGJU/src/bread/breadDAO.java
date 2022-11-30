@@ -95,5 +95,18 @@ public class breadDAO {
 		}
 	}
 	
+	public void orderinsert(String pickupstore, String pickupdate, String state, String total, String orderdate) {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate("insert into orderpro(pickupstore,pickupDate, userIdx, tatalprice, orderdate) values('"+pickupstore+"','"+pickupdate+"',(select userIdx from user where userId = '"+state+"'), '"+total+"', '"+orderdate+"')");
 
+			stmt.close();
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
 }

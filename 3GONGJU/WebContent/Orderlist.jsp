@@ -85,8 +85,9 @@
                         <thead>
                             <tr>
                             	<td>주문일자</td>
-                                <td>상품정보</td>
-                                <td>수량</td>
+                                <!-- <td>상품정보</td>
+                                <td>수량</td> -->
+                                <td>픽업지점</td>
                                 <td>픽업일</td>
                                 <td>결제금액</td>
                             </tr>
@@ -127,30 +128,32 @@
 							sql += 	"	ORDER BY orderID desc";				//주문번호 내림차순 정렬 */
 						 	
 							//String sql = "select * from user, orders, breadinfo where user.userIdx = orders.userIdx and orders.breadID = breadinfo.breadID and user.userID = '"+state+"';";
-							String sql = "select * from user, ordertest, breadinfo where user.userIdx = ordertest.userIdx and ordertest.breadID = breadinfo.breadID and user.userID = '"+state+"';";
+							String sql = "select * from user, orderpro where user.userIdx = orderpro.userIdx  and user.userID = '"+state+"';";
 							
 							// 4) 실행
 							ResultSet rs = stmt.executeQuery(sql);
 				
 							// 5) 결과를 테이블에 출력
 							while (rs.next()) {
-								String orderdate = rs.getString("ordertest.orderdate");			//주문일자
-								String breadname = rs.getString("breadinfo.breadname");			//메뉴명
-								String price = rs.getString("breadinfo.price");							//가격
-								String count = rs.getString("ordertest.count");						//수량 불가능, orders 테이블에 수량컬럼이 추가되어야 가져올 수 있음
-								String pickupDate = rs.getString("ordertest.pickupDate");			//픽업일
-								String tatalprice = rs.getString("ordertest.tatalprice");				//결제금액
+								String orderdate = rs.getString("orderpro.orderdate");			//주문일자
+								//String breadname = rs.getString("breadinfo.breadname");			//메뉴명
+								//String price = rs.getString("breadinfo.price");							//가격
+								//String count = rs.getString("orderpro.count");						//수량 불가능, orders 테이블에 수량컬럼이 추가되어야 가져올 수 있음
+								String pickstore = rs.getString("orderpro.pickupstore");
+								String pickupDate = rs.getString("orderpro.pickupDate");			//픽업일
+								String tatalprice = rs.getString("orderpro.tatalprice");				//결제금액
 						%>
                             <tr class="cart_list_detail">
 								<td><%= orderdate %></td>
-                                <td><span class="cart_list_3GongJu">3GongJu</span>
+                                <%-- <td><span class="cart_list_3GongJu">3GongJu</span>
                                     <p><%=breadname%></p>
                                     <sapn class="price"><%=price%>원</sapn>
                                 </td>
                                 <td class="cart_list_option">
                                     <input value = <%= count %> type = "number" class="cart_list_optionbtn" value="0" style = "text-align: right" disabled/>
-                                </td>
-                                <td><%=pickupDate%></td>
+                                </td>--%>
+                                 <td><%=pickstore%></td>
+                                 <td><%=pickupDate%></td>
                                 <td><span class="price"><%=tatalprice%>원</span>
                                 </td>
                             </tr>

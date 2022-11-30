@@ -1,3 +1,4 @@
+<!-- detailmenu에서 넘어온 order -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import = "java.sql.*"%>
 <!DOCTYPE html>
@@ -13,7 +14,7 @@
 	function resetorder(){
         if (confirm('정말 주문을 취소하시겠어요?')) {
         	// 네!
-        	history.back();
+        	location.href="Menu.jsp";
         } else {
         	//아니오ㅡ.ㅡ
         	location.href="#";
@@ -30,16 +31,6 @@
         }
 	}
 	
-	/* function goorder(){
-		if (confirm('주문을 확정하시겠어요?')) {
-        	// 네!
-			document.detail.action = "Insert_order.jsp";
-			document.detail.submit();
-        } else {
-        	//아니오ㅡ.ㅡ
-        	location.href="#";
-        }
-	} */
 	function goorder(){
 		if (confirm('주문을 확정하시겠어요?')) {
         	// 네!
@@ -119,7 +110,7 @@
             <section class = "area_main">
                 <h1 style="text-align: center; font-size: 30px;text-decoration: overline;">픽업 예약하기</h1>
                 <article class="container">
-        		<form action = "Insert_order.jsp" method = "get">
+       			 <form action = "Insert_order.jsp" method = "post">
                     <div class = "date">
                         <p style="text-align: left;">Pickup_Info</p>
                         <div class = "date_grid">
@@ -220,28 +211,20 @@
 	String[] checked = request.getParameterValues("category");	//cartid
 	String checkedID = new String();
 	String breadID = request.getParameter("_breadID");
+	int count = Integer.parseInt(request.getParameter("_surrang"));
 	
 	 try {      
          Class.forName("com.mysql.jdbc.Driver");
          Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
          Statement stmt = conn.createStatement();
-         
-         if(checked == null){
-  			String sql = "select * from breadinfo where breadID = "+breadID+"";
-          }
-        
-         for(int i = 0; i < checked.length; i++){
-        	
-         	String sql = "select * from cart, breadinfo where cart.breadID = breadinfo.breadID and cart.cartID = '"+checked[i]+"'";
-         	ResultSet rs = stmt.executeQuery(sql);
-         	 
+
+         String sql =  "select * from breadinfo where breadID = "+breadID+"";
+         ResultSet rs = stmt.executeQuery(sql);
+        	 
          while(rs.next()){
         	 String breadID2 = rs.getString("breadID");
-        	 String cartID = rs.getString("cartID");
         	 String breadname = rs.getString("breadname");
         	 int price = Integer.parseInt(rs.getString("price"));
-        	 int count = Integer.parseInt(rs.getString("count"));
-        	 
 %>
                         
                                     <tr class="cart_list_detail">
@@ -252,25 +235,20 @@
                                         <td><%= price%></td>
                                         <td class="cart_list_option">
                                             <input type = "number" class="cart_list_optionbtn" value=<%= count %> style = "text-align: right" disabled/>
-                                        <input type = "hidden" name = "_count" value = <%= count %>>
                                         </td>
                                         <td><p><%= price*count %></p></td>
+                                        <input type = "hidden" id = "total" value = <%= price*count %>>
                                     </tr>
-     <%    }
-         rs.close();
-         }
-         stmt.close();
-	  	 conn.close();%>
-	 	        
                                 </tbody>
                         </table>
                         <div class = "price">
                             <h3>전체금액</h3>
-                            <% int Productprice = Integer.parseInt(request.getParameter("Productprice")); %>
-                            <input id="one" type="text" value="<%= Productprice %>" style="width:300px;font-size:20px;"disabled>
-                            <input name = "_total" value="<%= Productprice %>" type = "hidden">
+                            <input id="one" type="text" value="<%=  price*count %>" style="width:300px;font-size:20px;"disabled>
                         </div>
-                        <%	
+     <%    }
+          rs.close();
+          stmt.close();
+          conn.close();
 	 } catch (Exception e) {
 	     e.printStackTrace();
 	 }
@@ -278,7 +256,7 @@
      %>        
      
                         <div class = "lastbtn">
-                            <input class="but" type="reset" value="취소하기" onclick="resetorder()">
+                            <input class="but" type="submit" value="취소하기" onclick="resetorder()">
                             <input class="but" type="submit" value="픽업예약하기" onclick="goorder()">
                         </div>
                     </div>

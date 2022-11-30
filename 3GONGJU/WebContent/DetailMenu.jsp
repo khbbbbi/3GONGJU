@@ -48,7 +48,7 @@
 		document.detail.submit();
 	}
 	function goorder(){
-		document.detail.action = "Order.jsp";
+		document.detail.action = "Order1.jsp";
 		document.detail.submit();
 	}
 </script>
