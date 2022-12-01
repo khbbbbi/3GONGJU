@@ -204,7 +204,6 @@
 		        	//수량에 따른 상품가격을 측정하기위해 int로 받아옴.
 		        	int  price = rs.getInt("price");
 		        	int count = rs.getInt("count");
-
 	     %>
                                 <tr class="cart_list_detail">
                                     <input type = "hidden" value = <%=cartID %>>

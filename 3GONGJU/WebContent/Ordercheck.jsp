@@ -78,8 +78,11 @@
 						//String getOrderID = request.getParameter("orderID");
 						//※추후주석	테스트용으로 임시 주문번호 선언, 1이라 가칭			
 						String pickupstore = request.getParameter("_store");
+						if(pickupstore.equals("Incheon")) {pickupstore = "인천점";}
+						if(pickupstore.equals("Suwon")) {pickupstore = "수원점";}
+						if(pickupstore.equals("Ilsan")) {pickupstore = "일산점";}
 						String pickupdate = request.getParameter("_pickupdate");
-						String total = request.getParameter("_total");
+						String total = request.getParameter("_JJintotal");
 						
 						%>
                             <tr>

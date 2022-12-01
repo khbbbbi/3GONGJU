@@ -134,73 +134,73 @@
                         <p><img src="./images/Cal.png" width="30" height="20">픽업일</p>
                         <div class = "item">
                             <p style="font-size: 8px;">&#x261D; 시간을 정확히 입력해주세요 &#x261D;</p>
-                            <select name = "_pickupMonth" value = "01월">
-                                <option>01월</option>
-                                <option>02월</option>
-                                <option>03월</option>
-                                <option>04월</option>
-                                <option>05월</option>
-                                <option>06월</option>
-                                <option>07월</option>
-                                <option>08월</option>
-                                <option>09월</option>
-                                <option>10월</option>
-                                <option>11월</option>
-                                <option>12월</option>
-                            </select>
+                            <select name = "_pickupMonth" value = "01">
+                                <option>01</option>
+                                <option>02</option>
+                                <option>03</option>
+                                <option>04</option>
+                                <option>05</option>
+                                <option>06</option>
+                                <option>07</option>
+                                <option>08</option>
+                                <option>09</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                            </select>월
     
-                            <select name = "_pickupDay" value = "01일">
-                                <option>01일</option>
-                                <option>02일</option>
-                                <option>03일</option>
-                                <option>04일</option>
-                                <option>05일</option>
-                                <option>06일</option>
-                                <option>07일</option>
-                                <option>08일</option>
-                                <option>09일</option>
-                                <option>10일</option>
-                                <option>11일</option>
-                                <option>12일</option>
-                                <option>13일</option>
-                                <option>14일</option>
-                                <option>15일</option>
-                                <option>16일</option>
-                                <option>17일</option>
-                                <option>18일</option>
-                                <option>19일</option>
-                                <option>20일</option>
-                                <option>21일</option>
-                                <option>22일</option>
-                                <option>23일</option>
-                                <option>24일</option>
-                                <option>25일</option>
-                                <option>26일</option>
-                                <option>27일</option>
-                                <option>28일</option>
-                                <option>29일</option>
-                                <option>30일</option>
-                                <option>31일</option>
-                            </select>
-                            <select name = "_pickuphour" value = "09시">
-                                <option>09시</option>
-                                <option>10시</option>
-                                <option>11시</option>
-                                <option>12시</option>
-                                <option>13시</option>
-                                <option>14시</option>
-                                <option>15시</option>
-                                <option>16시</option>
-                                <option>17시</option>
-                                <option>18시</option>
-                                <option>19시</option>
-                                <option>20시</option>
-                                <option>21시</option>
-                            </select>
-                            <select name = "_pickupminute" value = "00분">
-                                <option>00분</option>
-                                <option>30분</option>
-                            </select>
+                            <select name = "_pickupDay" value = "01">
+                                <option>01</option>
+                                <option>02</option>
+                                <option>03</option>
+                                <option>04</option>
+                                <option>05</option>
+                                <option>06</option>
+                                <option>07</option>
+                                <option>08</option>
+                                <option>09</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
+                                <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+                                <option>29</option>
+                                <option>30</option>
+                                <option>31</option>
+                            </select>일
+                            <select name = "_pickuphour" value = "09">
+                                <option>09</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                            </select>시
+                            <select name = "_pickupminute" value = "00">
+                                <option>00</option>
+                                <option>30</option>
+                            </select>분
                         </div>
                         </div>
                     </div>
@@ -241,9 +241,7 @@
         	 String breadname = rs.getString("breadname");
         	 int price = Integer.parseInt(rs.getString("price"));
         	 int count = Integer.parseInt(rs.getString("count"));
-        	 
 %>
-                        
                                     <tr class="cart_list_detail">
                                         <td>
                                         <input type = "hidden" value = <%= breadID2%> name = "_breadID">
@@ -255,6 +253,7 @@
                                         <input type = "hidden" name = "_count" value = <%= count %>>
                                         </td>
                                         <td><p><%= price*count %></p></td>
+                                        <input type = "hidden" name = "_productprice" value = <%= price*count %>>
                                     </tr>
      <%    }
          rs.close();
