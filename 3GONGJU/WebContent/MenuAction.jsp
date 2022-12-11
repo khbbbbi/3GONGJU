@@ -1,4 +1,4 @@
-<!-- 헤더 홍길동님 누르면 홍길동이 Myinfo로 전달되며 페이지 이동 -->
+<!-- 메뉴 검색했을때 화면 -->
 <!-- 수빈 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*" %>
@@ -32,17 +32,22 @@
       */
    }
    
-   
- 
 </script>
 <body>
     <header>
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
         <div class = "area_header">
             <div class = "gita">
-                <a href="Myinfo.jsp" class="link_text" style="color: darkslateblue">홍길동</a>님
-                <a href="#" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>
-                <a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
+            <% 
+            	String state = (String)session.getAttribute("__ID");
+            	if(state ==null){%>
+            		<a href="Login.jsp" class="link_text" style="color: darkslateblue">로그인해주세요</a>
+            	<%}else{%>
+                	<a href="Myinfo.jsp" class="link_text" style="color: darkslateblue"><%= state %></a>님
+                	<a href="Logout.jsp" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>            		
+                	<a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
+            	<%}
+           	%>
             </div>
         
             <!-- 헤더에서 로고와 네비바 -->
@@ -57,10 +62,10 @@
                             <li><a href="#"><b>Menu</b></a>
                             <ul id="sub-menu">
                                 <li><a href="Menu.jsp" >전체</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">도넛</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">빵</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">케이크</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키&파이</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">케익</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">베이커리</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">마카롱&오믈렛</a></li>
                                 <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>
                             </ul>
                             </li>
@@ -107,7 +112,7 @@
                         </li>
                         
                         <!-- pie일때 -->
-                        <% String pie_ = "pie"; %> 
+                        <% String pie_ = "cookie"; %> 
                         <li class="li_gap">
                         <a href =" Menu.jsp?cate_=<%=pie_%>" >쿠키&파이
                         </a>
@@ -120,10 +125,17 @@
                         </a>
                         </li>
                         
-                           <!-- 도넛일때 -->
-                        <% String donut_ = "donut"; %>
+                           <!-- 빵일때 -->
+                        <% String bakery_ = "bakery"; %>
                         <li class="li_gap">
-                        <a href =" Menu.jsp?cate_=<%=donut_%>">도넛
+                        <a href =" Menu.jsp?cate_=<%=bakery_%>">베이커리
+                        </a>
+                        </li>
+                        
+                          <!-- 마카롱오믈렛일때 -->
+                        <% String macaroon_ = "macaroon"; %>
+                        <li class="li_gap">
+                        <a href =" Menu.jsp?cate_=<%=macaroon_%>">마카롱&오믈렛
                         </a>
                         </li>
                         
@@ -170,10 +182,11 @@
             ResultSet rs = stmt.executeQuery(sql);
 
          while (rs.next()) {
+        	   String breadID = rs.getString("breadID");
                String sr = rs.getString("imgsrc");
            	   String name = rs.getString("breadname");
            	%>
-            <li><a href="DetailMenu.jsp?_breadID=4"><img src="<%= sr %>">
+            <li><a href="DetailMenu.jsp?_breadID="+<%=breadID%>><img src="<%= sr %>">
             <p><%= name %></p></a></li>
 			<%
          } 

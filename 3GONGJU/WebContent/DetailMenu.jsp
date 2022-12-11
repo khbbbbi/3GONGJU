@@ -81,10 +81,10 @@
                             <li><a href="#"><b>Menu</b></a>
                             <ul id="sub-menu">
                                 <li><a href="Menu.jsp" >전체</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">도넛</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">빵</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">케이크</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키&파이</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">케익</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">베이커리</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">마카롱&오믈렛</a></li>
                                 <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>
                             </ul>
                             </li>
@@ -124,7 +124,9 @@
          ResultSet rs = stmt.executeQuery(sql);
 
          while(rs.next()){
+        	 String imgsrc = rs.getString("imgsrc");
         	 String category = rs.getString("category");
+        	 if(category.equals("cookie")){category = "cookie&pie";}
         	 String breadname = rs.getString("breadname");
         	 String price = rs.getString("price");
         	 String kcal = rs.getString("kcal");
@@ -137,7 +139,7 @@
                     <h1 style="font-size: 30px;"><%= breadname %></h1>
                     <div class = "menu">
                     <div class="menuimg">
-                        <img src="images/greentea.png">
+                        <img src="<%= imgsrc %>">
                     </div>
                     <div class="menulist">
                         <table class="menutable">

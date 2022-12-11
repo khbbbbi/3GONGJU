@@ -178,34 +178,26 @@ a:link, a:visited, a:active {
 }
 #header_navi{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     text-align: center;
     justify-content: center;
     margin-right: 30px;
 }
 #header_navi > li {
     display: inline-block;
-    position: relative;
     top: 10px;
 }
 #header_navi > li > a {
     display:block; 
-    position:relative; 
     padding-bottom:19px;
-    margin: 30px;
+    margin: 20px;
 }
 #header_navi > li > a > img {
-    width:50px; 
-    height:50px;
+    width:90px; 
+    height:90px;
 }
-#header_navi > li > a > span {
-    position:absolute; 
-    bottom:0; 
-    left:50%; 
-    color:#666; 
-    line-height:1.462em; 
-    white-space:nowrap; 
-    transform:translate(-50%, 0)
+#header_navi > li > a > p {
+    color:#666;
 }
 
 

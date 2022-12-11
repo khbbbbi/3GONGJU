@@ -39,7 +39,7 @@
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
 			Statement stmt = conn.createStatement();
-			stmt.executeUpdate("insert into ordertest(pickupstore,pickupDate, userIdx, breadID, tatalprice, orderdate, count)" +
+			stmt.executeUpdate("insert into orders(pickupstore,pickupDate, userIdx, breadID, tatalprice, orderdate, count)" +
 			"values('"+pickupstore+"','"+pickupdate+"',(select userIdx from user where userId = '"+state+"'), '"+breadid[i]+"','"+totalprice[i]+"', '"+orderdate+"', '"+count[i]+"')");
 
 			stmt.close();

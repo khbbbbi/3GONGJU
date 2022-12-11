@@ -128,11 +128,11 @@
                             <li><a href="#"><b>Menu</b></a>
                             <ul id="sub-menu">
                                 <li><a href="Menu.jsp" >전체</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">도넛</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">빵</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">케이크</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>  
+                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키&파이</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">케익</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">베이커리</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">마카롱&오믈렛</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>
                             </ul>
                             </li>
                             <li><a href="#"><b>Store</b></a>

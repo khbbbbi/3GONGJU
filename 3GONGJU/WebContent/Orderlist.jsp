@@ -51,11 +51,11 @@
                             <li><a href="#"><b>Menu</b></a>
                             <ul id="sub-menu">
                                 <li><a href="Menu.jsp" >전체</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">도넛</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">빵</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">케이크</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>   
+                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키&파이</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">케익</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">베이커리</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">마카롱&오믈렛</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>
                             </ul>
                             </li>
                             <li><a href="#"><b>Store</b></a>
@@ -128,20 +128,20 @@
 							sql += 	"	ORDER BY orderID desc";				//주문번호 내림차순 정렬 */
 						 	
 							//String sql = "select * from user, orders, breadinfo where user.userIdx = orders.userIdx and orders.breadID = breadinfo.breadID and user.userID = '"+state+"';";
-							String sql = "select * from user, ordertest, breadinfo where user.userIdx = ordertest.userIdx and breadinfo.breadID = ordertest.breadID and user.userID = '"+state+"';";
+							String sql = "select * from user, orders, breadinfo where user.userIdx = orders.userIdx and breadinfo.breadID = orders.breadID and user.userID = '"+state+"';";
 							
 							// 4) 실행
 							ResultSet rs = stmt.executeQuery(sql);
 				
 							// 5) 결과를 테이블에 출력
 							while (rs.next()) {
-								String orderdate = rs.getString("ordertest.orderdate");			//주문일자
+								String orderdate = rs.getString("orders.orderdate");			//주문일자
 								String breadname = rs.getString("breadinfo.breadname");			//메뉴명
 								String price = rs.getString("breadinfo.price");							//가격
-								String count = rs.getString("ordertest.count");						//수량 불가능, orders 테이블에 수량컬럼이 추가되어야 가져올 수 있음
-								String pickstore = rs.getString("ordertest.pickupstore");
-								String pickupDate = rs.getString("ordertest.pickupDate");			//픽업일
-								String tatalprice = rs.getString("ordertest.tatalprice");				//결제금액
+								String count = rs.getString("orders.count");						//수량 불가능, orders 테이블에 수량컬럼이 추가되어야 가져올 수 있음
+								String pickstore = rs.getString("orders.pickupstore");
+								String pickupDate = rs.getString("orders.pickupDate");			//픽업일
+								String tatalprice = rs.getString("orders.tatalprice");				//결제금액
 						%>
                             <tr class="cart_list_detail">
 								<td><%= orderdate %></td>

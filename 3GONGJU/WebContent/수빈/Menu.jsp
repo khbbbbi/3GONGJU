@@ -2,7 +2,7 @@
 <!-- 수빈 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*" %>
-<%@ page import="java.io.PrintWriter" %>
+    <%@ page import="java.io.PrintWriter" %>
 <!-- 메뉴 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -31,9 +31,6 @@
       checkboxes.forEach( (checkbox) => {checkbox.checked = selectAll.checked; } ) 
       */
    }
-   
-   
- 
 </script>
 <body>
     <header>
@@ -58,8 +55,8 @@
                             <ul id="sub-menu">
                                 <li><a href="Menu.jsp" >전체</a></li>
                                 <li><a href="Menu.jsp" aria-label="subemnu">도넛</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">빵</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">식사용</a></li>
+                                <li><a href="Menu.jsp" aria-label="subemnu">파이</a></li>
                                 <li><a href="Menu.jsp" aria-label="subemnu">케이크</a></li>
                                 <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>
                             </ul>
@@ -81,6 +78,8 @@
                 </div>
         </div>
     </header>
+    
+    
     <div class = "area_all">
             <section class = "container">
                 <article class = "item">
@@ -105,6 +104,7 @@
                         <a href =" Menu.jsp">전체
                         </a>
                         </li>
+                        
                         
                         <!-- pie일때 -->
                         <% String pie_ = "pie"; %> 
@@ -134,6 +134,8 @@
                         </a>
                         </li>
                         <li class="li_gap">|</li>
+                        
+                        
                     </ul>
                     <form action="MenuAction.jsp" method="post">
                     <div class="search">
@@ -149,34 +151,42 @@
                         <h1 style="text-align: center; font-size: 30px; text-decoration: none">전체 상품</h1><br>
                         <ul id="header_navi">
                            <%
-                           request.setCharacterEncoding("UTF-8");
       try {
+    	  String url = "jdbc:mysql://localhost:3307/teampj";
+    	  
+    	  
+         
     	  Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
+			Connection conn = DriverManager.getConnection(url, "root", "1234");
 			Statement stmt = conn.createStatement();
-			
-			
-			String search = request.getParameter("_search");
-		      System.out.println("검색어 :" + search);
-		      PrintWriter scp = response.getWriter();
-		      if(  search == null ||  search.equals("")){
-		    	  scp.println("<script>");
-		    	  scp.println("alert('입력된 내용이 없습니다.')");
-		    	  scp.println( "location.href = 'Menu.jsp' ");
-		    	  scp.println("</script>");
-				}
          //ResultSet rs = stmt.executeQuery("select breadname, category from bread");
-         String sql = "select * from breadinfo where breadname like '%"+search+"%'";
-            ResultSet rs = stmt.executeQuery(sql);
+         String sql =null;
+           String cate = null;
+           ResultSet rs = null;
+           
+          if(request.getParameter("cate_") != null){
+        		   cate = request.getParameter("cate_");
+        		   sql = "select * from breadinfo where category like '"+cate+"' ";
+        		    rs = stmt.executeQuery(sql);
+        		   
+          }else if(request.getParameter("cate_") == null || request.getParameter("cate_").equals("")){
+        	   sql = "select * from breadinfo";
+        	    rs = stmt.executeQuery(sql);
+          }
+           System.out.print("cate :" +cate);
 
          while (rs.next()) {
-               String sr = rs.getString("imgsrc");
-           	   String name = rs.getString("breadname");
-           	%>
-            <li><a href="DetailMenu.jsp?_breadID=4"><img src="<%= sr %>">
-            <p><%= name %></p></a></li>
-			<%
+        	 	String sr = rs.getString("imgsrc");
+         		String name = rs.getString("breadname");
+               %>
+               <li><a href="DetailMenu.jsp?_breadID=4"><img src="<%= sr %>">
+               <p><%= name %></p></a></li>
+               <%
          } 
+      rs.close();
+      
+      stmt.close();
+      conn.close();
 
       } catch (Exception e) {
          e.printStackTrace();
