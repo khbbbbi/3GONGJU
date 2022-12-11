@@ -1,4 +1,4 @@
-<!--성은 -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@
             <!-- 헤더에서 로고와 네비바 -->
                 <!-- 로고 -->
                 <div class = "logo">
-                    <a href="Main.jsp"><img src = "images/starbucks.png" width="80" height="75"></a>
+                    <a href="Main.jsp"><img src = "images/logo1.png" width="140" height="90"></a>
                 </div>
                 <!-- 네비바 -->
                 <div class = "nav">
@@ -50,11 +50,11 @@
                             <li><a href="#"><b>Menu</b></a>
                             <ul id="sub-menu">
                                 <li><a href="Menu.jsp" >전체</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키&파이</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">케익</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">베이커리</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">마카롱&오믈렛</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>
+                                <li><a href="Menu.jsp?cate_=cookie" aria-label="subemnu">쿠키&파이</a></li>
+                                <li><a href="Menu.jsp?cate_=cake" aria-label="subemnu">케익</a></li>
+                                <li><a href="Menu.jsp?cate_=bakery" aria-label="subemnu">베이커리</a></li>
+                                <li><a href="Menu.jsp?cate_=macaroon" aria-label="subemnu">마카롱&오믈렛</a></li>
+                                <li><a href="Menu.jsp?cate_=drink" aria-label="subemnu">음료</a></li>
                             </ul>
                             </li>
                             <li><a href="#"><b>Store</b></a>
@@ -69,53 +69,69 @@
                                 <li><a href="Myinfo.jsp" aria-label="subemnu">내정보</a></li>
                             </ul>
                             </li>
+                            <li><a href="#"><b>Event</b></a>
+                            <ul id="sub-menu">
+                                <li><a href="Eventlist.jsp" aria-label="subemnu">이벤트</a></li>
+                            </ul>
                         </ul>
                     </nav>
                 </div>
         </div>
     </header>
+    <aside class = "aside1"><a href = "Event1.jsp"><img src ="images/guanggo.png" width="100%" height="100%"></a></aside>
+    <!-- <aside class = "aside2">
+    	<p style = "text-align: center">SNS</p>
+    	<table>
+    		<tr height="60px"><td><a href="https://www.instagram.com/"><img src ="images/instargram.png" width="30px" height="30px"></a></td></tr>
+    		<tr height="60px"><td><a href="https://www.youtube.com/"><img src ="images/youtube.png" width="30px" height="30px"></a></td></tr>
+    		<tr height="60px"><td><a href="https://www.facebook.com/"><img src ="images/facebook.png" width="30px" height="30px"></a></td></tr>
+    	</table>
+    </aside> -->
     <div class = "area_all">
             <section class = "area_main">
-                <h1 style="text-align: center; font-size: 30px;text-decoration: overline;">MENU</h1>
+            	<article>
+            		<div><img src ="images/img1.png" width="100%" height="390px"></div>
+            	</article>
+                <h1 style="text-align: center; font-size: 30px;text-decoration: overline; color: #81C147;">MENU</h1>
                 <article class="menu_container">
                     <div class = "item">
                         <table>
-                            <tr><td><img src ="images/BreadLogo.png" width="100px" height="100px"></td></tr>
+                            <tr><td><img src ="images/BreadLogo.png" width="80px" height="80px"></td></tr>
                             <tr height = "60px"><td><button onclick="location.href='Menu.jsp'">전체</button></td></tr>
                         </table>
                     </div>
                     <div class = "item">
                         <table>
-                            <tr><td><img src ="images/BreadLogo.png" width="100px" height="100px"></td></tr>
-                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp'">도넛</button></td></tr>
+                            <tr><td><img src ="images/BreadLogo.png" width="80px" height="80px"></td></tr>
+                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp?cate_=cookie'">쿠키&파이</button></td></tr>
                         </table>
                     </div>
                     <div class = "item">
                         <table>
-                            <tr><td><img src ="images/BreadLogo.png" width="100px" height="100px"></td></tr>
-                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp'">빵</button></td></tr>
+                            <tr><td><img src ="images/BreadLogo.png" width="80px" height="80px"></td></tr>
+                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp?cate_=cake'">케익</button></td></tr>
                         </table>
                     </div>
                     <div class = "item">
                         <table>
-                            <tr><td><img src ="images/BreadLogo.png" width="100px" height="100px"></td></tr>
-                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp'">쿠키</button></td></tr>
+                            <tr><td><img src ="images/BreadLogo.png" width="80px" height="80px"></td></tr>
+                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp?cate_=bakery'">베이커리</button></td></tr>
                         </table>
                     </div>
                     <div class = "item">
                         <table>
-                            <tr><td><img src ="images/BreadLogo.png" width="100px" height="100px"></td></tr>
-                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp'">케이크</button></td></tr>
+                            <tr><td><img src ="images/BreadLogo.png" width="80px" height="80px"></td></tr>
+                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp?cate_=macaroon'">마카롱&오믈렛</button></td></tr>
                         </table>
                     </div>
                     <div class = "item">
                         <table>
-                            <tr><td><img src ="images/BreadLogo.png" width="100px" height="100px"></td></tr>
-                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp'">음료</button></td></tr>
+                            <tr><td><img src ="images/BreadLogo.png" width="80px" height="80px"></td></tr>
+                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp?cate_=drink'">음료</button></td></tr>
                         </table>
                     </div>
                 </article>
-                <h1 style="text-align: center; font-size: 30px; text-decoration: overline;">STORE</h1>
+                <h1 style="text-align: center; font-size: 30px; text-decoration: overline; color: #838BB2;">STORE</h1>
                 <article class="second_container">
                 	<div>
 	                   	<p>매장별 위치를 확인하여 <br>고객님과 가장 가까운 매장을 찾아보세요!</p>
@@ -125,7 +141,7 @@
                 <article>
                 <div class = "area_snsmy">
                     <div class = "sns">
-                        <h1 style="text-align: center; font-size: 30px; text-decoration: overline;">SNS</h1>
+                        <h1 style="text-align: center; font-size: 30px; text-decoration: overline; color: #81C147s;">SNS</h1>
                         <div class = "sns_container">
                             <div class = "item2">
                                 <table>
@@ -157,7 +173,7 @@
                         </div>
                     </div>
                     <div class = "my">
-                        <h1 style="text-align: center; font-size: 30px; text-decoration: overline;">MY</h1>
+                        <h1 style="text-align: center; font-size: 30px; text-decoration: overline; color: #81C147;">MY</h1>
                         <div class = "my_container">
                             <div class = "gomy"><button onclick="location.href='Orderlist.jsp'" style="width: 400px; height: 40px;">주문내역</button></div>
                             <div class = "gomy"><button onclick="location.href='Cart.jsp'" style="width: 400px;height: 40px;">장바구니</button></div>
@@ -167,13 +183,14 @@
                 </div>
                 </article>
             </section>
+            
         <footer>
             <p>Company/CEO : SMC INTERNATIONAL CO., LTD. / Minchang Shin, Hanna Choi<br>
             Address : 321, Eonju-ro, Gangnam-gu, Seoul, Republic of Korea [Zip Code: 06226]<br>
             Customer Service : 1644 - 2927<br>
             Registration Number : 719 - 86 - 00092<br></p>
             <div class = "endline">
-            <p>TM & Copyright 2022 로고. All Rights Reserved.</p> 
+            <p>TM & Copyright 2022 3GONGJU. All Rights Reserved.</p> 
             </div>
         </footer>
         </div>

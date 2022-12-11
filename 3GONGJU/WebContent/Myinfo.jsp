@@ -119,7 +119,7 @@
             <!-- 헤더에서 로고와 네비바 -->
                 <!-- 로고 -->
                 <div class = "logo">
-                    <a href="Main.jsp"><img src = "images/starbucks.png" width="80" height="75"></a>
+                    <a href="Main.jsp"><img src = "images/logo1.png" width="140" height="90"></a>
                 </div>
                 <!-- 네비바 -->
                 <div class = "nav">
@@ -128,11 +128,11 @@
                             <li><a href="#"><b>Menu</b></a>
                             <ul id="sub-menu">
                                 <li><a href="Menu.jsp" >전체</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키&파이</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">케익</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">베이커리</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">마카롱&오믈렛</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>
+                                <li><a href="Menu.jsp?cate_=cookie" aria-label="subemnu">쿠키&파이</a></li>
+                                <li><a href="Menu.jsp?cate_=cake" aria-label="subemnu">케익</a></li>
+                                <li><a href="Menu.jsp?cate_=bakery" aria-label="subemnu">베이커리</a></li>
+                                <li><a href="Menu.jsp?cate_=macaroon" aria-label="subemnu">마카롱&오믈렛</a></li>
+                                <li><a href="Menu.jsp?cate_=drink" aria-label="subemnu">음료</a></li>
                             </ul>
                             </li>
                             <li><a href="#"><b>Store</b></a>
@@ -147,6 +147,10 @@
                                 <li><a href="Myinfo.jsp" aria-label="subemnu">내정보</a></li>
                             </ul>
                             </li>
+                            <li><a href="#"><b>Event</b></a>
+                            <ul id="sub-menu">
+                                <li><a href="Eventlist.jsp" aria-label="subemnu">이벤트</a></li>
+                            </ul>
                         </ul>
                     </nav>
                 </div>
@@ -177,7 +181,7 @@
 				Statement stmt = conn.createStatement();
 
 			 	// 2) SQL문 실행, 회원번호 기준으로 정보를 조회한다.
-			   	String sql = "select * from user where userId = "+state+"";
+			   	String sql = "select * from user where userId = '"+state+"'";
 				// 4) 실행
 			   	ResultSet rs = stmt.executeQuery(sql);
 	

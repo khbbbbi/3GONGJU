@@ -35,7 +35,7 @@ try {
 		%>
 		<script>
 			alert("비밀번호를 변경하였습니다.");
-			location.href="Login.jsp";
+			location.href="Main.jsp";
 		</script>
 		<%
 	}else{

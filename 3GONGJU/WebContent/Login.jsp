@@ -21,6 +21,10 @@
         	location.href="#";
         }
 	}
+	function gologin(){
+		document.gogo.action = "Logincheck.jsp";
+		document.gogo.submit();
+	}
 </script>
 <body>
     <header>
@@ -33,7 +37,7 @@
             <!-- 헤더에서 로고와 네비바 -->
                 <!-- 로고 -->
                 <div class = "logo">
-                    <a href="Main.jsp"><img src = "images/starbucks.png" width="80" height="75"></a>
+                    <a href="Main.jsp"><img src = "images/logo1.png" width="140" height="90"></a>
                 </div>
                 <!-- 네비바 -->
                 <div class = "nav">
@@ -42,11 +46,11 @@
                             <li><a href="#"><b>Menu</b></a>
                             <ul id="sub-menu">
                                 <li><a href="Menu.jsp" >전체</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키&파이</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">케익</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">베이커리</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">마카롱&오믈렛</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>
+                                <li><a href="Menu.jsp?cate_=cookie" aria-label="subemnu">쿠키&파이</a></li>
+                                <li><a href="Menu.jsp?cate_=cake" aria-label="subemnu">케익</a></li>
+                                <li><a href="Menu.jsp?cate_=bakery" aria-label="subemnu">베이커리</a></li>
+                                <li><a href="Menu.jsp?cate_=macaroon" aria-label="subemnu">마카롱&오믈렛</a></li>
+                                <li><a href="Menu.jsp?cate_=drink" aria-label="subemnu">음료</a></li>
                             </ul>
                             </li>
                             <li><a href="#"><b>Store</b></a>
@@ -57,11 +61,15 @@
                             </li>
                             <li><a href="#"><b>Mypage</b></a>
                             <ul id="sub-menu">
-                                <li><a href="#" aria-label="subemnu">주문내역</a></li>
-                                <li><a href="#" aria-label="subemnu">장바구니</a></li>
-                                <li><a href="#" aria-label="subemnu">내정보</a></li>
+                            	<li><a href="Orderlist.jsp" aria-label="subemnu">주문내역</a></li>
+                                <li><a href="Cart.jsp" aria-label="subemnu">장바구니</a></li>
+                                <li><a href="Myinfo.jsp" aria-label="subemnu">내정보</a></li>
                             </ul>
                             </li>
+                            <li><a href="#"><b>Event</b></a>
+                            <ul id="sub-menu">
+                                <li><a href="Eventlist.jsp" aria-label="subemnu">이벤트</a></li>
+                            </ul>
                         </ul>
                     </nav>
                 </div>
@@ -72,18 +80,17 @@
             <section class = "area_main">
                 <h1 style="text-align: center; font-size: 30px;text-decoration: overline;">Login</h1>
                 <article class="menu_container">
-                <form action = "Logincheck.jsp" method = "post">
+                <form action = "Logincheck.jsp" method = "post" name = "gogo">
                     <div class = "item">
                         <input type="text" style="width: 300px; height: 30px;" placeholder="아이디" 
                         name="_id" maxlength="20">
                         <input type="password" style="width: 300px; height: 30px;" placeholder="비밀번호" 
                         name="_pw" maxlength="20">
-                        <input type="submit" value = "로그인" style="width: 310px; height: 40px;">
+                        <input type="button" value = "로그인" style="width: 310px; height: 40px;" onclick="gologin()">
                         <p style="font-size: 12px;"><a href="Signup.jsp">회원가입</a></p>
                     </div>
                 </form>
                 </article>
-
             </section>
         <footer>
             <p>Company/CEO : SMC INTERNATIONAL CO., LTD. / Minchang Shin, Hanna Choi<br>

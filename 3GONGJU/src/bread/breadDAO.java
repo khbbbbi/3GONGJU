@@ -51,7 +51,7 @@ public class breadDAO {
 			Statement stmt = conn.createStatement();
 			for(int i = 0; i < checked.length; i++){
 				//stmt.executeUpdate("Delete from cart where cartID = '"+checked[i]+"' and userIDx ");
-				stmt.executeUpdate("DELETE cart	FROM cart INNER JOIN user ON cart.userIdx = user.userIdx where cart.cartID = "+checked[i]+" and user.userId = "+state+"");
+				stmt.executeUpdate("DELETE cart	FROM cart INNER JOIN user ON cart.userIdx = user.userIdx where cart.cartID = '"+checked[i]+"' and user.userId = '"+state+"'");
 			}
 			
 			stmt.close();

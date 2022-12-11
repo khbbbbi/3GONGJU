@@ -130,7 +130,7 @@
             <!-- 헤더에서 로고와 네비바 -->
                 <!-- 로고 -->
                 <div class = "logo">
-                    <a href="Main.jsp"><img src = "images/starbucks.png" width="80" height="75"></a>
+                    <a href="Main.jsp"><img src = "images/logo1.png" width="140" height="90"></a>
                 </div>
                 <!-- 네비바 -->
                 <div class = "nav">
@@ -139,11 +139,11 @@
                             <li><a href="#"><b>Menu</b></a>
                             <ul id="sub-menu">
                                 <li><a href="Menu.jsp" >전체</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">쿠키&파이</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">케익</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">베이커리</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">마카롱&오믈렛</a></li>
-                                <li><a href="Menu.jsp" aria-label="subemnu">음료</a></li>
+                                <li><a href="Menu.jsp?cate_=cookie" aria-label="subemnu">쿠키&파이</a></li>
+                                <li><a href="Menu.jsp?cate_=cake" aria-label="subemnu">케익</a></li>
+                                <li><a href="Menu.jsp?cate_=bakery" aria-label="subemnu">베이커리</a></li>
+                                <li><a href="Menu.jsp?cate_=macaroon" aria-label="subemnu">마카롱&오믈렛</a></li>
+                                <li><a href="Menu.jsp?cate_=drink" aria-label="subemnu">음료</a></li>
                             </ul>
                             </li>
                             <li><a href="#"><b>Store</b></a>
@@ -158,6 +158,10 @@
                                 <li><a href="Myinfo.jsp" aria-label="subemnu">내정보</a></li>
                             </ul>
                             </li>
+                            <li><a href="#"><b>Event</b></a>
+                            <ul id="sub-menu">
+                                <li><a href="Eventlist.jsp" aria-label="subemnu">이벤트</a></li>
+                            </ul>
                         </ul>
                     </nav>
                 </div>
@@ -194,7 +198,7 @@
 	         Statement stmt = conn.createStatement();
 	         
 			//cart,breadinfo,user 세개의 테이블을 외래키를 통해 연결시켜 세 테이블의 모든 정보 불러 올  수 있음. 조건문에  현재 로그인된 사용자의 장바구니정보를 가져올 수 있도록 userIdx를 받아온 userIdx와 비교
-	         String sql = "select * from cart, breadinfo, user where cart.breadID = breadinfo.breadID and cart.userIdx = user.userIdx and user.userId = "+state+"";
+	         String sql = "select * from cart, breadinfo, user where cart.breadID = breadinfo.breadID and cart.userIdx = user.userIdx and user.userId = '"+state+"'";
 	         ResultSet rs = stmt.executeQuery(sql);
 
 	         while(rs.next()){

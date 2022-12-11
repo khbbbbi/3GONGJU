@@ -7,14 +7,13 @@ a:hover {
     text-decoration: underline; /* 마우스 커서가 올라갔을 때 밑줄을 생성합니다*/
 }
 header{
-    background-color: aliceblue;
+    background-color: #f6f5ef;
     position: fixed;
     top: 0;
     right:0;
     left:0;
 }
 .area_header{
-    background-color: aliceblue;
     display: grid;
     margin-left: 130px;
     margin-right: 130px;
@@ -23,7 +22,6 @@ header{
 /* 닉네임,로그아웃,장바구니 */
 .gita{
     text-align: end;
-    background-color: aliceblue;
     padding: 17px;
     height: 30px;
     font-size: 15px;
@@ -34,19 +32,17 @@ header{
 /* 로고 */
 .logo{
     grid-row: 1 / span 2;
-    background-color: aliceblue;
     width:330px;
     text-align: center;
-    grid-row: 1 / span 2;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 /* 네비 */
 .area_nav{
-    background-color: aliceblue;
     width: 1000px;
 }
 .navbar{
-    opacity: 0.8;
+    opacity: 0.9;
     display: flex;
     position: relative;
     box-sizing: border-box;
@@ -62,7 +58,6 @@ header{
 #main-menu > li{
     float: left;
     text-align: center;
-    background-color: aliceblue;
 }
 #main-menu > li:hover #sub-menu{
     opacity: 1;
@@ -71,7 +66,7 @@ header{
 #main-menu > li > a{
     font-size: 20px;
     height: 40px;
-    color: darkslateblue;
+    color: #333333;
     text-decoration: none;
     letter-spacing: 1px;
     display: block;
@@ -82,12 +77,12 @@ header{
     border-left: 1px solid rgba(0,0,0,0.15);
 }
 #main-menu > li :hover{
-    background-color: darkslateblue;
-    color:white;
+    background-color: #333333;
+    color:#81C147;
 }
 #sub-menu{
     position: absolute;
-    background: darkslateblue;
+    background: #333333;
     opacity: 0; 
     visibility: hidden;
     transition: all 0.15s ease-in;
@@ -114,7 +109,9 @@ header{
 #main-menu > li:nth-child(3) > ul{
     width: 203px;
 }
-
+#main-menu > li:nth-child(4) > ul{
+    width: 178px;
+}
 /* 메인 */
 .area_main{
     margin-top: 130px;
@@ -132,13 +129,13 @@ header{
     margin-bottom: 70px;
     width: 400px;
 }
-button{
+button, input[type=button]{
     width: 130px;
     height: 35px;
     border-radius: 20px;
 }
 /* 버튼에 마우스 올릴때 색상 */
-button:hover{
+button:hover, input[type=button]:hover{
     background-color: darkslateblue;
     color: white;
 }
@@ -158,8 +155,8 @@ footer {
     border-top: 1px solid rgba(0,0,0,0.15);
     font-size: 13px;
     align-items: flex-start;
-    background-color: darkslateblue;
     color: white;
+    background-color: #333333;
     padding: 30px;
 } 
 .endline{
