@@ -115,7 +115,6 @@ header{
 /* 메인 */
 .area_main{
     margin-top: 130px;
-    background-color: lightsteelblue;
     padding: 50px;
     padding-left: 150px;
     padding-right: 150px;
@@ -123,7 +122,7 @@ header{
 /*  구역 부분  */
 .check_container{
     border-radius: 60px;
-    background-color: aliceblue;
+    background-color: #F2EEE5;
     padding: 50px;
     padding-left: 200px;
     padding-right: 200px;

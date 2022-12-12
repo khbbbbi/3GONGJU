@@ -19,24 +19,10 @@
             <div class = "gita">
                 <% 
             	String state = (String)session.getAttribute("__ID");
-            	if(state ==null){
             	%>
-            		<script>
-            			 if (confirm('로그인이 필요한 서비스입니다. 로그인창으로 이동하시겠습니까?')) {
-            		        	// 네!
-            		        	location.href="Login.jsp";
-            		        } else {
-            		        	//아니오ㅡ.ㅡ
-            		        	history.back();
-            		        }
-            		</script>
-            	<%
-            	}else{%>
                 	<a href="Myinfo.jsp" class="link_text" style="color: darkslateblue"><%= state %></a>님
                 	<a href="Logout.jsp" onclick="logout()" id = "logintf" class="link_text" style="color: darkslateblue">로그아웃</a>            		
                 	<a href="Cart.jsp" class="link_text"><img src = "images/mybag.png" width="24" height="21"></a>
-            	<%}
-            	%>
             </div>
         
             <!-- 헤더에서 로고와 네비바 -->
@@ -96,8 +82,18 @@
                         </thead>
                         <tbody>
                             <tr class="cart_list_detail">
+                            	<td>3</td>
+								<td style = "font-size: 18px"><a href = "Event1.jsp">x-mas 쿠폰 왔다!</a></td>
+								<td style = "font-size: 15px">2022.12.25</td>
+                            </tr>
+                            <tr class="cart_list_detail">
+                            	<td>2</td>
+								<td style = "font-size: 18px"><a href = "Event2.jsp">크리스마스 선물 이벤트</a></td>
+								<td style = "font-size: 15px">2022.12.15~2022.12.24</td>
+                            </tr>
+                            <tr class="cart_list_detail">
                             	<td>1</td>
-								<td style = "font-size: 18px"><a href = "Event1.jsp">2022 크리스마스 이벤트</a></td>
+								<td style = "font-size: 18px"><a href = "Event3.jsp">2022 크리스마스 해시태그 Event</a></td>
 								<td style = "font-size: 15px">2022.12.01~2022.12.30</td>
                             </tr>
                         </tbody>

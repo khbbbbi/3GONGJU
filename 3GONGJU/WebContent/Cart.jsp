@@ -23,25 +23,7 @@
         	location.href="#";
         }
 	}
-	// 체크박스 중 하나라도 해제되면 전체선택 체크박스 체크해제
-/* 	var sum = 0;
-    function checkSelectAll()  {
-        // 전체 체크박스
-        const checkboxes = document.querySelectorAll('input[name="category"]');
-        // 선택된 체크박스
-        const checked = document.querySelectorAll('input[name="category"]:checked');
-        
-        // select all 체크박스
-        const selectAll = document.querySelector('input[name="selectall"]');
-
-        if(checkboxes.length === checked.length)  {
-            selectAll.checked = true;
-        }else {
-            selectAll.checked = false;
-        } 
-        
-    } */
-    
+	
     var sum=0;
     function checkSelectAll(price, cBox) {
     var sumtext = document.getElementById("sumtext"); // 이런것들 무조건 function안에 쓰기.
@@ -50,31 +32,9 @@
         sum += parseInt(price); 
     else
        sum -= parseInt(price);
-    sumtext.value = sum;
-        //document.getElementById("sumtext").value = sum;
+   	   sumtext.value = sum;
         
-        /* const checkboxes = document.querySelectorAll('input[name="category"]');
-        const checked = document.querySelectorAll('input[name="category"]:checked');
-        const selectAll = document.querySelector('input[name="selectall"]');
-        if(checkboxes.length === checked.length)  {
-            selectAll.checked = true;
-        }else {
-            selectAll.checked = false;
-        }  */
     }
-    
-/*     //전체선택 체크박스 선택하면 나머지 체크박스 전체 선택 or 해제
-    function selectAll(selectAll)  {
-        const checkboxes = document.getElementsByName('category');
-    	checkboxes.forEach(function(checkbox){checkbox.checked = selectAll.checked;})
-    	/* 
-    	위에꺼랑 이거랑 똑같은데 vscode에서는 =>가 먹고 이클립스에선 =>가 안됨. 이유 모름.
-    	checkboxes.forEach( (checkbox) => {checkbox.checked = selectAll.checked; } ) 
-    	*/
-/*     	if(checkboxes.length === checked.length)  {
-            selectAll.checked = true;
-        }
-    } */
     function godeletechecked(){
     	document.gogo.action = "deletechecked.jsp";
 		document.gogo.submit();
@@ -88,15 +48,9 @@
 		document.gogo.submit();
 	}
 	function plus(clicked_id){
-		/* document.gogo.action = "plus.jsp?clicked_id";
-		document.gogo.submit(); */
-		//alert(clicked_id);
 		location.href="plus.jsp?_clickedcartID="+clicked_id+"";
 	}
 	function minus(clicked_id){
-		/* document.gogo.action = "plus.jsp?clicked_id";
-		document.gogo.submit(); */
-		//alert(clicked_id);
 		location.href="minus.jsp?_clickedcartID="+clicked_id+"";
 	}
 
@@ -226,9 +180,6 @@
                                         
                                     </td>
                                     <td>
-                                    	<!-- int로 받아온 가격,수량을 곱해서 수량에 따른 상품가격 측정. 
-                                    	여기서 문제...수량을 변경할때마다 결제금액을 바꾸고싶음...ㅜ
-                                    	-->
                                     	<p name = "_sangpumprice" class="sangpumprice"><%= price*count %></p>
                                     </td>
                                 </tr>
@@ -245,9 +196,8 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="5"><!-- <input type="checkbox" name = "selectall" onclick='selectAll(this)'>  -->
+                                    <td colspan="5">
                                         <button class="cart_list_optionbtn" onclick = "godeletechecked()">선택상품 삭제</button>
-  
                                     </td>
                                 </tr>
                             </tfoot>

@@ -103,17 +103,14 @@
                 <p></p>
                 <article>
                     <div id ="sec3">
-               				<img src="images/guanggo.png" style = "margin-bottom: 50px;">
-               				<p style ="font-size: 20px; text-align: center">[3GONGJU를 드시고 인증을 해주세요!]</p>
+               				<img src="images/pop2.jpg" style = "margin-bottom: 50px; width:100%;">
+               				<p style ="font-size: 20px; text-align: center">[3GONGJU에서 구매하고 쿠폰 받자!]</p>
                				<br>
-               				<p style ="font-size: 14px; text-align: center">저희 상품 맛있게 드셨나요?^^</p>
                				<p style ="font-size: 14px; text-align: center"
-               				>인스타에 3GONGJU 공식계정을 팔로우하고 사진을 찍어 <br>3GONGJU를 태그, 필수 해시태그를 추가하여 포스팅만하면 <br>추첨을 통해 선물을 드려요!</p> 
-               				<p style ="font-size: 20px; text-align: center; font-weight: bold;">#3GONGJU #디저트맛집 #크리스마스이벤트</p>
-               				<p style ="font-size: 14px; text-align: center; ">이벤트 당첨자는 
-							인스타그램 @3GONGJU's bakery / 공식 홈페이지 '3GONGJU'
-							에 업데이트 됩니다.</p><br>
-							<p  style ="font-size: 20px; text-align: center; margin-bottom: 50px;">2022.12.01~2022.12.30</p>
+               				>단 하루! 크리스마스날 삼공주에서 3만원 이상 구매하신 고객님들께</p> 
+               				<p style ="font-size: 20px; text-align: center; font-weight: bold;">아메리카노 1잔 쿠폰을 무료로 드립니다!!</p>
+               				<p style ="font-size: 14px; text-align: center; ">매장에서 제품을 픽업하실때 쿠폰을 수령하세요</p><br>
+							<p  style ="font-size: 20px; text-align: center; margin-bottom: 50px;">2022.12.25</p>
 							<div class = "btn">
 							<input type = "button" value = "목록으로" onclick="location.href='Eventlist.jsp'">
 							</div>

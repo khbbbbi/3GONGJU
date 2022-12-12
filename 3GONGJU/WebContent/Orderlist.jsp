@@ -82,7 +82,7 @@
     <div class = "area_all">
         <main>
             <section class = "area_main">
-                <h1 style="text-align: center; font-size: 30px;text-decoration: overline;">주문 내역</h1>
+                <h1 style="text-align: center; font-size: 30px;text-decoration: overline; ">주문 내역</h1>
                 <article class="check_container">
                     <table class="cart__list">
                     <form>
@@ -100,12 +100,6 @@
 			<%
 						request.setCharacterEncoding("UTF-8");
 			
-						//※추후주석제거 회원정보세션에서 유저번호를 가져와야함
-						//String getUserIdx = request.getParameter("userIdx");
-						
-						//※추후주석 테스트용으로 임시 주문번호 선언, 1이라 가칭			
-					   	//String getUserIdx = "1";
-						
 						try{
 							
 							System.out.println("====데이터베이스 연결시작 ====");
@@ -118,21 +112,7 @@
 							
 							Statement stmt = conn.createStatement();
 			
-						 	// 2) SQL문 실행, 회원번호 기준으로 주문내역을 조회한다.
-							/* String sql = "";
-							sql += 	"	SELECT		"; 
-							sql +=	"		orderID 	";
-							sql +=	"		, ( SELECT MAX(breadname) FROM breadinfo WHERE o.breadID = breadID) AS breadname ";
-							sql +=	"		, ( SELECT MAX(price) FROM breadinfo WHERE o.breadID = breadID) AS price ";
-							sql +=	"		, pickupDate	 	";
-							sql +=	"		, tatalprice 		";
-							//sql += 	"		, count			";
-							sql +=	"	FROM orders o 		";
-							sql +=	"	WHERE userIdx = "+getUserIdx;
-							sql += 	"	ORDER BY orderID desc";				//주문번호 내림차순 정렬 */
-						 	
-							//String sql = "select * from user, orders, breadinfo where user.userIdx = orders.userIdx and orders.breadID = breadinfo.breadID and user.userID = '"+state+"';";
-							String sql = "select * from user, orders, breadinfo where user.userIdx = orders.userIdx and breadinfo.breadID = orders.breadID and user.userID = '"+state+"';";
+							String sql = "select * from user, orders, breadinfo where user.userIdx = orders.userIdx and breadinfo.breadID = orders.breadID and user.userID = '"+state+"' order By orders.orderdate ;";
 							
 							// 4) 실행
 							ResultSet rs = stmt.executeQuery(sql);

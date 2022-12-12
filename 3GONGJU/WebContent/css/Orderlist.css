@@ -115,13 +115,12 @@ header{
 /* 메인 */
 .area_main{
     margin-top: 130px;
-    background-color: lightsteelblue;
     padding: 50px;
 }
 /*  구역 부분  */
 .check_container{
     border-radius: 60px;
-    background-color: aliceblue;
+    background-color: #F2EEE5;
     padding: 50px;
     padding-left: 200px;
     padding-right: 200px;
@@ -215,7 +214,7 @@ td {
 }
 /* 버튼에 마우스 올릴때 색상 */
 button:hover{
-    color: palegoldenrod;
+    color: white;
 }
 
 .cart_bigorderbtn.right {

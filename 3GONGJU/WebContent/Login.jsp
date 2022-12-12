@@ -87,7 +87,7 @@
                         <input type="password" style="width: 300px; height: 30px;" placeholder="비밀번호" 
                         name="_pw" maxlength="20">
                         <input type="button" value = "로그인" style="width: 310px; height: 40px;" onclick="gologin()">
-                        <p style="font-size: 12px;"><a href="Signup.jsp">회원가입</a></p>
+                        <p style="font-size: 12px;"><a href="Signup.jsp" style="color:white;">회원가입</a></p>
                     </div>
                 </form>
                 </article>

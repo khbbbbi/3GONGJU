@@ -192,7 +192,7 @@
 					String userId = rs.getString("userId");			//아이디
 					String userPassword = rs.getString("userPassword");		//비밀번호
 			%>
-                <h1 style="text-align: center; font-size: 30px;text-decoration: overline;">내정보</h1>
+                <h1 style="text-align: center; font-size: 30px;text-decoration: overline; ">내정보</h1>
                 <article class="menu_container">
                     <div class = "item">
                     	<input type="hidden" name="userIdx" id="userIdx" value="<%=userIdx%>"/>

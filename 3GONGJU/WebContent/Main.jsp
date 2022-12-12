@@ -1,6 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import = "java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +22,7 @@
 	}
 </script>
 <body>
+<jsp:include page="popup.jsp"/>
     <header>
         <!-- 상단에 이름, 로그아웃, 장바구니 -->
         <div class = "area_header">
@@ -78,62 +79,210 @@
                 </div>
         </div>
     </header>
-    <aside class = "aside1"><a href = "Event1.jsp"><img src ="images/guanggo.png" width="100%" height="100%"></a></aside>
-    <!-- <aside class = "aside2">
-    	<p style = "text-align: center">SNS</p>
-    	<table>
-    		<tr height="60px"><td><a href="https://www.instagram.com/"><img src ="images/instargram.png" width="30px" height="30px"></a></td></tr>
-    		<tr height="60px"><td><a href="https://www.youtube.com/"><img src ="images/youtube.png" width="30px" height="30px"></a></td></tr>
-    		<tr height="60px"><td><a href="https://www.facebook.com/"><img src ="images/facebook.png" width="30px" height="30px"></a></td></tr>
-    	</table>
-    </aside> -->
+    <aside class = "aside1"><a href = "Event3.jsp"><img src ="images/guanggo.png" width="100%" height="100%"></a></aside>
     <div class = "area_all">
             <section class = "area_main">
             	<article>
-            		<div><img src ="images/img1.png" width="100%" height="390px"></div>
+            		<img src ="images/img1.png" width="100%" height="100%">
             	</article>
-                <h1 style="text-align: center; font-size: 30px;text-decoration: overline; color: #81C147;">MENU</h1>
-                <article class="menu_container">
-                    <div class = "item">
-                        <table>
-                            <tr><td><img src ="images/BreadLogo.png" width="80px" height="80px"></td></tr>
-                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp'">전체</button></td></tr>
-                        </table>
+            	<div class = "top_menu2">
+                        <h2 class="li_gap">Menu </h2>
+                </div>
+                <article class="area_top">
+                    <div class = "area_intext">
+       				<h2>Cookie&pie</h2>
+       				</div>
+                <div class = "area_inmenu">
+                    <%
+		 try {     
+	         Class.forName("com.mysql.jdbc.Driver");
+	         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
+	         Statement stmt = conn.createStatement();
+	         
+			//cart,breadinfo,user 세개의 테이블을 외래키를 통해 연결시켜 세 테이블의 모든 정보 불러 올  수 있음. 조건문에  현재 로그인된 사용자의 장바구니정보를 가져올 수 있도록 userIdx를 받아온 userIdx와 비교
+	         String sql = "select * from breadinfo where category = 'cookie' limit 5";
+	         ResultSet rs = stmt.executeQuery(sql);
+
+	         while(rs.next()){
+	        	 	String imgsrc = rs.getString("imgsrc");
+		        	String breadname = rs.getString("breadname");
+	     %>
+           			<div class = "item">
+                            <img src ="<%= imgsrc %>" width="80px" height="80px">
+                            <p style= " font-size: 12px;"><%= breadname %></p>
                     </div>
-                    <div class = "item">
-                        <table>
-                            <tr><td><img src ="images/BreadLogo.png" width="80px" height="80px"></td></tr>
-                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp?cate_=cookie'">쿠키&파이</button></td></tr>
-                        </table>
-                    </div>
-                    <div class = "item">
-                        <table>
-                            <tr><td><img src ="images/BreadLogo.png" width="80px" height="80px"></td></tr>
-                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp?cate_=cake'">케익</button></td></tr>
-                        </table>
-                    </div>
-                    <div class = "item">
-                        <table>
-                            <tr><td><img src ="images/BreadLogo.png" width="80px" height="80px"></td></tr>
-                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp?cate_=bakery'">베이커리</button></td></tr>
-                        </table>
-                    </div>
-                    <div class = "item">
-                        <table>
-                            <tr><td><img src ="images/BreadLogo.png" width="80px" height="80px"></td></tr>
-                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp?cate_=macaroon'">마카롱&오믈렛</button></td></tr>
-                        </table>
-                    </div>
-                    <div class = "item">
-                        <table>
-                            <tr><td><img src ="images/BreadLogo.png" width="80px" height="80px"></td></tr>
-                            <tr height = "60px"><td><button onclick="location.href='Menu.jsp?cate_=drink'">음료</button></td></tr>
-                        </table>
-                    </div>
+         <%
+	         }
+		  		rs.close();
+		  		stmt.close();
+		  		conn.close();
+		 		
+		       } catch (Exception e) {
+		          e.printStackTrace();
+		       }
+	    %>          <div class = "gume">
+	    				<a href="Menu.jsp?cate_=cookie"><img src ="images/next.png" width="50px" height="50px"></a>
+	    			</div>
+	    			</div>
                 </article>
-                <h1 style="text-align: center; font-size: 30px; text-decoration: overline; color: #838BB2;">STORE</h1>
+                <article class="area">
+                    <div class = "area_intext">
+       				<h2>Cake</h2>
+       				</div>
+                <div class = "area_inmenu">
+                    <%
+		 try {     
+	         Class.forName("com.mysql.jdbc.Driver");
+	         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
+	         Statement stmt = conn.createStatement();
+	         
+			//cart,breadinfo,user 세개의 테이블을 외래키를 통해 연결시켜 세 테이블의 모든 정보 불러 올  수 있음. 조건문에  현재 로그인된 사용자의 장바구니정보를 가져올 수 있도록 userIdx를 받아온 userIdx와 비교
+	         String sql = "select * from breadinfo where category = 'cake' limit 5";
+	         ResultSet rs = stmt.executeQuery(sql);
+
+	         while(rs.next()){
+	        	 	String imgsrc = rs.getString("imgsrc");
+		        	String breadname = rs.getString("breadname");
+	     %>
+           			<div class = "item">
+                            <img src ="<%= imgsrc %>" width="80px" height="80px">
+                            <p style= " font-size: 12px;"><%= breadname %></p>
+                    </div>
+         <%
+	         }
+		  		rs.close();
+		  		stmt.close();
+		  		conn.close();
+		 		
+		       } catch (Exception e) {
+		          e.printStackTrace();
+		       }
+	    %>          <div class = "gume">
+	    				<a href="Menu.jsp?cate_=cake"><img src ="images/next.png" width="50px" height="50px"></a>
+	    			</div>
+	    			</div>
+
+                </article>
+                <article class="area">
+                    <div class = "area_intext">
+       				<h2>Bakery</h2>
+       				</div>
+                <div class = "area_inmenu">
+                    <%
+		 try {     
+	         Class.forName("com.mysql.jdbc.Driver");
+	         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
+	         Statement stmt = conn.createStatement();
+	         
+			//cart,breadinfo,user 세개의 테이블을 외래키를 통해 연결시켜 세 테이블의 모든 정보 불러 올  수 있음. 조건문에  현재 로그인된 사용자의 장바구니정보를 가져올 수 있도록 userIdx를 받아온 userIdx와 비교
+	         String sql = "select * from breadinfo where category = 'bakery' limit 5";
+	         ResultSet rs = stmt.executeQuery(sql);
+
+	         while(rs.next()){
+	        	 	String imgsrc = rs.getString("imgsrc");
+		        	String breadname = rs.getString("breadname");
+	     %>
+           			<div class = "item">
+                            <img src ="<%= imgsrc %>" width="80px" height="80px">
+                            <p style= " font-size: 12px;"><%= breadname %></p>
+                    </div>
+         <%
+	         }
+		  		rs.close();
+		  		stmt.close();
+		  		conn.close();
+		 		
+		       } catch (Exception e) {
+		          e.printStackTrace();
+		       }
+	    %>          <div class = "gume">
+	    				<a href="Menu.jsp?cate_=bakery"><img src ="images/next.png" width="50px" height="50px"></a>
+	    			</div>
+	    			</div>
+
+                </article>
+                <article class="area">
+                    <div class = "area_intext_m">
+       				<h2>Macaroon<br>&<br>Omelet</h2>
+       				</div>
+                <div class = "area_inmenu">
+                    <%
+		 try {     
+	         Class.forName("com.mysql.jdbc.Driver");
+	         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
+	         Statement stmt = conn.createStatement();
+	         
+			//cart,breadinfo,user 세개의 테이블을 외래키를 통해 연결시켜 세 테이블의 모든 정보 불러 올  수 있음. 조건문에  현재 로그인된 사용자의 장바구니정보를 가져올 수 있도록 userIdx를 받아온 userIdx와 비교
+	         String sql = "select * from breadinfo where category = 'macaroon' limit 5";
+	         ResultSet rs = stmt.executeQuery(sql);
+
+	         while(rs.next()){
+	        	 	String imgsrc = rs.getString("imgsrc");
+		        	String breadname = rs.getString("breadname");
+	     %>
+           			<div class = "item">
+                            <img src ="<%= imgsrc %>" width="80px" height="80px">
+                            <p style= " font-size: 12px;"><%= breadname %></p>
+                    </div>
+         <%
+	         }
+		  		rs.close();
+		  		stmt.close();
+		  		conn.close();
+		 		
+		       } catch (Exception e) {
+		          e.printStackTrace();
+		       }
+	    %>          <div class = "gume">
+	    				<a href="Menu.jsp?cate_=macaroon"><img src ="images/next.png" width="50px" height="50px"></a>
+	    			</div>
+	    			</div>
+
+                </article>
+                <article class="area_bottom">
+                    <div class = "area_intext">
+       				<h2>Drink</h2>
+       				</div>
+                <div class = "area_inmenu">
+                    <%
+		 try {     
+	         Class.forName("com.mysql.jdbc.Driver");
+	         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/teampj","root","1234");
+	         Statement stmt = conn.createStatement();
+	         
+			//cart,breadinfo,user 세개의 테이블을 외래키를 통해 연결시켜 세 테이블의 모든 정보 불러 올  수 있음. 조건문에  현재 로그인된 사용자의 장바구니정보를 가져올 수 있도록 userIdx를 받아온 userIdx와 비교
+	         String sql = "select * from breadinfo where category = 'drink' limit 5";
+	         ResultSet rs = stmt.executeQuery(sql);
+
+	         while(rs.next()){
+	        	 	String imgsrc = rs.getString("imgsrc");
+		        	String breadname = rs.getString("breadname");
+	     %>
+           			<div class = "item">
+                            <img src ="<%= imgsrc %>" width="80px" height="80px">
+                            <p style= " font-size: 12px;"><%= breadname %></p>
+                    </div>
+         <%
+	         }
+		  		rs.close();
+		  		stmt.close();
+		  		conn.close();
+		 		
+		       } catch (Exception e) {
+		          e.printStackTrace();
+		       }
+	    %>          <div class = "gume">
+	    				<a href="Menu.jsp?cate_=drink"><img src ="images/next.png" width="50px" height="50px"></a>
+	    			</div>
+	    			</div>
+
+                </article>
+                <div class = "top_menu2">
+                        <h2 class="li_gap">Store</h2>
+                </div>
                 <article class="second_container">
                 	<div>
+                		<br>
 	                   	<p>매장별 위치를 확인하여 <br>고객님과 가장 가까운 매장을 찾아보세요!</p>
                 		<button onclick="location.href='Map.jsp'">매장찾기</button>
                 	</div>
@@ -141,9 +290,9 @@
                 <article>
                 <div class = "area_snsmy">
                     <div class = "sns">
-                        <h1 style="text-align: center; font-size: 30px; text-decoration: overline; color: #81C147s;">SNS</h1>
+                        <h2 class = "top_menu2" >SNS</h2>
                         <div class = "sns_container">
-                            <div class = "item2">
+                            <div class = "item3">
                                 <table>
                                     <tr height="90px">
                                         <td><a href="https://www.instagram.com/">
@@ -152,7 +301,7 @@
                                     <tr><td>INSTARGRAM</td></tr>
                                 </table>
                             </div>
-                            <div class = "item2">
+                            <div class = "item3">
                                 <table>
                                     <tr height="90px">
                                         <td><a href="https://www.youtube.com/">
@@ -161,7 +310,7 @@
                                     <tr><td>YOUTUBE</td></tr>
                                 </table>
                             </div>
-                            <div class = "item2">
+                            <div class = "item3">
                                 <table>
                                     <tr height="90px">
                                         <td><a href="https://www.facebook.com/">
@@ -173,7 +322,7 @@
                         </div>
                     </div>
                     <div class = "my">
-                        <h1 style="text-align: center; font-size: 30px; text-decoration: overline; color: #81C147;">MY</h1>
+                        <h2 class = "top_menu2" >MY</h2>
                         <div class = "my_container">
                             <div class = "gomy"><button onclick="location.href='Orderlist.jsp'" style="width: 400px; height: 40px;">주문내역</button></div>
                             <div class = "gomy"><button onclick="location.href='Cart.jsp'" style="width: 400px;height: 40px;">장바구니</button></div>

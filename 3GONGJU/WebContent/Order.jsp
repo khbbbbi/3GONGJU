@@ -121,7 +121,7 @@
     <div class = "area_all">
         <main>
             <section class = "area_main">
-                <h1 style="text-align: center; font-size: 30px;text-decoration: overline;">픽업 예약하기</h1>
+                <h1 style="text-align: center; font-size: 30px;text-decoration: overline; color: white;">픽업 예약하기</h1>
                 <article class="container">
         		<form action = "Insert_order.jsp" method = "get">
                     <div class = "date">

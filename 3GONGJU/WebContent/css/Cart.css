@@ -116,7 +116,6 @@ header{
 /* 메인 */
 .area_main{
     margin-top: 130px;
-    background-color: lightsteelblue;
     padding: 50px;
 }
 
@@ -127,21 +126,9 @@ button{
 }
 /* 버튼에 마우스 올릴때 색상 */
 button:hover{
-    background-color: darkslateblue;
-    color: white;
+    background-color: #333333;
+    color: #81C147;
 }
-/* 뭐하지 */
-/* .second_container{
-    border-radius: 60px;
-    background-color: aliceblue;
-    height: 150px;
-    padding: 50px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-items: center;
-    text-align: center;
-    margin-bottom: 70px;
-} */
 
 /* 안내문 */
 .cart {
@@ -150,7 +137,7 @@ button:hover{
     padding: 30px;
 }
 .cart ul {
-    background-color: whitesmoke;
+    background-color: #F2EEE5;
     padding: 30px;
     margin-bottom: 50px;
     border: whitesmoke solid 1px;
@@ -173,7 +160,7 @@ button:hover{
 table {
     border-top: solid 1.5px black;
     border-collapse: collapse;
-    width: 100%;
+    width: 80%;
     font-size: 14px;
   }
   
@@ -191,7 +178,9 @@ table {
     border-bottom: 1px solid lightgrey;
   }
 
-
+ .cart__list{
+ 	margin-left: 140px;
+ }
   .cart_list_detail :nth-child(3) a {
     font-size: 12px;
   }
@@ -245,6 +234,7 @@ table {
     grid-template-columns: 2fr 1fr;
     margin-bottom: 50px;
     text-align: right;
+    margin-right: 100px;
 }
 .price input[type="text"]{
     padding: 5px;

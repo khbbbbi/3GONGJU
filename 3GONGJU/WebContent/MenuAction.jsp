@@ -94,59 +94,51 @@
             <section class = "container">
                 <article class = "item">
                 <div class = "item_img">
-                <img src = "images/starbucks.png" width="100" height="100">
+                <h1 style="text-align: center; font-size: 30px; text-decoration: none">Menu</h1><br>
                 </div>
     
                     <div class = "top_menu2">
                     <ul>
-                        <li class="li_gap">
-                            Order
-                            <select style="width: 100px;">
-                                <option>기본순</option>
-                                <option>가격높은순</option>
-                                <option>가격낮은순</option>
-                            </select>
-                        </li>
                           <li class="li_gap">|</li>
                           
                         <!-- 전체일때 -->
                         <li class="li_gap">
-                        <a href =" Menu.jsp">전체
+                        <a href =" Menu.jsp" style="color:white;">전체
                         </a>
                         </li>
                         
                         <!-- pie일때 -->
                         <% String pie_ = "cookie"; %> 
                         <li class="li_gap">
-                        <a href =" Menu.jsp?cate_=<%=pie_%>" >쿠키&파이
+                        <a href =" Menu.jsp?cate_=<%=pie_%>" style="color:white;">쿠키&파이
                         </a>
                         </li>
                         
                         <!-- 케이크일때 -->
                         <% String cake_ = "cake"; %>
                         <li class="li_gap">
-                        <a href =" Menu.jsp?cate_=<%=cake_%>">케익
+                        <a href =" Menu.jsp?cate_=<%=cake_%>" style="color:white;">케익
                         </a>
                         </li>
                         
                            <!-- 빵일때 -->
                         <% String bakery_ = "bakery"; %>
                         <li class="li_gap">
-                        <a href =" Menu.jsp?cate_=<%=bakery_%>">베이커리
+                        <a href =" Menu.jsp?cate_=<%=bakery_%>" style="color:white;">베이커리
                         </a>
                         </li>
                         
                           <!-- 마카롱오믈렛일때 -->
                         <% String macaroon_ = "macaroon"; %>
                         <li class="li_gap">
-                        <a href =" Menu.jsp?cate_=<%=macaroon_%>">마카롱&오믈렛
+                        <a href =" Menu.jsp?cate_=<%=macaroon_%>" style="color:white;">마카롱&오믈렛
                         </a>
                         </li>
                         
                         <!-- 음료일때 -->
                         <% String drink_ = "drink"; %>
                         <li class="li_gap">
-                        <a href =" Menu.jsp?cate_=<%=drink_%>">음료
+                        <a href =" Menu.jsp?cate_=<%=drink_%>" style="color:white;">음료
                         </a>
                         </li>
                         <li class="li_gap">|</li>
@@ -162,7 +154,6 @@
                 <p></p>
                 <article>
                     <div id ="sec3">
-                        <h1 style="text-align: center; font-size: 30px; text-decoration: none">전체 상품</h1><br>
                         <ul id="header_navi">
                            <%
                            request.setCharacterEncoding("UTF-8");

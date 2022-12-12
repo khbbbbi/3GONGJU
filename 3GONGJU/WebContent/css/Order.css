@@ -115,19 +115,19 @@ header{
 /* 메인 */
 .area_main{
     margin-top: 130px;
-    background-color: lightsteelblue;
+    background-color: #333333;
     padding: 50px;
 }
 
 
 .container{
-    background-color: aliceblue;
+    border-radius: 20px;
+    background-color: #F2EEE5;
     /*justify-items: center;*/
     text-align: center;
 }
 /* product info */
 .check_container{
-    /* background-color: aliceblue; */
     padding: 50px;
     padding-left: 200px;
     padding-right: 200px;
@@ -150,7 +150,8 @@ header{
 }
 /* pickup info 감싸는 부분 */
 .date{
-    background-color: aliceblue;
+	border-radius: 40px;
+    background-color: #F2EEE5;
     padding: 50px;
     padding-left: 200px;
     padding-right: 200px;
@@ -188,11 +189,6 @@ header{
 }
 
 
-
-
-
-
-
 /* 푸터 */
 footer {
     box-sizing: border-box;
@@ -219,110 +215,19 @@ footer {
 #one {
     width:100px;
 }
-.but{
-    background: linear-gradient(-45deg, #33ccff 0%, #ff99cc 100%);
-    color: white;
-    box-sizing: border-box;
-    appearance: none;
-    background-color: transparent;
-    border: 2px solid red;
-    border-radius: 0.6em;
-    color: red;
-    cursor: pointer;
-    display: flex;
-    align-self: center;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1;
-    margin: 20px;
-    padding: 1.2em 2.8em;
-    text-decoration: none;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-}
+
 .but:hover {
-    color:black;
+    background-color: #333333;
+    color: #81C147;
 }
-.but1 {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    color: white;
-    box-sizing: border-box;
-    appearance: none;
-    background-color: transparent;
-    border: 2px solid red;
-    border-radius: 0.6em;
-    color: red;
-    cursor: pointer;
-    display: flex;
-    align-self: center;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1;
-    margin: 20px;
-    padding: 1.2em 2.8em;
-    text-decoration: none;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+.but{
+    width: 240px;
+    height: 50px;
+    border-radius: 20px;
+    margin: 10px;
 }
-.but2 {
-    background: linear-gradient(
-        45deg,
-        #ff0000,
-        #ff7300,
-        #fffb00,
-        #48ff00,
-        #00ffd5,
-        #002bff,
-        #7a00ff,
-        #ff00c8,
-        #ff0000
-    );
-    
-    box-sizing: border-box;
-    appearance: none;
-    background-color: transparent;
-    border: 2px solid red;
-    border-radius: 0.6em;
-    color: red;
-    cursor: pointer;
-    display: flex;
-    align-self: center;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1;
-    margin: 20px;
-    padding: 1.2em 2.8em;
-    text-decoration: none;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-}
-.but3 {
-    box-sizing: border-box;
-    appearance: none;
-    background-color: transparent;
-    border: 2px solid red;
-    border-radius: 0.6em;
-    color: red;
-    cursor: pointer;
-    display: flex;
-    align-self: center;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1;
-    margin: 20px;
-    padding: 1.2em 2.8em;
-    text-decoration: none;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700; /* 기본설정*/
-}
+
+
 
 /* 테이블 */
 table {

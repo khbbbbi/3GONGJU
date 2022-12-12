@@ -148,7 +148,7 @@ footer {
 
 
 table {
-    background-color: #f4f4f2;
+    background-color: #F2EEE5;
     border-collapse: collapse;
     width: 100%;
     table-layout: fixed;
@@ -171,17 +171,4 @@ td {
     padding: 15px 0px;
     border-bottom: 1px solid lightgrey;
     border: 1px solid lightgrey;
-}
-
-/* 버튼에 마우스 올릴때 색상 */
-button:hover{
-    color: palegoldenrod;
-}
-
-.cart_bigorderbtn.right {
-    background-color: limegreen;
-    border: none;
-}
-#input_option {
-    width:30px;
 }

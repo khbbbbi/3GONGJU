@@ -127,37 +127,76 @@ header{
 	width:210px;
 	height: 250px;
 }
-/* 오른쪽 SNS */
-/* .aside2{
-	position: fixed;
-	top:120px;
-	float: right;
-	width:80px;
-	background-color: #E5C1C5;
-	border-radius: 40px;
-}
-.aside2 >table{
-	margin: 0 auto;
-	padding: 5px;
-} */
-/* 메인 */
 .area_main{
-	overflow: auto;
-	background-color: #F2EEE5;
-    margin-top: 130px;
+	margin-top: 120px;
 }
-/* 메인-Menu 부분  */
-.menu_container{
-    border-radius: 60px;
-    background-color: #ebebe3;
-    height: 150px;
-    padding: 50px;
+
+.area_top{
+	background-image:url("area_top.png");
+	border-radius: 60px;
+    padding-top: 100px;
+    margin-bottom: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    justify-items: center;
+    grid-template-columns: 0.2fr 1.6fr;
+    gap: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
     text-align: center;
-    margin-bottom: 70px;
 }
+.area_bottom{
+	background-image:url("area_bottom.png");
+	border-radius: 60px;
+    padding-bottom: 100px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 0.2fr 1.6fr;
+    gap: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
+}
+.area{
+	border-radius: 60px;
+    display: grid;
+    grid-template-columns: 0.2fr 1.6fr;
+    gap: 100px;
+    margin-bottom: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
+}
+.area_intext{
+	margin-top: 40%;
+} 
+.area_intext_m{
+	margin-top: 20%;
+} 
+.area_inmenu{
+	float: left;
+}
+.gume{
+	margin-top: 70px;
+	float: right;
+}
+.item{
+	width: 130px;
+	height: 130px;
+	background-color: #F2EEE5;
+	float: left;
+	margin: 20px;
+	margin-top: 20px;
+	color: black;
+	border-radius: 80px;
+	padding: 10px;
+}
+.top_menu2 {
+	border-top: 1px solid rgba(0,0,0,0.15);
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+    padding:10px;
+    text-align: center;
+    margin: 20px;
+}
+
 button{
     width: 130px;
     height: 35px;
@@ -165,24 +204,25 @@ button{
 }
 /* 버튼에 마우스 올릴때 색상 */
 button:hover{
-    background-color: darkslateblue;
-    color: white;
+    background-color: #333333;
+    color: #81C147;
 }
-/* 뭐하지 */
 .second_container{
     border-radius: 60px;
-    background-color: aliceblue;
     height: 150px;
     padding: 50px;
     justify-items: center;
     text-align: center;
     margin-bottom: 70px;
+    background-color: #F2EEE5;
 }
 /* sns랑 my 2열로 있는 부분 */
 .area_snsmy{
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 70px;
+    margin-left: 70px;
+    margin-right: 70px;
     gap: 10px;
 }
 /* sns부분 */
@@ -199,7 +239,7 @@ button:hover{
 /* my부분 */
 .my_container{
     border-radius: 60px;
-    background: linear-gradient(to right, #283048, #859398);
+    background-color: #F2EEE5;
     height: 130px;
     padding: 50px;
     display: grid;

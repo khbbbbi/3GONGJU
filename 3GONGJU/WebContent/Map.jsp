@@ -212,7 +212,6 @@ function clickbupyeong(){
     </header>
     <div class = "area_all">
             <section class = "area_main">
-                <h1 style="text-align: center; font-size: 30px; text-decoration: overline;">STORE</h1>
                 <article>
                 <div class = "area_map">
                     
