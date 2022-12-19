@@ -8,7 +8,7 @@
 - 메인, 로그인, 회원가입, 메뉴, 상세메뉴, 주문, 주문확인, 장바구니, 주문내역, 매장찾기, 내정보, 이벤트목록, 이벤트 상세<br>
 <br>
 <b><DB 설계></b><br>
-![image](https://user-images.githubusercontent.com/102509150/208348239-16a9909c-5911-4ab4-a106-ddf320500e64.png)
+![image](https://user-images.githubusercontent.com/102509150/208348670-0b130720-bbef-4749-8ca1-0176e07f3980.png)
 
 <br>
 
